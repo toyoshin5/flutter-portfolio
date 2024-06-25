@@ -12,52 +12,54 @@ class HomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final profile = ref.watch(profileNotifierProvider);
 
-    return Scaffold(
-      body: Stack(
-        alignment: AlignmentDirectional.topCenter,
-        children: [
-          Container(
-            height: headerHeight+200,
-            width: double.infinity,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(
-                    "https://mir-s3-cdn-cf.behance.net/projects/404/d0bf76110130697.Y3JvcCw1NzUzLDQ1MDAsMTEyNSww.png"),
+    return SelectionArea(
+      child: Scaffold(
+        body: Stack(
+          alignment: AlignmentDirectional.topCenter,
+          children: [
+            Container(
+              height: headerHeight+200,
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(
+                      "https://mir-s3-cdn-cf.behance.net/projects/404/d0bf76110130697.Y3JvcCw1NzUzLDQ1MDAsMTEyNSww.png"),
+                ),
               ),
             ),
-          ),
-          SingleChildScrollView(
-            child: Stack(
-              alignment: AlignmentDirectional.topCenter,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: headerHeight),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.vertical(
-                          top: Radius.circular(32),
+            SingleChildScrollView(
+              child: Stack(
+                alignment: AlignmentDirectional.topCenter,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: headerHeight),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(32),
+                          ),
+                          color: AppColors.groupedBackround(context),
                         ),
-                        color: AppColors.groupedBackround(context),
+                        padding: const EdgeInsets.fromLTRB(16, 60, 16, 0),
+                        child: const ScrollContentsArea(),
                       ),
-                      padding: const EdgeInsets.fromLTRB(16, 60, 16, 0),
-                      child: const ScrollContentsArea(),
-                    ),
-                  ],
-                ),
-                Positioned(
-                  top: headerHeight - 50,
-                  child: CircleImage(
-                      image: NetworkImage(profile.imageUrl),
-                      size: 100,
-                      hasShadow: true),
-                ),
-              ],
+                    ],
+                  ),
+                  Positioned(
+                    top: headerHeight - 50,
+                    child: CircleImage(
+                        image: NetworkImage(profile.imageUrl),
+                        size: 100,
+                        hasShadow: true),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -159,7 +161,7 @@ class CircleImage extends StatelessWidget {
           image: DecorationImage(
             fit: BoxFit.fill,
             image: image,
-          )),
+          ),),
     );
   }
 }

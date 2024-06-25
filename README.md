@@ -22,7 +22,7 @@ Action failed with "The process '/usr/bin/git' failed with exit code 128"
 
 ### Pushのたびにカスタムドメインの設定が消える
 
-github actionsでgh-pagesブランチにデプロイする前に、CNAMEファイルを作成してカスタムドメインを設定すればよい。
+github actionsでgh-pagesブランチにデプロイする処理の前に、CNAMEファイルを作成してカスタムドメインを設定すればよい。
 
 ```yml
 - name: CNAME

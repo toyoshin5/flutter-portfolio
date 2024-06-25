@@ -21,6 +21,7 @@ Profile _$ProfileFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Profile {
   String get name => throw _privateConstructorUsedError;
+  String get imageUrl => throw _privateConstructorUsedError;
   String get position => throw _privateConstructorUsedError;
   String get introduction => throw _privateConstructorUsedError;
   List<Activity> get activities => throw _privateConstructorUsedError;
@@ -37,6 +38,7 @@ abstract class $ProfileCopyWith<$Res> {
   @useResult
   $Res call(
       {String name,
+      String imageUrl,
       String position,
       String introduction,
       List<Activity> activities});
@@ -56,6 +58,7 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
   @override
   $Res call({
     Object? name = null,
+    Object? imageUrl = null,
     Object? position = null,
     Object? introduction = null,
     Object? activities = null,
@@ -64,6 +67,10 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: null == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
       position: null == position
           ? _value.position
@@ -90,6 +97,7 @@ abstract class _$$ProfileImplCopyWith<$Res> implements $ProfileCopyWith<$Res> {
   @useResult
   $Res call(
       {String name,
+      String imageUrl,
       String position,
       String introduction,
       List<Activity> activities});
@@ -107,6 +115,7 @@ class __$$ProfileImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
+    Object? imageUrl = null,
     Object? position = null,
     Object? introduction = null,
     Object? activities = null,
@@ -115,6 +124,10 @@ class __$$ProfileImplCopyWithImpl<$Res>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: null == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
       position: null == position
           ? _value.position
@@ -137,6 +150,7 @@ class __$$ProfileImplCopyWithImpl<$Res>
 class _$ProfileImpl implements _Profile {
   const _$ProfileImpl(
       {required this.name,
+      required this.imageUrl,
       required this.position,
       required this.introduction,
       required final List<Activity> activities})
@@ -147,6 +161,8 @@ class _$ProfileImpl implements _Profile {
 
   @override
   final String name;
+  @override
+  final String imageUrl;
   @override
   final String position;
   @override
@@ -161,7 +177,7 @@ class _$ProfileImpl implements _Profile {
 
   @override
   String toString() {
-    return 'Profile(name: $name, position: $position, introduction: $introduction, activities: $activities)';
+    return 'Profile(name: $name, imageUrl: $imageUrl, position: $position, introduction: $introduction, activities: $activities)';
   }
 
   @override
@@ -170,6 +186,8 @@ class _$ProfileImpl implements _Profile {
         (other.runtimeType == runtimeType &&
             other is _$ProfileImpl &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl) &&
             (identical(other.position, position) ||
                 other.position == position) &&
             (identical(other.introduction, introduction) ||
@@ -180,8 +198,8 @@ class _$ProfileImpl implements _Profile {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, position, introduction,
-      const DeepCollectionEquality().hash(_activities));
+  int get hashCode => Object.hash(runtimeType, name, imageUrl, position,
+      introduction, const DeepCollectionEquality().hash(_activities));
 
   @JsonKey(ignore: true)
   @override
@@ -200,6 +218,7 @@ class _$ProfileImpl implements _Profile {
 abstract class _Profile implements Profile {
   const factory _Profile(
       {required final String name,
+      required final String imageUrl,
       required final String position,
       required final String introduction,
       required final List<Activity> activities}) = _$ProfileImpl;
@@ -208,6 +227,8 @@ abstract class _Profile implements Profile {
 
   @override
   String get name;
+  @override
+  String get imageUrl;
   @override
   String get position;
   @override

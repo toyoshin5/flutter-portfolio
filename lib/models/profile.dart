@@ -7,6 +7,7 @@ part 'profile.g.dart';
 class Profile with _$Profile {
   const factory Profile({
     required String name,
+    required String imageUrl,
     required String position,
     required String introduction,
     required List<Activity> activities,

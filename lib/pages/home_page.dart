@@ -5,82 +5,90 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
+  final double headerHeight = 400;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final profile = ref.watch(profileNotifierProvider);
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            //高さ100,横最大の画像。画像はダミーのURLを使っている
-            HeaderArea(profile: profile),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  MyNameArea(),
-                  const SizedBox(height: 16),
-                  Text(
-                    profile.introduction,
-                    style: const TextStyle(fontSize: 16),
-                  ),
-                  for (int i = 0; i < 10; i++)...[
-                    const SizedBox(height: 16),
-                    Text("学歴", style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                    const SizedBox(height: 8),
-
-                  ],
-                    
-                ],
+      body: Stack(
+        alignment: AlignmentDirectional.topCenter,
+        children: [
+          Container(
+            height: headerHeight+200,
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: NetworkImage(
+                    "https://mir-s3-cdn-cf.behance.net/projects/404/d0bf76110130697.Y3JvcCw1NzUzLDQ1MDAsMTEyNSww.png"),
               ),
             ),
-          ],
-        ),
+          ),
+          SingleChildScrollView(
+            child: Stack(
+              alignment: AlignmentDirectional.topCenter,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: headerHeight),
+                    Container(
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(32),
+                        ),
+                        color: Colors.white,
+                      ),
+                      padding: const EdgeInsets.fromLTRB(16, 60, 16, 0),
+                      child: const ScrollContentsArea(),
+                    ),
+                  ],
+                ),
+                Positioned(
+                  top: headerHeight - 50,
+                  child: CircleImage(
+                      image: NetworkImage(profile.imageUrl),
+                      size: 100,
+                      hasShadow: true),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
 }
 
-class HeaderArea extends StatelessWidget {
-  const HeaderArea({
+class ScrollContentsArea extends ConsumerWidget {
+  const ScrollContentsArea({
     super.key,
-    required this.profile,
   });
 
-  final Profile profile;
-
   @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 350,
-      child: Stack(
-        alignment: AlignmentDirectional.topCenter,
-        children: [
-          Container(
-            height: 300,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(
-                    "https://4kwallpapers.com/images/wallpapers/macos-big-sur-apple-layers-fluidic-colorful-wwdc-stock-3840x2160-1455.jpg"),
-              ),
-            ),
+  Widget build(BuildContext context, WidgetRef ref) {
+    final profile = ref.watch(profileNotifierProvider);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const MyNameArea(),
+        const SizedBox(height: 16),
+        Text(
+          profile.introduction,
+          style: const TextStyle(fontSize: 16),
+        ),
+        for (int i = 0; i < 10; i++) ...[
+          const SizedBox(height: 16),
+          const Text(
+            "学歴",
+            style: TextStyle(
+                fontSize: 20, fontWeight: FontWeight.bold),
           ),
-          Positioned(
-            bottom: 0,
-            child: CircleImage(
-              image: Image.network(profile.imageUrl).image,
-              size: 100,
-              hasShadow: true,
-            ),
-          ),
+          const SizedBox(height: 8),
         ],
-      ),
+      ],
     );
   }
 }
@@ -94,7 +102,7 @@ class MyNameArea extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final profile = ref.watch(profileNotifierProvider);
     return SizedBox(
-      width: double.infinity, 
+      width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -105,9 +113,7 @@ class MyNameArea extends ConsumerWidget {
           Text(
             profile.name + " (22)",
             style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey),
+                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
           ),
           Text(
             profile.position,

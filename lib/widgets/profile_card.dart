@@ -26,12 +26,12 @@ class ProfileCard extends StatelessWidget {
               radius: 50,
             ),
             SizedBox(height: 16),
-            Text(
+            SelectableText(
               profile.name,
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 8),
-            Text(profile.bio),
+            SelectableText(profile.bio),
           ],
         ),
       ),

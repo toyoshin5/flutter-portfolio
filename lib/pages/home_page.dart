@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/models/profile.dart';
 import 'package:flutter_portfolio/providers/profile_provider.dart';
@@ -34,7 +32,7 @@ class HomePage extends ConsumerWidget {
                     const SizedBox(height: 16),
                     Text("学歴", style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                     const SizedBox(height: 8),
-                    
+
                   ],
                     
                 ],

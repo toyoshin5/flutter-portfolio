@@ -9,9 +9,10 @@
 
 ### GitHub Actionsでビルドが失敗する
 
-```
+```text
 Action failed with "The process '/usr/bin/git' failed with exit code 128"
 ```
+
 こんな感じのエラーが出たときは Settings → Actions → General →　WorkFlowpermissions で `Read and write` に変更すると解決した．
 
 ### 画面が真っ白
@@ -21,3 +22,9 @@ Action failed with "The process '/usr/bin/git' failed with exit code 128"
 
 ### Pushのたびにカスタムドメインの設定が消える
 
+github actionsでgh-pagesブランチにデプロイする前に、CNAMEファイルを作成してカスタムドメインを設定すればよい。
+
+```yml
+- name: CNAME
+run: echo 'www.toyodadesu.com' > ./build/web/CNAME
+```

@@ -1,3 +1,6 @@
+#Actionsのpermissionを許可したら動く
+#Settings → Actions → General → Workflows Permission
+
 name: github pages
 
 on:

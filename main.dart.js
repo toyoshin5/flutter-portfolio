@@ -52373,7 +52373,7 @@ MG(){this.aG(new A.Xv(this))},
 P(a){var s=null,r=A.au(a).ax,q=r.y2
 r=q==null?r.c:q
 this.a.toString
-q=A.a5F("My PortFolio",s)
+q=A.a5F("\u3053\u3093\u306b\u3061\u306f",s)
 return new A.qu(new A.ns(q,r,new A.Eb(s,s,1/0,56),s),A.Id(A.abf(A.a([B.Ju,A.a5F(""+this.d,A.au(a).p2.e)],t.nA),B.o9),s,s),A.a3R(B.y5,!1,this.gMF(),"Increment"),s)}}
 A.Xv.prototype={
 $0(){++this.a.d},
@@ -57038,7 +57038,7 @@ B.IA=new A.i(!0,B.z,null,"Roboto",B.A,null,null,null,null,null,null,null,null,nu
 B.HZ=new A.i(!0,B.m,null,"Roboto",B.A,null,null,null,null,null,null,null,null,null,null,null,null,B.e,null,null,null,"blackHelsinki labelMedium",null,null,null,null)
 B.I8=new A.i(!0,B.m,null,"Roboto",B.A,null,null,null,null,null,null,null,null,null,null,null,null,B.e,null,null,null,"blackHelsinki labelSmall",null,null,null,null)
 B.Jt=new A.c3(B.IW,B.G5,B.H3,B.HY,B.Ia,B.Fw,B.GD,B.FA,B.HI,B.In,B.Hd,B.Ip,B.IA,B.HZ,B.I8)
-B.Ju=new A.m5("You have pushed the button this many times:",null,null,null,null)
+B.Ju=new A.m5("\u3053\u308c\u306f\u4eee\u306e\u30c6\u30ad\u30b9\u30c8\u3067\u3059:",null,null,null,null)
 B.M_=new A.U2(0,"system")
 B.Jv=new A.r7(null)
 B.ei=new A.Ag(0,"clamp")

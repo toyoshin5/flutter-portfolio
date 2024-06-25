@@ -1,42 +1,58 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/providers/profile_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../widgets/profile_card.dart';
-import '../providers/profile_provider.dart';
+
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final profile = ref.watch(profileProvider);
+    final profile = ref.watch(profileNotifierProvider);
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: SizedBox(
-          width: double.infinity,
-          child: profile.when(
-            data: (profile) => ProfileArea(profile: profile),
-            loading: () => Container(),
-            error: (err, stack) => Text('Error: $err'),
-          ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              profile.name,
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              profile.position,
+              style: const TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              profile.introduction,
+              style: const TextStyle(fontSize: 16),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              "Activities:",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            ...profile.activities.map((activity) => Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    activity.title,
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    activity.description,
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                ],
+              ),
+            )),
+          ],
         ),
       ),
-    );
-  }
-}
-
-class ProfileArea extends StatelessWidget {
-  final Profile profile;
-  const ProfileArea({super.key, required this.profile});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        for (var i = 0; i < 10; i++)
-          ProfileCard(
-            profile: profile,
-          ),
-      ],
     );
   }
 }

@@ -4,7 +4,6 @@
 
 とりあえずmainブランチにプッシュされたらGitHub Actionsでビルドして、gh-pagesブランチからデプロイされるようになっている。
 
-
 ## 詰まったところ
 
 ### GitHub Actionsでビルドが失敗する

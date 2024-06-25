@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/colors/app_colors.dart';
 import 'package:flutter_portfolio/models/profile.dart';
 import 'package:flutter_portfolio/providers/profile_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -35,11 +36,11 @@ class HomePage extends ConsumerWidget {
                   children: [
                     SizedBox(height: headerHeight),
                     Container(
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.vertical(
                           top: Radius.circular(32),
                         ),
-                        color: Colors.white,
+                        color: AppColors.groupedBackround(context),
                       ),
                       padding: const EdgeInsets.fromLTRB(16, 60, 16, 0),
                       child: const ScrollContentsArea(),
@@ -112,12 +113,12 @@ class MyNameArea extends ConsumerWidget {
           ),
           Text(
             profile.name + " (22)",
-            style: const TextStyle(
-                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
+            style: TextStyle(
+                fontSize: 16, fontWeight: FontWeight.bold, color: AppColors.secondary(context)),
           ),
           Text(
             profile.position,
-            style: const TextStyle(fontSize: 16, color: Colors.grey),
+            style: TextStyle(fontSize: 16, color: AppColors.secondary(context)),
           ),
         ],
       ),
@@ -154,7 +155,7 @@ class CircleImage extends StatelessWidget {
                   ),
                 ]
               : null,
-          border: (hasShadow) ? null : Border.all(color: Colors.grey, width: 1),
+          border: (hasShadow) ? null : Border.all(color: AppColors.secondary(context), width: 1),
           image: DecorationImage(
             fit: BoxFit.fill,
             image: image,

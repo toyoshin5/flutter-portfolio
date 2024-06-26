@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/colors/app_colors.dart';
 import 'package:flutter_portfolio/providers/profile_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -16,6 +17,7 @@ class HomePage extends ConsumerWidget {
         body: Stack(
           alignment: AlignmentDirectional.topCenter,
           children: [
+            //ヘッダの背景
             Container(
               height: headerHeight+200,
               width: double.infinity,
@@ -37,8 +39,8 @@ class HomePage extends ConsumerWidget {
                       SizedBox(height: headerHeight),
                       Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(32),
+                          borderRadius: const BorderRadius.vertical(
+                            top: Radius.circular(20),
                           ),
                           color: AppColors.groupedBackround(context),
                         ),
@@ -47,6 +49,7 @@ class HomePage extends ConsumerWidget {
                       ),
                     ],
                   ),
+
                   Positioned(
                     top: headerHeight - 50,
                     child: CircleImage(
@@ -76,6 +79,29 @@ class ScrollContentsArea extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const MyNameArea(),
+        const SizedBox(height: 16),
+        //角丸TextButton
+        TextButton(
+          onPressed: () {},
+          style: TextButton.styleFrom(
+            foregroundColor: AppColors.label(context),
+            backgroundColor: AppColors.grey(context),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+          child: SizedBox(
+            height: 44,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                FaIcon(FontAwesomeIcons.github),
+                SizedBox(width: 8),
+                Text("GitHub",style: TextStyle(fontWeight: FontWeight.bold),),
+              ],
+            ),
+          ),
+        ),
         const SizedBox(height: 16),
         Text(
           profile.introduction,

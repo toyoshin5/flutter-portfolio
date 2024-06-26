@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppColors {
   static Color groupedBackround(BuildContext context) {
     return Theme.of(context).brightness == Brightness.light
-        ? Colors.grey[100]!
+        ? const Color(0xFFEBEAEF)
         : Colors.black;
   }
 
@@ -13,15 +13,27 @@ class AppColors {
         : Colors.grey[900]!;
   }
 
+  static Color grey(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.light
+        ? const Color(0xFFDCDCDC)
+        : Colors.grey[700]!;
+  }
+
   static Color primary(BuildContext context) {
     return Theme.of(context).brightness == Brightness.light
         ? Colors.blue
         : Colors.blue[200]!;
   }
 
+  static Color label(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.light
+        ? Colors.black
+        : Colors.white;
+  }
+
   static Color secondary(BuildContext context) {
     return Theme.of(context).brightness == Brightness.light
-        ? Colors.black38
+        ? Colors.black54
         : Colors.white70;
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/colors/app_colors.dart';
-import 'package:flutter_portfolio/models/profile.dart';
 import 'package:flutter_portfolio/providers/profile_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

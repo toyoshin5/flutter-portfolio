@@ -33,7 +33,7 @@ jobs:
       - run: flutter pub get
       - run: flutter build web --web-renderer html #--base-href /${{ steps.version.outputs.repository }}/ #カスタムドメインの場合はコメント
       - name: CNAME
-        run: echo 'www.toyodadesu.com' > ./build/web/CNAME
+        run: echo 'toyodadesu.com' > ./build/web/CNAME
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3 
         with:

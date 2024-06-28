@@ -217,7 +217,8 @@ class NewsArea extends StatelessWidget {
               for(int i = 0; i < 5; i++)...[
                 Text("2024/01/01", style: TextStyle(fontSize: 14, color: AppColors.secondary(context))),
                 Text("ここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNews", style: TextStyle(fontSize: 16)),
-
+                const Gap(8),
+              ],
               
             ],
           ),

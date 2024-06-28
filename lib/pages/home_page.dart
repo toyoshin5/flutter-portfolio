@@ -257,21 +257,18 @@ class SNSButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
       ),
-      child: SizedBox(
-        height: 40,
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            FaIcon(faIcon, size: 25),
-            const SizedBox(width: 8),
-            if (text != null)
-              Text(
-                text!,
-                style: const TextStyle(fontWeight: FontWeight.bold),
-              ),
-          ],
-        ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          FaIcon(faIcon, size: 18),
+          const SizedBox(width: 8),
+          if (text != null)
+            Text(
+              text!,
+              style: const TextStyle(fontSize: 14,fontWeight: FontWeight.bold),
+            ),
+        ],
       ),
     );
       },

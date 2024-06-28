@@ -11,7 +11,7 @@ class ProfileNotifier extends _$ProfileNotifier {
       name: "豊田真吾",
       imageUrl: "https://avatars.githubusercontent.com/u/43494392?v=4",
       position: "Passionate about iOS development",
-      introduction: "ここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキスト",
+      introduction: "ここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキスト",
       activities: [
         Activity(title: "Activity 1", description: "Description of activity 1"),
         Activity(title: "Activity 2", description: "Description of activity 2"),

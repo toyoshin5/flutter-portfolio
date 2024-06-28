@@ -6,6 +6,7 @@ import 'package:flutter_portfolio/styles/app_colors.dart';
 import 'package:flutter_portfolio/providers/profile_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:gap/gap.dart';
 import 'package:url_launcher/link.dart';
 
 class HomePage extends ConsumerWidget {
@@ -40,7 +41,7 @@ class HomePage extends ConsumerWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: headerHeight),
+                      Gap(headerHeight),
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: const BorderRadius.vertical(
@@ -81,13 +82,12 @@ class ScrollContentsArea extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         MyNameArea(),
-        SizedBox(height: 16),
+        Gap(16),
         SNSArea(),
-        SizedBox(height: 16),
+        Gap(16),
         IntroArea(),
         NewsArea(),
         TitleText(text: "PROJECTS"),
-        
 
         TitleText(text: "SKILLS"),
         
@@ -217,8 +217,7 @@ class NewsArea extends StatelessWidget {
               for(int i = 0; i < 5; i++)...[
                 Text("2024/01/01", style: TextStyle(fontSize: 14, color: AppColors.secondary(context))),
                 Text("ここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNews", style: TextStyle(fontSize: 16)),
-                const SizedBox(height: 16),
-              ],
+
               
             ],
           ),

@@ -16,7 +16,7 @@ class AppColors {
   static Color grey(BuildContext context) {
     return Theme.of(context).brightness == Brightness.light
         ? const Color(0xFFDCDCDC)
-        : Colors.grey[700]!;
+        : Colors.grey[800]!;
   }
 
   static Color primary(BuildContext context) {

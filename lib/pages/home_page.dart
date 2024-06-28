@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_portfolio/styles/app_colors.dart';
 import 'package:flutter_portfolio/providers/profile_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -75,27 +77,29 @@ class ScrollContentsArea extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final profile = ref.watch(profileNotifierProvider);
-    return Column(
+    return  Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const MyNameArea(),
-        const SizedBox(height: 16),
-        const SNSArea(),
-        const SizedBox(height: 16),
-        const IntroArea(),
-        for (int i = 0; i < 10; i++) ...[
-          const SizedBox(height: 16),
-          const Text(
-            "学歴",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 8),
-        ],
+        MyNameArea(),
+        SizedBox(height: 16),
+        SNSArea(),
+        SizedBox(height: 16),
+        IntroArea(),
+        NewsArea(),
+        TitleText(text: "PROJECTS"),
+        
+
+        TitleText(text: "SKILLS"),
+        
+        TitleText(text: "AWARD"),
+
+        TitleText(text: "Profile"),
       ],
     );
   }
 }
+
+
 
 class MyNameArea extends ConsumerWidget {
   const MyNameArea({
@@ -110,9 +114,9 @@ class MyNameArea extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             "Shingo Toyoda",
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           Text(
             profile.name + " (22)",
@@ -185,6 +189,41 @@ class IntroArea extends ConsumerWidget {
     return Text(
       profile.introduction,
       style: const TextStyle(fontSize: 16),
+    );
+  }
+}
+
+class NewsArea extends StatelessWidget {
+  const NewsArea({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const TitleText(text: "NEWS"),
+        Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: AppColors.backGround(context),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              for(int i = 0; i < 5; i++)...[
+                Text("2024/01/01", style: TextStyle(fontSize: 14, color: AppColors.secondary(context))),
+                Text("ここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNews", style: TextStyle(fontSize: 16)),
+                const SizedBox(height: 16),
+              ],
+              
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
@@ -277,6 +316,27 @@ class CircleImage extends StatelessWidget {
           fit: BoxFit.fill,
           image: image,
         ),
+      ),
+    );
+  }
+}
+
+
+class TitleText extends StatelessWidget {
+  const TitleText({
+    super.key,
+    required this.text,
+  });
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0,24,0,16),
+      child: Text(
+        text,
+        style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
       ),
     );
   }

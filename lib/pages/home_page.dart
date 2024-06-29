@@ -241,20 +241,20 @@ class ProjectsArea extends StatelessWidget {
             width: double.infinity,
             decoration: BoxDecoration(
               color: AppColors.backGround(context),
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(48),
                 topRight: Radius.circular(12),
                 bottomRight: Radius.circular(48),
                 bottomLeft: Radius.circular(12),
               ),
-              // boxShadow: [
-              //   BoxShadow(
-              //     color: Colors.black.withOpacity(0.2),
-              //     spreadRadius: 1,
-              //     blurRadius: 12,
-              //     offset: const Offset(0, 3),
-              //   ),
-              // ],
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.2),
+                  spreadRadius: 1,
+                  blurRadius: 12,
+                  offset: const Offset(0, 3),
+                ),
+              ],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -363,10 +363,11 @@ class AwardArea extends StatelessWidget {
                 Text("2024/01/01",
                     style: TextStyle(
                         fontSize: 14, color: AppColors.secondary(context))),
+                const Gap(6),
                 const Text(
                     "ここにAwardここにAwardここにAward受賞",
                     style: TextStyle(fontSize: 16)),
-                const Gap(8),
+                if (i != 4) const Divider(height: 24,),
               ],
             ],
           ),

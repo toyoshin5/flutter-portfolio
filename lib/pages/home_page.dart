@@ -4,6 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_portfolio/styles/app_colors.dart';
 import 'package:flutter_portfolio/providers/profile_provider.dart';
 import 'package:flutter_portfolio/widget/budge.dart';
+import 'package:flutter_portfolio/widget/circle_image.dart';
+import 'package:flutter_portfolio/widget/link_button.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
@@ -319,102 +321,7 @@ class ProjectsArea extends StatelessWidget {
   }
 }
 
-class LinkButton extends StatelessWidget {
-  const LinkButton({
-    super.key,
-    required this.url,
-    required this.faIcon,
-    this.width,
-    this.height,
-    this.text,
-  });
 
-  final String url;
-  final IconData faIcon;
-  final double? width;
-  final double? height;
-  final String? text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Link(
-      uri: Uri.parse(url),
-      target: LinkTarget.blank,
-      builder: (context, followLink) {
-        return TextButton(
-          onPressed: followLink,
-          style: TextButton.styleFrom(
-            foregroundColor: AppColors.label(context),
-            backgroundColor: AppColors.grey(context),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
-          child: SizedBox(
-            width: width,
-            height: height,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                FaIcon(faIcon, size: 18),
-                const SizedBox(width: 8),
-                if (text != null)
-                  Text(
-                    text!,
-                    style: const TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.bold),
-                  ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
-}
-
-class CircleImage extends StatelessWidget {
-  const CircleImage({
-    super.key,
-    required this.image,
-    required this.size,
-    this.hasShadow = false,
-  });
-
-  final ImageProvider image;
-  final double size;
-  final bool hasShadow;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: size,
-      height: size,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        boxShadow: (hasShadow)
-            ? [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.2),
-                  spreadRadius: 1,
-                  blurRadius: 6,
-                  offset: const Offset(0, 3),
-                ),
-              ]
-            : null,
-        border: (hasShadow)
-            ? null
-            : Border.all(color: AppColors.secondary(context), width: 1),
-        image: DecorationImage(
-          fit: BoxFit.fill,
-          image: image,
-        ),
-      ),
-    );
-  }
-}
 
 class TitleText extends StatelessWidget {
   const TitleText({

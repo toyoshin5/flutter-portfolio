@@ -151,7 +151,7 @@ class SkillGraphState extends State<SkillGraph> {
                 level = '完全に理解している';
                 break;
               case 4:
-                level = 'けっこうできる';
+                level = 'そこそこできる';
                 break;
               case 3:
                 level = 'まあまあできる';

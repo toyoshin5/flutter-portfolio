@@ -247,14 +247,14 @@ class ProjectsArea extends StatelessWidget {
                 bottomRight: Radius.circular(48),
                 bottomLeft: Radius.circular(12),
               ),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.2),
-                  spreadRadius: 1,
-                  blurRadius: 12,
-                  offset: const Offset(0, 3),
-                ),
-              ],
+              // boxShadow: const [
+              //   BoxShadow(
+              //     color: Colors.black12,
+              //     spreadRadius: 1,
+              //    blurRadius: 12,
+              //     offset: Offset(0, 3),
+              //   ),
+              // ],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -300,7 +300,7 @@ class ProjectsArea extends StatelessWidget {
                           Gap(8),
                           LinkButton(
                               width: 120,
-                              height: 40, 
+                              height: 35, 
                               url: "https://www.google.com",
                               faIcon: FontAwesomeIcons.link,
                               text: "詳しく見る"),

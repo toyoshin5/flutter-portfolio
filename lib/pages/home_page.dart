@@ -1,9 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_portfolio/styles/app_colors.dart';
 import 'package:flutter_portfolio/providers/profile_provider.dart';
+import 'package:flutter_portfolio/widget/budge.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
@@ -78,7 +78,7 @@ class ScrollContentsArea extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return  Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         MyNameArea(),
@@ -87,19 +87,14 @@ class ScrollContentsArea extends ConsumerWidget {
         Gap(16),
         IntroArea(),
         NewsArea(),
-        TitleText(text: "PROJECTS"),
-
+        ProjectsArea(),
         TitleText(text: "SKILLS"),
-        
         TitleText(text: "AWARD"),
-
         TitleText(text: "Profile"),
       ],
     );
   }
 }
-
-
 
 class MyNameArea extends ConsumerWidget {
   const MyNameArea({
@@ -135,7 +130,6 @@ class MyNameArea extends ConsumerWidget {
   }
 }
 
-
 class SNSArea extends StatelessWidget {
   const SNSArea({
     super.key,
@@ -147,27 +141,27 @@ class SNSArea extends StatelessWidget {
       spacing: 8,
       runSpacing: 8,
       children: [
-        SNSButton(
+        LinkButton(
           url: "https://www.google.com",
           faIcon: FontAwesomeIcons.locationDot,
           text: "Hokkaido",
         ),
-        SNSButton(
+        LinkButton(
           url: "https://github.com",
           faIcon: FontAwesomeIcons.github,
           text: "GitHub",
         ),
-        SNSButton(
+        LinkButton(
           url: "https://www.apple.com/jp/",
           faIcon: FontAwesomeIcons.appStore,
           text: "AppStore",
         ),
-        SNSButton(
+        LinkButton(
           url: "https://www.facebook.com",
           faIcon: FontAwesomeIcons.facebook,
           text: "Facebook",
         ),
-        SNSButton(
+        LinkButton(
           url: "https://www.instagram.com",
           faIcon: FontAwesomeIcons.instagram,
           text: "Instagram",
@@ -176,7 +170,6 @@ class SNSArea extends StatelessWidget {
     );
   }
 }
-
 
 class IntroArea extends ConsumerWidget {
   const IntroArea({
@@ -214,12 +207,15 @@ class NewsArea extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              for(int i = 0; i < 5; i++)...[
-                Text("2024/01/01", style: TextStyle(fontSize: 14, color: AppColors.secondary(context))),
-                Text("ここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNews", style: TextStyle(fontSize: 16)),
+              for (int i = 0; i < 5; i++) ...[
+                Text("2024/01/01",
+                    style: TextStyle(
+                        fontSize: 14, color: AppColors.secondary(context))),
+                Text(
+                    "ここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNews",
+                    style: TextStyle(fontSize: 16)),
                 const Gap(8),
               ],
-              
             ],
           ),
         ),
@@ -228,18 +224,115 @@ class NewsArea extends StatelessWidget {
   }
 }
 
+class ProjectsArea extends StatelessWidget {
+  const ProjectsArea({
+    super.key,
+  });
 
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        TitleText(text: "PROJECTS"),
+        for (int i = 0; i < 5; i++) ...[
+          Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: AppColors.backGround(context),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(48),
+                topRight: Radius.circular(12),
+                bottomRight: Radius.circular(48),
+                bottomLeft: Radius.circular(12),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.2),
+                  spreadRadius: 1,
+                  blurRadius: 6,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                //画像
+                ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(48),
+                    topRight: Radius.circular(12),
+                  ),
+                  child: Image.network(
+                    "https://media.istockphoto.com/id/1343356194/photo/close-up-photo-of-young-woman-using-laptop-and-stroking-her-cat-while-her-cat-taking-nap-next.jpg?s=612x612&w=0&k=20&c=TLpWC4moYUhdADK4-VDAfAOV2sphJWJ-mL49UjQVapY=",
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    runAlignment: WrapAlignment.center,
+                    children: [
+                      Text("ここにTitle",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold)),
+                      //バッジUI
+                      Wrap(
+                        spacing: 8,
+                        runSpacing: 8,
+                        children: [
+                          for (int i = 0; i < 5; i++) ...[
+                            Budge(type: BudgeType.flutter),
+                          ],
+                        ],
+                      ),
+                      Text(
+                          "ここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキスト",
+                          style: TextStyle(fontSize: 16)),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          LinkButton(
+                              width: 120,
+                              height: 40, 
+                              url: "https://www.google.com",
+                              faIcon: FontAwesomeIcons.link,
+                              text: "詳しく見る"),
+                          Gap(8),
+                          Text("2020年 10月")
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Gap(16),
+        ],
+      ],
+    );
+  }
+}
 
-class SNSButton extends StatelessWidget {
-  const SNSButton({
+class LinkButton extends StatelessWidget {
+  const LinkButton({
     super.key,
     required this.url,
     required this.faIcon,
+    this.width,
+    this.height,
     this.text,
   });
 
   final String url;
   final IconData faIcon;
+  final double? width;
+  final double? height;
   final String? text;
 
   @override
@@ -249,33 +342,38 @@ class SNSButton extends StatelessWidget {
       target: LinkTarget.blank,
       builder: (context, followLink) {
         return TextButton(
-      onPressed: followLink,
-      style: TextButton.styleFrom(
-        foregroundColor: AppColors.label(context),
-        backgroundColor: AppColors.grey(context),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          FaIcon(faIcon, size: 18),
-          const SizedBox(width: 8),
-          if (text != null)
-            Text(
-              text!,
-              style: const TextStyle(fontSize: 14,fontWeight: FontWeight.bold),
+          onPressed: followLink,
+          style: TextButton.styleFrom(
+            foregroundColor: AppColors.label(context),
+            backgroundColor: AppColors.grey(context),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
             ),
-        ],
-      ),
-    );
+          ),
+          child: SizedBox(
+            width: width,
+            height: height,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                FaIcon(faIcon, size: 18),
+                const SizedBox(width: 8),
+                if (text != null)
+                  Text(
+                    text!,
+                    style: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+              ],
+            ),
+          ),
+        );
       },
     );
   }
 }
-
 
 class CircleImage extends StatelessWidget {
   const CircleImage({
@@ -318,7 +416,6 @@ class CircleImage extends StatelessWidget {
   }
 }
 
-
 class TitleText extends StatelessWidget {
   const TitleText({
     super.key,
@@ -330,7 +427,7 @@ class TitleText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0,24,0,16),
+      padding: const EdgeInsets.fromLTRB(0, 24, 0, 16),
       child: Text(
         text,
         style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),

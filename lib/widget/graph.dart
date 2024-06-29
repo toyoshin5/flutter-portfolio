@@ -4,8 +4,8 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/styles/app_colors.dart';
 
-class BarChartSample1 extends StatefulWidget {
-  BarChartSample1({super.key});
+class SkillGraph extends StatefulWidget {
+  SkillGraph({super.key});
 
   List<Color> get availableColors => const <Color>[];
 
@@ -14,10 +14,10 @@ class BarChartSample1 extends StatefulWidget {
   final Color touchedBarColor = Colors.blue.shade300;
 
   @override
-  State<StatefulWidget> createState() => BarChartSample1State();
+  State<StatefulWidget> createState() => SkillGraphState();
 }
 
-class BarChartSample1State extends State<BarChartSample1> {
+class SkillGraphState extends State<SkillGraph> {
   final Duration animDuration = const Duration(milliseconds: 250);
 
   int touchedIndex = -1;

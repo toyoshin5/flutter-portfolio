@@ -90,7 +90,7 @@ class ScrollContentsArea extends ConsumerWidget {
         NewsArea(),
         ProjectsArea(),
         SkillArea(),
-        TitleText(text: "AWARD"),
+        AwardArea(),
         TitleText(text: "Profile"),
       ],
     );
@@ -247,14 +247,14 @@ class ProjectsArea extends StatelessWidget {
                 bottomRight: Radius.circular(48),
                 bottomLeft: Radius.circular(12),
               ),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.2),
-                  spreadRadius: 1,
-                  blurRadius: 12,
-                  offset: const Offset(0, 3),
-                ),
-              ],
+              // boxShadow: [
+              //   BoxShadow(
+              //     color: Colors.black.withOpacity(0.2),
+              //     spreadRadius: 1,
+              //     blurRadius: 12,
+              //     offset: const Offset(0, 3),
+              //   ),
+              // ],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -265,11 +265,11 @@ class ProjectsArea extends StatelessWidget {
                     topLeft: Radius.circular(48),
                     topRight: Radius.circular(12),
                   ),
-                  // child: Image.network(
-                  //   "https://media.istockphoto.com/id/1343356194/photo/close-up-photo-of-young-woman-using-laptop-and-stroking-her-cat-while-her-cat-taking-nap-next.jpg?s=612x612&w=0&k=20&c=TLpWC4moYUhdADK4-VDAfAOV2sphJWJ-mL49UjQVapY=",
-                  //   fit: BoxFit.cover,
-                  //   width: double.infinity,
-                  // ),
+                  child: Image.network(
+                    "https://media.istockphoto.com/id/1343356194/photo/close-up-photo-of-young-woman-using-laptop-and-stroking-her-cat-while-her-cat-taking-nap-next.jpg?s=612x612&w=0&k=20&c=TLpWC4moYUhdADK4-VDAfAOV2sphJWJ-mL49UjQVapY=",
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.all(16.0),
@@ -333,6 +333,44 @@ class SkillArea extends StatelessWidget {
       children: [
         const TitleText(text: "SKILLS"),
         SkillGraph(),
+      ],
+    );
+  }
+}
+
+class AwardArea extends StatelessWidget {
+  const AwardArea({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const TitleText(text: "AWARDS"),
+        Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: AppColors.backGround(context),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              for (int i = 0; i < 5; i++) ...[
+                Text("2024/01/01",
+                    style: TextStyle(
+                        fontSize: 14, color: AppColors.secondary(context))),
+                const Text(
+                    "ここにAwardここにAwardここにAward受賞",
+                    style: TextStyle(fontSize: 16)),
+                const Gap(8),
+              ],
+            ],
+          ),
+        ),
       ],
     );
   }

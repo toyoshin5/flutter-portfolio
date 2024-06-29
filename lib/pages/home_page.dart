@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/widget/graph.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
@@ -89,6 +90,7 @@ class ScrollContentsArea extends ConsumerWidget {
         NewsArea(),
         ProjectsArea(),
         TitleText(text: "SKILLS"),
+        BarChartSample1(),
         TitleText(text: "AWARD"),
         TitleText(text: "Profile"),
       ],
@@ -290,12 +292,13 @@ class ProjectsArea extends StatelessWidget {
                           ],
                         ],
                       ),
-                      Text(
-                          "ここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキスト",
-                          style: TextStyle(fontSize: 16)),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          Text(
+                          "ここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキスト",
+                          style: TextStyle(fontSize: 16)),
+                          Gap(8),
                           LinkButton(
                               width: 120,
                               height: 40, 

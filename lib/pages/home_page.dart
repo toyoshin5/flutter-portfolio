@@ -250,7 +250,7 @@ class ProjectsArea extends StatelessWidget {
                 BoxShadow(
                   color: Colors.black.withOpacity(0.2),
                   spreadRadius: 1,
-                  blurRadius: 6,
+                  blurRadius: 12,
                   offset: const Offset(0, 3),
                 ),
               ],

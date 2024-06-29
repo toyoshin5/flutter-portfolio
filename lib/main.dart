@@ -23,11 +23,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Portfolio',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
         useMaterial3: false,
       ),
       darkTheme: ThemeData(
-        primarySwatch: Colors.blue,
         useMaterial3: false,
         brightness: Brightness.dark,
       ),

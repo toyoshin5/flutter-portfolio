@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_portfolio/styles/app_colors.dart';
-import 'package:flutter_portfolio/providers/profile_provider.dart';
-import 'package:flutter_portfolio/widget/budge.dart';
-import 'package:flutter_portfolio/widget/circle_image.dart';
-import 'package:flutter_portfolio/widget/link_button.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
-import 'package:url_launcher/link.dart';
+
+import 'package:flutter_portfolio/providers/profile_provider.dart';
+import 'package:flutter_portfolio/styles/app_colors.dart';
+import 'package:flutter_portfolio/widget/budge.dart';
+import 'package:flutter_portfolio/widget/circle_image.dart';
+import 'package:flutter_portfolio/widget/link_button.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});

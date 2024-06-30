@@ -107,37 +107,6 @@ class ScrollContentsArea extends ConsumerWidget {
   }
 }
 
-class _AboutThisSiteArea extends StatelessWidget {
-  const _AboutThisSiteArea({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(
-          width: double.infinity,
-          child: Column(
-            children: [
-              Gap(128),
-              Text(
-                "このWebページはFlutterで作成しています",
-              ),
-              Gap(8),
-              Text(
-                "© 2024 Shingo Toyoda All Rights Reserved.",
-                style: TextStyle(fontSize: 14, color: Colors.grey),
-              ),
-              Gap(64),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-}
 
 class _ProfileArea extends StatelessWidget {
   const _ProfileArea({
@@ -225,6 +194,11 @@ class _SNSArea extends StatelessWidget {
           url: "https://www.instagram.com",
           faIcon: FontAwesomeIcons.instagram,
           text: "Instagram",
+        ),
+        LinkButton(
+          url: "https:/atcoder.jp",
+          faIcon: FontAwesomeIcons.laptopCode,
+          text: "AtCoder",
         ),
       ],
     );
@@ -359,7 +333,7 @@ class _ProjectsArea extends StatelessWidget {
               ],
             ),
           ),
-          const Gap(16),
+          const Gap(20),
         ],
       ],
     );
@@ -424,6 +398,38 @@ class _AwardArea extends StatelessWidget {
   }
 }
 
+class _AboutThisSiteArea extends StatelessWidget {
+  const _AboutThisSiteArea({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          width: double.infinity,
+          child: Column(
+            children: [
+              Gap(128),
+              Text(
+                "このポートフォリオはFlutterで作成しています",
+              ),
+              Gap(8),
+              Text(
+                "© 2024 Shingo Toyoda All Rights Reserved.",
+                style: TextStyle(fontSize: 14, color: Colors.grey),
+              ),
+              Gap(64),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
 class TitleText extends StatelessWidget {
   const TitleText({
     super.key,
@@ -443,3 +449,5 @@ class TitleText extends StatelessWidget {
     );
   }
 }
+
+

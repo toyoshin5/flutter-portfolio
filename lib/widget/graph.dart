@@ -25,10 +25,11 @@ class SkillGraphState extends State<SkillGraph> {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 1,
-      child: RotationTransition(
-        turns: const AlwaysStoppedAnimation(90 / 360),
+    return SizedBox(
+      width: double.infinity,
+      height: 600,
+      child: RotatedBox(
+        quarterTurns: 1,
         child: BarChart(
           mainBarData(),
           swapAnimationDuration: animDuration,

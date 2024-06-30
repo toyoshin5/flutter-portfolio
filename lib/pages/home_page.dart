@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_portfolio/widget/graph.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -10,7 +9,7 @@ import 'package:flutter_portfolio/styles/app_colors.dart';
 import 'package:flutter_portfolio/widget/budge.dart';
 import 'package:flutter_portfolio/widget/circle_image.dart';
 import 'package:flutter_portfolio/widget/link_button.dart';
-import 'package:timelines/timelines.dart';
+import 'package:flutter_portfolio/widget/timeline.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -151,48 +150,7 @@ class _ProfileArea extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const TitleText(text: "Profile"),
-        FixedTimeline.tileBuilder(
-          builder: TimelineTileBuilder.connected(
-            indicatorBuilder: (context, index) => const OutlinedDotIndicator(
-              color: Colors.blue,
-              borderWidth: 2.0,
-              backgroundColor: Colors.lightBlue,
-            ),
-            connectorBuilder: (context, index, type) {
-              return SolidLineConnector(
-                indent: type == ConnectorType.start ? 0 : 2.0,
-                endIndent: type == ConnectorType.end ? 0 : 2.0,
-                color: Colors.blue,
-                thickness: 3.0,
-              );
-            },
-            contentsAlign: ContentsAlign.basic,
-            contentsBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.fromLTRB(8, 8, 0, 8),
-              child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.backGround(context),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  padding: const EdgeInsets.all(8),
-                  child: Text("ここにテキストここにテキストここにテキストここにテキスト")),
-            ),
-            lastConnectorBuilder: (context) {
-              return Connector.dashedLine(
-                indent: 4.0,
-                color: Colors.blue,
-                thickness: 3.0,
-              );
-            },
-            oppositeContentsBuilder: (context, index) => Padding(
-              padding: EdgeInsets.only(right: 8.0),
-              child: Text("2022/01/01"),
-            ),
-            indicatorPositionBuilder: (context, index) => 0.5,
-            nodePositionBuilder: (context, index) => 0.25,
-            itemCount: 5,
-          ),
-        ),
+        AppTimeline(),
       ],
     );
   }

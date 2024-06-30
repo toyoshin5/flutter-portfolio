@@ -34,8 +34,55 @@
 
   <title>flutter_portfolio</title>
   <link rel="manifest" href="manifest.json">
+
+<!-- ローディングアニメーション -->
+  <!-- CDNからLottie Playerを読み込む -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    .loading {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loading-text {
+      margin-top: 20px;
+      font-size: 18px;
+      color: black;
+      transition: color 0.3s ease;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: black;
+      }
+
+      .loading-text {
+        color: white;
+      }
+    }
+  </style>
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
+  <div class="loading">
+    <dotlottie-player src="https://lottie.host/cc0a2c9d-deac-4e25-98d0-01ef4e515251/MDtCYBnHQw.lottie" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+    <div class="loading-text">がんばってよみこんでいます...</div>
+  </div>
 </body>
 </html>

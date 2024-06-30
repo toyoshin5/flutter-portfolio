@@ -85,7 +85,6 @@ class AppTimeline extends StatelessWidget {
               ),
               child: Text(
                 'ここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキスト',
-                style: TextStyle(fontSize: 14),
               ),
             ),
           ),

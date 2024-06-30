@@ -6,10 +6,12 @@ class CircleImage extends StatelessWidget {
     super.key,
     required this.image,
     required this.size,
+    this.hasBorder = false,
   });
 
   final ImageProvider image;
   final double size;
+  final bool hasBorder;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class CircleImage extends StatelessWidget {
       height: size,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        border: Border.all(color: AppColors.secondary(context), width: 1),
+        border: (hasBorder) ?Border.all(color: AppColors.secondary(context), width: 1):null,
         image: DecorationImage(
           fit: BoxFit.fill,
           image: image,

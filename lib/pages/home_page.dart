@@ -9,6 +9,7 @@ import 'package:flutter_portfolio/styles/app_colors.dart';
 import 'package:flutter_portfolio/widget/budge.dart';
 import 'package:flutter_portfolio/widget/circle_image.dart';
 import 'package:flutter_portfolio/widget/link_button.dart';
+import 'package:timelines/timelines.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -56,7 +57,7 @@ class HomePage extends ConsumerWidget {
                     ],
                   ),
                   Positioned(
-                    top: headerHeight - 55,
+                    top: headerHeight - 60,
                     child: Container(
                       decoration: BoxDecoration(
                         color: AppColors.groupedBackround(context),
@@ -64,8 +65,8 @@ class HomePage extends ConsumerWidget {
                       ),
                       padding: const EdgeInsets.all(10),
                       child: CircleImage(
-                          image: NetworkImage(profile.imageUrl),
-                          size: 100,
+                        image: NetworkImage(profile.imageUrl),
+                        size: 100,
                       ),
                     ),
                   ),
@@ -88,24 +89,84 @@ class ScrollContentsArea extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
-        MyNameArea(),
+        _MyNameArea(),
         Gap(16),
-        SNSArea(),
+        _SNSArea(),
         Gap(16),
-        IntroArea(),
-        NewsArea(),
-        ProjectsArea(),
-        SkillArea(),
-        AwardArea(),
-        TitleText(text: "Profile"),
+        _IntroArea(),
+        _NewsArea(),
+        _ProjectsArea(),
+        _SkillArea(),
+        _AwardArea(),
+        _ProfileArea(),
       ],
     );
   }
 }
 
-class MyNameArea extends ConsumerWidget {
-  const MyNameArea({
+class _ProfileArea extends StatelessWidget {
+  const _ProfileArea({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const TitleText(text: "Profile"),
+        FixedTimeline.tileBuilder(
+            builder: TimelineTileBuilder.connected(
+              indicatorBuilder: (context, index) => const OutlinedDotIndicator(
+                  color: Colors.blue,
+                  borderWidth: 2.0,
+                  backgroundColor: Colors.lightBlue,
+                ),
+              connectorBuilder: (context, index, type) {
+              return SolidLineConnector(
+                indent: type == ConnectorType.start ? 0 : 2.0,
+                endIndent: type == ConnectorType.end ? 0 : 2.0,
+                color: Colors.blue,
+                thickness: 3.0,
+              );
+              },
+              contentsAlign: ContentsAlign.basic,
+              contentsBuilder: (context, index) => Padding(
+                padding: const EdgeInsets.fromLTRB(8,8,0,8),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: AppColors.backGround(context),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  padding: const EdgeInsets.all(8),
+                  child: Text("ここにテキストここにテキストここにテキストここにテキスト")
+                ),
+              ),
+              lastConnectorBuilder: (context) {
+                return Connector.dashedLine(
+                  indent: 4.0,
+                  color: Colors.blue,
+                  thickness: 3.0,
+                );
+              },
+              oppositeContentsBuilder: (context, index) => Padding(
+                padding: EdgeInsets.only(right:8.0),
+                child: Text("2022/01/01"),
+              ),
+              indicatorPositionBuilder: (context, index) => 0.5,
+              nodePositionBuilder: (context, index) => 0.25,
+              itemCount: 5,
+            ),
+          ),
+      ],
+    );
+  }
+}
+
+class _MyNameArea extends ConsumerWidget {
+  const _MyNameArea({
     super.key,
   });
 
@@ -138,8 +199,8 @@ class MyNameArea extends ConsumerWidget {
   }
 }
 
-class SNSArea extends StatelessWidget {
-  const SNSArea({
+class _SNSArea extends StatelessWidget {
+  const _SNSArea({
     super.key,
   });
 
@@ -179,8 +240,8 @@ class SNSArea extends StatelessWidget {
   }
 }
 
-class IntroArea extends ConsumerWidget {
-  const IntroArea({
+class _IntroArea extends ConsumerWidget {
+  const _IntroArea({
     super.key,
   });
 
@@ -194,8 +255,8 @@ class IntroArea extends ConsumerWidget {
   }
 }
 
-class NewsArea extends StatelessWidget {
-  const NewsArea({
+class _NewsArea extends StatelessWidget {
+  const _NewsArea({
     super.key,
   });
 
@@ -232,8 +293,8 @@ class NewsArea extends StatelessWidget {
   }
 }
 
-class ProjectsArea extends StatelessWidget {
-  const ProjectsArea({
+class _ProjectsArea extends StatelessWidget {
+  const _ProjectsArea({
     super.key,
   });
 
@@ -242,7 +303,7 @@ class ProjectsArea extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TitleText(text: "PROJECTS"),
+        const TitleText(text: "PROJECTS"),
         for (int i = 0; i < 5; i++) ...[
           Container(
             width: double.infinity,
@@ -302,12 +363,12 @@ class ProjectsArea extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                          "ここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキスト",
-                          style: TextStyle(fontSize: 16)),
+                              "ここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキスト",
+                              style: TextStyle(fontSize: 16)),
                           Gap(8),
                           LinkButton(
                               width: 120,
-                              height: 35, 
+                              height: 35,
                               url: "https://www.google.com",
                               faIcon: FontAwesomeIcons.link,
                               text: "詳しく見る"),
@@ -328,8 +389,8 @@ class ProjectsArea extends StatelessWidget {
   }
 }
 
-class SkillArea extends StatelessWidget {
-  const SkillArea({
+class _SkillArea extends StatelessWidget {
+  const _SkillArea({
     super.key,
   });
 
@@ -345,8 +406,8 @@ class SkillArea extends StatelessWidget {
   }
 }
 
-class AwardArea extends StatelessWidget {
-  const AwardArea({
+class _AwardArea extends StatelessWidget {
+  const _AwardArea({
     super.key,
   });
 
@@ -371,10 +432,12 @@ class AwardArea extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 14, color: AppColors.secondary(context))),
                 const Gap(6),
-                const Text(
-                    "ここにAwardここにAwardここにAward受賞",
+                const Text("ここにAwardここにAwardここにAward受賞",
                     style: TextStyle(fontSize: 16)),
-                if (i != 4) const Divider(height: 24,),
+                if (i != 4)
+                  const Divider(
+                    height: 24,
+                  ),
               ],
             ],
           ),

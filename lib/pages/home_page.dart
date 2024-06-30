@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_portfolio/widget/graph.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -101,6 +102,39 @@ class ScrollContentsArea extends ConsumerWidget {
         _SkillArea(),
         _AwardArea(),
         _ProfileArea(),
+        _AboutThisSiteArea(),
+      ],
+    );
+  }
+}
+
+class _AboutThisSiteArea extends StatelessWidget {
+  const _AboutThisSiteArea({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          width: double.infinity,
+          child: Column(
+            children: [
+              Gap(128),
+              Text(
+                "このWebページはFlutterで作成しています",
+              ),
+              Gap(8),
+              Text(
+                "© 2024 Shingo Toyoda All Rights Reserved.",
+                style: TextStyle(fontSize: 14, color: Colors.grey),
+              ),
+              Gap(64),
+            ],
+          ),
+        ),
       ],
     );
   }
@@ -118,48 +152,47 @@ class _ProfileArea extends StatelessWidget {
       children: [
         const TitleText(text: "Profile"),
         FixedTimeline.tileBuilder(
-            builder: TimelineTileBuilder.connected(
-              indicatorBuilder: (context, index) => const OutlinedDotIndicator(
-                  color: Colors.blue,
-                  borderWidth: 2.0,
-                  backgroundColor: Colors.lightBlue,
-                ),
-              connectorBuilder: (context, index, type) {
+          builder: TimelineTileBuilder.connected(
+            indicatorBuilder: (context, index) => const OutlinedDotIndicator(
+              color: Colors.blue,
+              borderWidth: 2.0,
+              backgroundColor: Colors.lightBlue,
+            ),
+            connectorBuilder: (context, index, type) {
               return SolidLineConnector(
                 indent: type == ConnectorType.start ? 0 : 2.0,
                 endIndent: type == ConnectorType.end ? 0 : 2.0,
                 color: Colors.blue,
                 thickness: 3.0,
               );
-              },
-              contentsAlign: ContentsAlign.basic,
-              contentsBuilder: (context, index) => Padding(
-                padding: const EdgeInsets.fromLTRB(8,8,0,8),
-                child: Container(
+            },
+            contentsAlign: ContentsAlign.basic,
+            contentsBuilder: (context, index) => Padding(
+              padding: const EdgeInsets.fromLTRB(8, 8, 0, 8),
+              child: Container(
                   decoration: BoxDecoration(
                     color: AppColors.backGround(context),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   padding: const EdgeInsets.all(8),
-                  child: Text("ここにテキストここにテキストここにテキストここにテキスト")
-                ),
-              ),
-              lastConnectorBuilder: (context) {
-                return Connector.dashedLine(
-                  indent: 4.0,
-                  color: Colors.blue,
-                  thickness: 3.0,
-                );
-              },
-              oppositeContentsBuilder: (context, index) => Padding(
-                padding: EdgeInsets.only(right:8.0),
-                child: Text("2022/01/01"),
-              ),
-              indicatorPositionBuilder: (context, index) => 0.5,
-              nodePositionBuilder: (context, index) => 0.25,
-              itemCount: 5,
+                  child: Text("ここにテキストここにテキストここにテキストここにテキスト")),
             ),
+            lastConnectorBuilder: (context) {
+              return Connector.dashedLine(
+                indent: 4.0,
+                color: Colors.blue,
+                thickness: 3.0,
+              );
+            },
+            oppositeContentsBuilder: (context, index) => Padding(
+              padding: EdgeInsets.only(right: 8.0),
+              child: Text("2022/01/01"),
+            ),
+            indicatorPositionBuilder: (context, index) => 0.5,
+            nodePositionBuilder: (context, index) => 0.25,
+            itemCount: 5,
           ),
+        ),
       ],
     );
   }

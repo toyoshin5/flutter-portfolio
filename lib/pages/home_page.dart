@@ -263,7 +263,7 @@ class _NewsArea extends StatelessWidget {
             color: AppColors.backGround(context),
             borderRadius: BorderRadius.circular(12),
           ),
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -274,7 +274,7 @@ class _NewsArea extends StatelessWidget {
                 Text(
                     "ここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNews",
                     style: TextStyle(fontSize: 16)),
-                const Gap(8),
+                const Gap(16),
               ],
             ],
           ),
@@ -306,21 +306,13 @@ class _ProjectsArea extends StatelessWidget {
                 bottomRight: Radius.circular(48),
                 bottomLeft: Radius.circular(12),
               ),
-              // boxShadow: const [
-              //   BoxShadow(
-              //     color: Colors.black12,
-              //     spreadRadius: 1,
-              //    blurRadius: 12,
-              //     offset: Offset(0, 3),
-              //   ),
-              // ],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //画像
                 ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(48),
                     topRight: Radius.circular(12),
                   ),
@@ -331,16 +323,14 @@ class _ProjectsArea extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Wrap(
-                    spacing: 8,
-                    runSpacing: 8,
-                    runAlignment: WrapAlignment.center,
+                  padding: EdgeInsets.fromLTRB(20,20,20,12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text("ここにTitle",
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold)),
-                      //バッジUI
+                      const Gap(8),
                       Wrap(
                         spacing: 8,
                         runSpacing: 8,
@@ -350,23 +340,19 @@ class _ProjectsArea extends StatelessWidget {
                           ],
                         ],
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                              "ここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキスト",
-                              style: TextStyle(fontSize: 16)),
-                          Gap(8),
-                          LinkButton(
-                              width: 120,
-                              height: 35,
-                              url: "https://www.google.com",
-                              faIcon: FontAwesomeIcons.link,
-                              text: "詳しく見る"),
-                          Gap(8),
-                          Text("2020年 10月")
-                        ],
-                      ),
+                      const Gap(8),
+                      Text(
+                          "ここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキスト",
+                          style: TextStyle(fontSize: 16)),
+                      const Gap(8),
+                      LinkButton(
+                          width: 120,
+                          height: 35,
+                          url: "https://www.google.com",
+                          faIcon: FontAwesomeIcons.link,
+                          text: "詳しく見る"),
+                      const Gap(8),
+                      Text("2020年 10月"),
                     ],
                   ),
                 ),

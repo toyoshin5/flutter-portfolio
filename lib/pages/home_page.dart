@@ -56,11 +56,18 @@ class HomePage extends ConsumerWidget {
                     ],
                   ),
                   Positioned(
-                    top: headerHeight - 50,
-                    child: CircleImage(
-                        image: NetworkImage(profile.imageUrl),
-                        size: 100,
-                        hasShadow: true),
+                    top: headerHeight - 55,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.groupedBackround(context),
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      padding: const EdgeInsets.all(10),
+                      child: CircleImage(
+                          image: NetworkImage(profile.imageUrl),
+                          size: 100,
+                      ),
+                    ),
                   ),
                 ],
               ),

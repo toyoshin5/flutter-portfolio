@@ -90,14 +90,17 @@ class ScrollContentsArea extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final screenCls = ScreenRef(context).watch(screenProvider).sizeClass;
     return Row(
       mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Flexible(
+          flex: 3,
           child: Container(
             constraints: const BoxConstraints(maxWidth: 768),
-            child: const Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -106,6 +109,7 @@ class ScrollContentsArea extends ConsumerWidget {
                 _SNSArea(),
                 Gap(16),
                 _IntroArea(),
+                if (screenCls != ScreenSizeClass.desktop)
                 _NewsArea(),
                 _ProjectsArea(),
                 _SkillArea(),
@@ -116,6 +120,14 @@ class ScrollContentsArea extends ConsumerWidget {
             ),
           ),
         ),
+        if (screenCls == ScreenSizeClass.desktop)...[
+        const Gap(16),
+ const Flexible(
+          flex: 1,
+          child: _NewsArea(),
+        ),
+        ]
+       
       ],
     );
   }
@@ -138,7 +150,7 @@ class _MyNameArea extends ConsumerWidget {
           Text(
             model.overview.eName,
             style: TextStyle(
-                fontSize: (screenCls == ScreenSizeClass.desktop) ? 30 : 24,
+                fontSize: (screenCls != ScreenSizeClass.phone) ? 30 : 24,
                 fontWeight: FontWeight.bold),
           ),
           Text(
@@ -167,7 +179,7 @@ class _SNSArea extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final model = ref.watch(profileNotifierProvider);
     final screenCls = ScreenRef(context).watch(screenProvider).sizeClass;
-    final buttonHeight = (screenCls == ScreenSizeClass.desktop) ? 40.0 : null;
+    final buttonHeight = (screenCls != ScreenSizeClass.phone) ? 40.0 : null;
     return Wrap(
       spacing: 8,
       runSpacing: 8,
@@ -340,7 +352,6 @@ class _AwardArea extends ConsumerWidget {
     );
   }
 }
-
 class _ProfileArea extends ConsumerWidget {
   const _ProfileArea({
     super.key,
@@ -355,7 +366,7 @@ class _ProfileArea extends ConsumerWidget {
       children: [
         const TitleText(text: "Profile"),
         AppTimeline(
-          isDesktop: (screenCls == ScreenSizeClass.desktop),
+          isDesktop: (screenCls != ScreenSizeClass.phone),
           profiles: model.profile,
         ),
       ],

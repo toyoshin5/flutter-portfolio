@@ -21,6 +21,9 @@ enum ScreenSizeClass {
   /// スマホ
   phone,
 
+  /// タブレット
+  tablet,
+
   /// パソコン
   desktop,
 
@@ -32,8 +35,9 @@ enum ScreenSizeClass {
 /// 画面サイズの設定値
 const screenProvider = ScreenProvider(
   breakpoints: {
-    ScreenSizeClass.phone: 320,
-    ScreenSizeClass.desktop: 768,
+    ScreenSizeClass.phone: 0,
+    ScreenSizeClass.tablet: 768,
+    ScreenSizeClass.desktop: 1100,
   },
 );
 

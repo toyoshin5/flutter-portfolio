@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/models/profile.dart';
 import 'package:flutter_portfolio/styles/app_colors.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
@@ -10,29 +11,32 @@ enum TimeLineStyle {
 }
 
 class AppTimeline extends StatelessWidget {
+  const AppTimeline({
+    super.key,
+    required this.profiles,
+  });
+  final List<ProfileModel> profiles;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        buildTimelineTile(context, style: TimeLineStyle.strat),
-        buildTimelineTile(context),
-        buildTimelineTile(context),
-        buildTimelineTile(context),
-        buildTimelineTile(context, style: TimeLineStyle.end),
+        for (final profile in profiles) 
+          buildTimelineTile(context, profile, (profile == profiles.first) ? TimeLineStyle.strat : (profile == profiles.last) ? TimeLineStyle.end : TimeLineStyle.normal),
       ],
     );
   }
 
-  Widget buildTimelineTile(BuildContext context,
-      {TimeLineStyle style = TimeLineStyle.normal}) {
+  Widget buildTimelineTile(BuildContext context, ProfileModel profile,
+      TimeLineStyle style) {
     return IntrinsicHeight(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 21),
+            padding: EdgeInsets.only(top: 21),
             child: Text(
-              '2022/01',
+              profile.date,
               style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
             ),
           ),
@@ -84,7 +88,7 @@ class AppTimeline extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Text(
-                'ここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキスト',
+                profile.text,
               ),
             ),
           ),

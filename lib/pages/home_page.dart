@@ -17,7 +17,7 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final profile = ref.watch(profileNotifierProvider);
+    final model = ref.watch(profileNotifierProvider);
     return SelectionArea(
       child: Scaffold(
         backgroundColor: AppColors.groupedBackround(context),
@@ -65,7 +65,7 @@ class HomePage extends ConsumerWidget {
                       ),
                       padding: const EdgeInsets.all(10),
                       child: CircleImage(
-                        image: NetworkImage(profile.imageUrl),
+                        image: NetworkImage(model.overview.imageUrl),
                         size: 100,
                       ),
                     ),
@@ -107,24 +107,6 @@ class ScrollContentsArea extends ConsumerWidget {
   }
 }
 
-
-class _ProfileArea extends StatelessWidget {
-  const _ProfileArea({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const TitleText(text: "Profile"),
-        AppTimeline(),
-      ],
-    );
-  }
-}
-
 class _MyNameArea extends ConsumerWidget {
   const _MyNameArea({
     super.key,
@@ -132,25 +114,25 @@ class _MyNameArea extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final profile = ref.watch(profileNotifierProvider);
+    final model = ref.watch(profileNotifierProvider);
     return SizedBox(
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "Shingo Toyoda",
+          Text(
+            model.overview.eName,
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           Text(
-            profile.name + " (22)",
+            "${model.overview.name} (22)",
             style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
                 color: AppColors.secondary(context)),
           ),
           Text(
-            profile.position,
+            model.overview.position,
             style: TextStyle(fontSize: 16, color: AppColors.secondary(context)),
           ),
         ],
@@ -159,47 +141,24 @@ class _MyNameArea extends ConsumerWidget {
   }
 }
 
-class _SNSArea extends StatelessWidget {
+class _SNSArea extends ConsumerWidget {
   const _SNSArea({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
-    return const Wrap(
+  Widget build(BuildContext context, WidgetRef ref) {
+    final model = ref.watch(profileNotifierProvider);
+    return Wrap(
       spacing: 8,
       runSpacing: 8,
       children: [
-        LinkButton(
-          url: "https://www.google.com",
-          faIcon: FontAwesomeIcons.locationDot,
-          text: "Hokkaido",
-        ),
-        LinkButton(
-          url: "https://github.com",
-          faIcon: FontAwesomeIcons.github,
-          text: "GitHub",
-        ),
-        LinkButton(
-          url: "https://www.apple.com/jp/",
-          faIcon: FontAwesomeIcons.appStore,
-          text: "AppStore",
-        ),
-        LinkButton(
-          url: "https://www.facebook.com",
-          faIcon: FontAwesomeIcons.facebook,
-          text: "Facebook",
-        ),
-        LinkButton(
-          url: "https://www.instagram.com",
-          faIcon: FontAwesomeIcons.instagram,
-          text: "Instagram",
-        ),
-        LinkButton(
-          url: "https:/atcoder.jp",
-          faIcon: FontAwesomeIcons.laptopCode,
-          text: "AtCoder",
-        ),
+        for (final link in model.overview.links)
+          LinkButton(
+            url: link.url,
+            faIcon: faIconMap[link.faIconName] ?? FontAwesomeIcons.link,
+            text: link.text,
+          ),
       ],
     );
   }
@@ -212,21 +171,22 @@ class _IntroArea extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final profile = ref.watch(profileNotifierProvider);
+    final model = ref.watch(profileNotifierProvider);
     return Text(
-      profile.introduction,
+      model.overview.introduction,
       style: const TextStyle(fontSize: 16),
     );
   }
 }
 
-class _NewsArea extends StatelessWidget {
+class _NewsArea extends ConsumerWidget {
   const _NewsArea({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final model = ref.watch(profileNotifierProvider);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -241,12 +201,12 @@ class _NewsArea extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              for (int i = 0; i < 5; i++) ...[
-                Text("2024/01/01",
+              for (final news in model.news)...[
+                Text(news.date,
                     style: TextStyle(
                         fontSize: 14, color: AppColors.secondary(context))),
                 Text(
-                    "ここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNewsここにNews",
+                    news.text,
                     style: TextStyle(fontSize: 16)),
                 const Gap(16),
               ],
@@ -258,18 +218,21 @@ class _NewsArea extends StatelessWidget {
   }
 }
 
-class _ProjectsArea extends StatelessWidget {
+
+
+class _ProjectsArea extends ConsumerWidget {
   const _ProjectsArea({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final model = ref.watch(profileNotifierProvider);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const TitleText(text: "PROJECTS"),
-        for (int i = 0; i < 5; i++) ...[
+        for (final project in model.projects) ...[
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
@@ -291,7 +254,7 @@ class _ProjectsArea extends StatelessWidget {
                     topRight: Radius.circular(12),
                   ),
                   child: Image.network(
-                    "https://media.istockphoto.com/id/1343356194/photo/close-up-photo-of-young-woman-using-laptop-and-stroking-her-cat-while-her-cat-taking-nap-next.jpg?s=612x612&w=0&k=20&c=TLpWC4moYUhdADK4-VDAfAOV2sphJWJ-mL49UjQVapY=",
+                    project.imageUrl,
                     fit: BoxFit.cover,
                     width: double.infinity,
                   ),
@@ -301,32 +264,31 @@ class _ProjectsArea extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("ここにTitle",
-                          style: TextStyle(
+                      Text(project.title,
+                          style: const TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold)),
                       const Gap(8),
                       Wrap(
                         spacing: 8,
                         runSpacing: 8,
                         children: [
-                          for (int i = 0; i < 5; i++) ...[
-                            Budge(type: BudgeType.flutter),
-                          ],
+                          for (final budge in project.budges)
+                            Budge(type: budge),
                         ],
                       ),
                       const Gap(8),
                       Text(
-                          "ここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキストここにテキスト",
-                          style: TextStyle(fontSize: 16)),
+                          project.description,
+                          style: const TextStyle(fontSize: 16)),
                       const Gap(8),
-                      LinkButton(
+                      const LinkButton(
                           width: 120,
                           height: 35,
                           url: "https://www.google.com",
                           faIcon: FontAwesomeIcons.link,
                           text: "詳しく見る"),
                       const Gap(8),
-                      Text("2020年 10月"),
+                      Text(project.date),
                     ],
                   ),
                 ),
@@ -340,30 +302,35 @@ class _ProjectsArea extends StatelessWidget {
   }
 }
 
-class _SkillArea extends StatelessWidget {
+class _SkillArea extends ConsumerWidget {
   const _SkillArea({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final model = ref.watch(profileNotifierProvider);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const TitleText(text: "SKILLS"),
-        SkillGraph(),
+        SkillGraph(
+          skills: model.skills,
+          height: 100,
+        ),
       ],
     );
   }
 }
 
-class _AwardArea extends StatelessWidget {
+class _AwardArea extends ConsumerWidget {
   const _AwardArea({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final model = ref.watch(profileNotifierProvider);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -378,14 +345,14 @@ class _AwardArea extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              for (int i = 0; i < 5; i++) ...[
-                Text("2024/01/01",
+              for (final award in model.awards) ...[
+                Text(award.date,
                     style: TextStyle(
                         fontSize: 14, color: AppColors.secondary(context))),
                 const Gap(6),
-                const Text("ここにAwardここにAwardここにAward受賞",
+                Text(award.text,
                     style: TextStyle(fontSize: 16)),
-                if (i != 4)
+                if (award != model.awards.last)
                   const Divider(
                     height: 24,
                   ),
@@ -397,6 +364,27 @@ class _AwardArea extends StatelessWidget {
     );
   }
 }
+
+class _ProfileArea extends ConsumerWidget {
+  const _ProfileArea({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final model = ref.watch(profileNotifierProvider);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const TitleText(text: "Profile"),
+        AppTimeline(
+          profiles: model.profile,
+        ),
+      ],
+    );
+  }
+}
+
 
 class _AboutThisSiteArea extends StatelessWidget {
   const _AboutThisSiteArea({
@@ -430,6 +418,8 @@ class _AboutThisSiteArea extends StatelessWidget {
   }
 }
 
+
+
 class TitleText extends StatelessWidget {
   const TitleText({
     super.key,
@@ -450,4 +440,14 @@ class TitleText extends StatelessWidget {
   }
 }
 
+
+final Map<String, IconData> faIconMap = {
+  "locationDot": FontAwesomeIcons.twitter,
+  "github": FontAwesomeIcons.github,
+  "appStore": FontAwesomeIcons.appStore,
+  "facebook": FontAwesomeIcons.facebook,
+  "instagram": FontAwesomeIcons.instagram,
+  "laptopCode": FontAwesomeIcons.laptopCode,
+  "link": FontAwesomeIcons.link,
+};
 

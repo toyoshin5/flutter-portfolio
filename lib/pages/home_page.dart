@@ -109,8 +109,7 @@ class ScrollContentsArea extends ConsumerWidget {
                 const _SNSArea(),
                 const Gap(16),
                 const _IntroArea(),
-                if (screenCls != ScreenSizeClass.desktop)
-                const _NewsArea(),
+                if (screenCls != ScreenSizeClass.desktop) const _NewsArea(),
                 const _ProjectsArea(),
                 const _SkillArea(),
                 const _AwardArea(),
@@ -120,14 +119,13 @@ class ScrollContentsArea extends ConsumerWidget {
             ),
           ),
         ),
-        if (screenCls == ScreenSizeClass.desktop)...[
-        const Gap(16),
- const Flexible(
-          flex: 1,
-          child: _NewsArea(),
-        ),
+        if (screenCls == ScreenSizeClass.desktop) ...[
+          const Gap(16),
+          const Flexible(
+            flex: 1,
+            child: _NewsArea(),
+          ),
         ]
-       
       ],
     );
   }
@@ -352,6 +350,7 @@ class _AwardArea extends ConsumerWidget {
     );
   }
 }
+
 class _ProfileArea extends ConsumerWidget {
   const _ProfileArea({
     super.key,

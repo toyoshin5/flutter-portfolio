@@ -43,6 +43,7 @@ dependencies:
   url_launcher: ^6.3.0
   gap: ^3.0.1
   fl_chart: ^0.68.0
+  device_preview: ^1.2.0
 
 dev_dependencies:
   flutter_test:

@@ -87,7 +87,7 @@ class ScrollContentsArea extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Column(
+    return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -122,7 +122,7 @@ class _MyNameArea extends ConsumerWidget {
         children: [
           Text(
             model.overview.eName,
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           Text(
             "${model.overview.name} (22)",
@@ -207,7 +207,7 @@ class _NewsArea extends ConsumerWidget {
                         fontSize: 14, color: AppColors.secondary(context))),
                 Text(
                     news.text,
-                    style: TextStyle(fontSize: 16)),
+                    style: const TextStyle(fontSize: 16)),
                 const Gap(16),
               ],
             ],
@@ -260,7 +260,7 @@ class _ProjectsArea extends ConsumerWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(20,20,20,12),
+                  padding: const EdgeInsets.fromLTRB(20,20,20,12),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -351,7 +351,7 @@ class _AwardArea extends ConsumerWidget {
                         fontSize: 14, color: AppColors.secondary(context))),
                 const Gap(6),
                 Text(award.text,
-                    style: TextStyle(fontSize: 16)),
+                    style: const TextStyle(fontSize: 16)),
                 if (award != model.awards.last)
                   const Divider(
                     height: 24,

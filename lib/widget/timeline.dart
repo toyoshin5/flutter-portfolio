@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/models/profile.dart';
+import 'package:flutter_portfolio/pages/home_page.dart';
 import 'package:flutter_portfolio/styles/app_colors.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
@@ -14,21 +15,34 @@ class AppTimeline extends StatelessWidget {
   const AppTimeline({
     super.key,
     required this.profiles,
+    this.isDesktop = false,
   });
   final List<ProfileModel> profiles;
+  final bool isDesktop;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        for (final profile in profiles) 
-          buildTimelineTile(context, profile, (profile == profiles.first) ? TimeLineStyle.strat : (profile == profiles.last) ? TimeLineStyle.end : TimeLineStyle.normal),
+        for (final profile in profiles)
+          buildTimelineTile(
+              context,
+              profile,
+              (profile == profiles.first)
+                  ? TimeLineStyle.strat
+                  : (profile == profiles.last)
+                      ? TimeLineStyle.end
+                      : TimeLineStyle.normal),
       ],
     );
   }
 
-  Widget buildTimelineTile(BuildContext context, ProfileModel profile,
-      TimeLineStyle style) {
+  Widget buildTimelineTile(
+      BuildContext context, ProfileModel profile, TimeLineStyle style) {
+    final dateFontSize = isDesktop ? 16.0 : 14.0;
+    final spacing = isDesktop ? 40.0 : 20.0;
+    const iconSize = 30.0;
+
     return IntrinsicHeight(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,7 +51,8 @@ class AppTimeline extends StatelessWidget {
             padding: EdgeInsets.only(top: 21),
             child: Text(
               profile.date,
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: dateFontSize, fontWeight: FontWeight.bold),
             ),
           ),
           const Gap(10),
@@ -53,20 +68,19 @@ class AppTimeline extends StatelessWidget {
               ),
               const Gap(4),
               Container(
-                width: 30,
-                height: 30,
-                decoration: const BoxDecoration(
-                  color: Colors.blue,
-                  shape: BoxShape.circle,
-                ),
-                child: const Center(
-                  child: FaIcon(
-                    FontAwesomeIcons.graduationCap,
-                    size: 15,
-                    color: Colors.white,
+                  width: iconSize,
+                  height: iconSize,
+                  decoration: const BoxDecoration(
+                    color: Colors.blue,
+                    shape: BoxShape.circle,
                   ),
-                )
-              ),
+                  child: Center(
+                    child: FaIcon(
+                      faIconMap[profile.faIconName] ?? FontAwesomeIcons.check,
+                      size: iconSize / 2.0,
+                      color: Colors.white,
+                    ),
+                  )),
               const Gap(4),
               Expanded(
                 child: Container(
@@ -81,7 +95,7 @@ class AppTimeline extends StatelessWidget {
           const Gap(10),
           Flexible(
             child: Container(
-              margin: const EdgeInsets.fromLTRB(0, 7, 0, 20),
+              margin: EdgeInsets.fromLTRB(0, 7, 0, spacing),
               padding: const EdgeInsets.all(12.0),
               decoration: BoxDecoration(
                 color: AppColors.backGround(context),

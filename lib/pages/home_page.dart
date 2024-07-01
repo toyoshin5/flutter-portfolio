@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/models/profile.dart';
+import 'package:flutter_portfolio/screen_pod.dart';
 import 'package:flutter_portfolio/widget/graph.dart';
 import 'package:flutter_portfolio/widget/project_card.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -95,7 +96,7 @@ class ScrollContentsArea extends ConsumerWidget {
       children: [
         Flexible(
           child: Container(
-            constraints: const BoxConstraints(maxWidth: 750),
+            constraints: const BoxConstraints(maxWidth: 768),
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
@@ -128,6 +129,7 @@ class _MyNameArea extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final model = ref.watch(profileNotifierProvider);
+    final screenCls = ScreenRef(context).watch(screenProvider).sizeClass;
     return SizedBox(
       width: double.infinity,
       child: Column(
@@ -135,7 +137,9 @@ class _MyNameArea extends ConsumerWidget {
         children: [
           Text(
             model.overview.eName,
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                fontSize: (screenCls == ScreenSizeClass.desktop) ? 30 : 24,
+                fontWeight: FontWeight.bold),
           ),
           Text(
             "${model.overview.name} (22)",
@@ -162,6 +166,8 @@ class _SNSArea extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final model = ref.watch(profileNotifierProvider);
+    final screenCls = ScreenRef(context).watch(screenProvider).sizeClass;
+    final buttonHeight = (screenCls == ScreenSizeClass.desktop) ? 40.0 : null;
     return Wrap(
       spacing: 8,
       runSpacing: 8,
@@ -169,6 +175,7 @@ class _SNSArea extends ConsumerWidget {
         for (final link in model.overview.links)
           LinkButton(
             url: link.url,
+            height: buttonHeight,
             faIcon: faIconMap[link.faIconName] ?? FontAwesomeIcons.link,
             text: link.text,
           ),
@@ -252,8 +259,7 @@ class _ProjectsArea extends ConsumerWidget {
                   Expanded(
                     child: ProjectCard(project: model.projects[i]),
                   ),
-                  if (i + 1 < model.projects.length)
-                    const Gap(16),
+                  if (i + 1 < model.projects.length) const Gap(16),
                   if (i + 1 < model.projects.length)
                     Expanded(
                       child: ProjectCard(project: model.projects[i + 1]),
@@ -343,11 +349,13 @@ class _ProfileArea extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final model = ref.watch(profileNotifierProvider);
+    final screenCls = ScreenRef(context).watch(screenProvider).sizeClass;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const TitleText(text: "Profile"),
         AppTimeline(
+          isDesktop: (screenCls == ScreenSizeClass.desktop),
           profiles: model.profile,
         ),
       ],
@@ -397,11 +405,12 @@ class TitleText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final fontSize = (MediaQuery.of(context).size.width > 768) ? 28.0 : 24.0;
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 24, 0, 16),
       child: Text(
         text,
-        style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        style: TextStyle(fontSize: fontSize, fontWeight: FontWeight.bold),
       ),
     );
   }

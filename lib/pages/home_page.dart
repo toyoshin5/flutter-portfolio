@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/models/profile.dart';
 import 'package:flutter_portfolio/widget/graph.dart';
+import 'package:flutter_portfolio/widget/project_card.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
@@ -87,21 +89,32 @@ class ScrollContentsArea extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        _MyNameArea(),
-        Gap(16),
-        _SNSArea(),
-        Gap(16),
-        _IntroArea(),
-        _NewsArea(),
-        _ProjectsArea(),
-        _SkillArea(),
-        _AwardArea(),
-        _ProfileArea(),
-        _AboutThisSiteArea(),
+        Flexible(
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: 750),
+            child: const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                _MyNameArea(),
+                Gap(16),
+                _SNSArea(),
+                Gap(16),
+                _IntroArea(),
+                _NewsArea(),
+                _ProjectsArea(),
+                _SkillArea(),
+                _AwardArea(),
+                _ProfileArea(),
+                _AboutThisSiteArea(),
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -201,13 +214,11 @@ class _NewsArea extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              for (final news in model.news)...[
+              for (final news in model.news) ...[
                 Text(news.date,
                     style: TextStyle(
                         fontSize: 14, color: AppColors.secondary(context))),
-                Text(
-                    news.text,
-                    style: const TextStyle(fontSize: 16)),
+                Text(news.text, style: const TextStyle(fontSize: 16)),
                 const Gap(16),
               ],
             ],
@@ -218,8 +229,6 @@ class _NewsArea extends ConsumerWidget {
   }
 }
 
-
-
 class _ProjectsArea extends ConsumerWidget {
   const _ProjectsArea({
     super.key,
@@ -228,75 +237,37 @@ class _ProjectsArea extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final model = ref.watch(profileNotifierProvider);
+    //画面の幅が450px以上の場合は2列にする
+    final isTwoColumn = MediaQuery.of(context).size.width > 550;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const TitleText(text: "PROJECTS"),
-        for (final project in model.projects) ...[
-          Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: AppColors.backGround(context),
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(48),
-                topRight: Radius.circular(12),
-                bottomRight: Radius.circular(48),
-                bottomLeft: Radius.circular(12),
+        if (isTwoColumn)
+          //2等分する
+          for (var i = 0; i < model.projects.length; i += 2) ...[
+            IntrinsicHeight(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: ProjectCard(project: model.projects[i]),
+                  ),
+                  if (i + 1 < model.projects.length)
+                    const Gap(16),
+                  if (i + 1 < model.projects.length)
+                    Expanded(
+                      child: ProjectCard(project: model.projects[i + 1]),
+                    ),
+                ],
               ),
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                //画像
-                ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(48),
-                    topRight: Radius.circular(12),
-                  ),
-                  child: Image.network(
-                    project.imageUrl,
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20,20,20,12),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(project.title,
-                          style: const TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold)),
-                      const Gap(8),
-                      Wrap(
-                        spacing: 8,
-                        runSpacing: 8,
-                        children: [
-                          for (final budge in project.budges)
-                            Budge(type: budge),
-                        ],
-                      ),
-                      const Gap(8),
-                      Text(
-                          project.description,
-                          style: const TextStyle(fontSize: 16)),
-                      const Gap(8),
-                      const LinkButton(
-                          width: 120,
-                          height: 35,
-                          url: "https://www.google.com",
-                          faIcon: FontAwesomeIcons.link,
-                          text: "詳しく見る"),
-                      const Gap(8),
-                      Text(project.date),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const Gap(20),
-        ],
+            const Gap(20),
+          ]
+        else
+          for (final project in model.projects) ...[
+            ProjectCard(project: project),
+            const Gap(20),
+          ],
       ],
     );
   }
@@ -350,8 +321,7 @@ class _AwardArea extends ConsumerWidget {
                     style: TextStyle(
                         fontSize: 14, color: AppColors.secondary(context))),
                 const Gap(6),
-                Text(award.text,
-                    style: const TextStyle(fontSize: 16)),
+                Text(award.text, style: const TextStyle(fontSize: 16)),
                 if (award != model.awards.last)
                   const Divider(
                     height: 24,
@@ -385,7 +355,6 @@ class _ProfileArea extends ConsumerWidget {
   }
 }
 
-
 class _AboutThisSiteArea extends StatelessWidget {
   const _AboutThisSiteArea({
     super.key,
@@ -418,8 +387,6 @@ class _AboutThisSiteArea extends StatelessWidget {
   }
 }
 
-
-
 class TitleText extends StatelessWidget {
   const TitleText({
     super.key,
@@ -440,7 +407,6 @@ class TitleText extends StatelessWidget {
   }
 }
 
-
 final Map<String, IconData> faIconMap = {
   "locationDot": FontAwesomeIcons.twitter,
   "github": FontAwesomeIcons.github,
@@ -450,4 +416,3 @@ final Map<String, IconData> faIconMap = {
   "laptopCode": FontAwesomeIcons.laptopCode,
   "link": FontAwesomeIcons.link,
 };
-

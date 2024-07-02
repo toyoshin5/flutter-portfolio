@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/models/profile.dart';
 import 'package:flutter_portfolio/screen_pod.dart';
 import 'package:flutter_portfolio/widget/graph.dart';
 import 'package:flutter_portfolio/widget/project_card.dart';
@@ -111,9 +110,9 @@ class ScrollContentsArea extends ConsumerWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const _MyNameArea(),
-                    const Gap(16),
+                    const Gap(24),
                     const _SNSArea(),
-                    const Gap(16),
+                    if (screenCls == ScreenSizeClass.desktop) const Divider(height: 48) else const Gap(24),
                     const _IntroArea(),
                     if (screenCls != ScreenSizeClass.desktop) const _NewsArea(),
                     const _ProjectsArea(),
@@ -156,9 +155,10 @@ class _MyNameArea extends ConsumerWidget {
           Text(
             model.overview.eName,
             style: TextStyle(
-                fontSize: (screenCls != ScreenSizeClass.phone) ? 30 : 24,
+                fontSize: (screenCls != ScreenSizeClass.phone) ? 34 : 28,
                 fontWeight: FontWeight.bold),
           ),
+          const Gap(4),
           Text(
             "${model.overview.name} (22)",
             style: TextStyle(
@@ -166,6 +166,7 @@ class _MyNameArea extends ConsumerWidget {
                 fontWeight: FontWeight.bold,
                 color: AppColors.secondary(context)),
           ),
+          const Gap(8),
           Text(
             model.overview.position,
             style: TextStyle(fontSize: 16, color: AppColors.secondary(context)),

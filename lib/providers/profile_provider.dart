@@ -54,6 +54,14 @@ class ProfileNotifier extends _$ProfileNotifier {
           date: '2021/08/01',
           text: 'Flutterを始めました',
         ),
+        NewsModel(
+          date: '2021/08/02',
+          text: 'Swiftを始めました',
+        ),
+        NewsModel(
+          date: '2021/08/03',
+          text: 'Swiftを始めました',
+        ),
       ],
       projects: [
         ProjectsModel(

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 enum BudgeType {
   flutter,
   swift,
+  uikit,
+  swiftui,
   kotlin,
   hackerson,
   personal,
@@ -20,6 +22,8 @@ class Budge extends StatelessWidget {
   static const Map<BudgeType, String> typeTexts = {
     BudgeType.flutter: "Flutter",
     BudgeType.swift: "Swift",
+    BudgeType.uikit: "UIKit",
+    BudgeType.swiftui: "SwiftUI",
     BudgeType.kotlin: "Kotlin",
     BudgeType.hackerson: "ハッカソン",
     BudgeType.personal: "個人開発",
@@ -29,9 +33,11 @@ class Budge extends StatelessWidget {
   static const Map<BudgeType, Color> typeColors = {
     BudgeType.flutter: Color(0xff0175C2),
     BudgeType.swift: Color(0xffFA7343),
+    BudgeType.uikit: Color(0xff007AFF),
+    BudgeType.swiftui: Color(0xff007AFF),
     BudgeType.kotlin: Color(0xff0095D5),
     BudgeType.hackerson: Color(0xff000000),
-    BudgeType.personal: Color(0xffFFD700),
+    BudgeType.personal: Color(0xffFF4500),
     BudgeType.team: Color(0xffFF4500),
   };
 
@@ -48,7 +54,7 @@ class Budge extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: const TextStyle(fontSize: 14, color: Colors.white),
+        style: const TextStyle(fontSize: 14, color: Colors.white, height: 1.2,fontWeight: FontWeight.bold),
       ),
     );
   }

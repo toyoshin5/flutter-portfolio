@@ -105,16 +105,6 @@ class ProfileNotifier extends _$ProfileNotifier {
             BudgeType.swift,
           ], 
         ), 
-        ProjectsModel(
-          title: 'ここがタイトル2',
-          date: '2021/08',
-          description: 'やったことやったことやったことやったこと',
-          imagePath: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfaWn5LsbQWyIAx7EdfX8px5jqW7H2wrPY6A&s',
-          budges: [
-            BudgeType.flutter,
-            BudgeType.swift,
-          ], 
-        ),
       ],
       skills: [
         SkillsModel(

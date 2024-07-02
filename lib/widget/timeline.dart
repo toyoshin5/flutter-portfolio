@@ -48,7 +48,7 @@ class AppTimeline extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 21),
+            padding: const EdgeInsets.only(top: 21),
             child: Text(
               profile.date,
               style: TextStyle(

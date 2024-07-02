@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -32,12 +31,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: false,
         fontFamily: "SanFrancisco",
-        fontFamilyFallback: ["HiraginoSans"],
+        fontFamilyFallback: const ["HiraginoSans"],
       ),
       darkTheme: ThemeData(
         useMaterial3: false,
         fontFamily: "SanFrancisco",
-        fontFamilyFallback: ["HiraginoSans"],
+        fontFamilyFallback: const ["HiraginoSans"],
         brightness: Brightness.dark,
       ),
       home: const HomePage(),

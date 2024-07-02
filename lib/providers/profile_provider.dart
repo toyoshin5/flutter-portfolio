@@ -16,35 +16,35 @@ class ProfileNotifier extends _$ProfileNotifier {
         birthday: '2002/03/22',
         imageUrl: 'https://avatars.githubusercontent.com/u/43494392?v=4',
         position: 'Passionate about Mobile App Development',
-        introduction: 'こんにちはこんにちはこんにちはこんにちはこんにちはこんにちは',
+        introduction: 'こんにちは、豊田真吾と申します。\n北海道大学情報科学院に通っています。\n趣味は色々ありますが、SwiftとFlutterを使ってアプリ開発をすることが好きです。\n\nここでは小さなものから大きなものまで、私が今までやってきたあれこれについて紹介してます。\nこのサイトを通して、私のことについてちょっとでも知ってもらえたらうれしいです。\n\nそういえば、ダークモードのテーマも用意しています。眩しいのがイヤなときは端末のダークモードをONにしてご覧くださいね。',
         links: [
         LinkModel(
-          url: "https://www.google.com",
+          url: "https://maps.app.goo.gl/BjNmZUzCCMNrpSGx7",
           faIconName: "locationDot",
           text: "Hokkaido",
         ),
         LinkModel(
-          url: "https://github.com",
+          url: "https://github.com/toyoshin5",
           faIconName: "github",
           text: "GitHub",
         ),
         LinkModel(
-          url: "https://www.apple.com/jp/",
+          url: "https://apps.apple.com/jp/developer/toyoda-shingo/id1583565951",
           faIconName: "appStore",
           text: "AppStore",
         ),
         LinkModel(
-          url: "https://www.facebook.com",
+          url: "https://www.facebook.com/profile.php?id=100009908073150&locale=ja_JP",
           faIconName: "facebook",
           text: "Facebook",
         ),
         LinkModel(
-          url: "https://www.instagram.com",
+          url: "https://www.instagram.com/toyoshin_",
           faIconName: "instagram",
           text: "Instagram",
         ),
         LinkModel(
-          url: "https:/atcoder.jp",
+          url: "https://atcoder.jp/users/Toyoshin",
           faIconName: "laptopCode",
           text: "AtCoder",
         ),
@@ -52,27 +52,28 @@ class ProfileNotifier extends _$ProfileNotifier {
       ),
       news: [
         NewsModel(
-          date: '2021/08/01',
-          text: 'Flutterを始めました',
+          date: '2024/07',
+          text: 'ポートフォリオサイトを作成しました👍',
         ),
         NewsModel(
-          date: '2021/08/02',
-          text: 'Swiftを始めました',
+          date: '2024/07',
+          text: 'AtCoderで緑レートに到達しました',
         ),
         NewsModel(
-          date: '2021/08/03',
+          date: '2024/07',
           text: 'Swiftを始めました',
         ),
       ],
       projects: [
         ProjectsModel(
-          title: 'ここがタイトル',
+          title: 'TwiNotes',
           date: '2021/08',
-          description: 'やったことやったことやったことやったこと',
+          description: 'X風のUIのメモ&リマインダーアプリです。10万ダウンロードを達成しています。',
           imagePath: 'photocurrency.png',
           budges: [
-            BudgeType.flutter,
+            BudgeType.personal,
             BudgeType.swift,
+            BudgeType.uikit,
           ], 
         ),
         ProjectsModel(
@@ -81,8 +82,6 @@ class ProfileNotifier extends _$ProfileNotifier {
           description: 'やったことやったことやったことやったこと',
           imagePath: 'photocurrency.png',
           budges: [
-            BudgeType.flutter,
-            BudgeType.swift,
           ], 
         ),
         ProjectsModel(

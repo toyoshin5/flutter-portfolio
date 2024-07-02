@@ -158,7 +158,6 @@ class _MyNameArea extends ConsumerWidget {
                 fontSize: (screenCls != ScreenSizeClass.phone) ? 34 : 28,
                 fontWeight: FontWeight.bold),
           ),
-          const Gap(4),
           Text(
             "${model.overview.name} (22)",
             style: TextStyle(
@@ -166,7 +165,6 @@ class _MyNameArea extends ConsumerWidget {
                 fontWeight: FontWeight.bold,
                 color: AppColors.secondary(context)),
           ),
-          const Gap(8),
           Text(
             model.overview.position,
             style: TextStyle(fontSize: 16, color: AppColors.secondary(context)),

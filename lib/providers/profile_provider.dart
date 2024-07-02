@@ -68,7 +68,7 @@ class ProfileNotifier extends _$ProfileNotifier {
         ProjectsModel(
           title: 'TwiNotes',
           date: '2021/08',
-          description: 'X風のUIのメモ&リマインダーアプリです。10万ダウンロードを達成しています。',
+          description: 'X風のUIのメモ&リマインダーアプリです。UIKitで作成しました。',
           imagePath: 'photocurrency.png',
           budges: [
             BudgeType.personal,
@@ -77,11 +77,13 @@ class ProfileNotifier extends _$ProfileNotifier {
           ], 
         ),
         ProjectsModel(
-          title: 'ここがタイトル2',
-          date: '2021/08',
-          description: 'やったことやったことやったことやったこと',
+          title: 'COINs!',
+          date: '2019/11',
+          description: '外国人観光客向けに日本での現金の最適な払い方を提案するアプリです。Kotlinで作成しました。',
           imagePath: 'photocurrency.png',
           budges: [
+            BudgeType.team,
+            BudgeType.kotlin,
           ], 
         ),
         ProjectsModel(

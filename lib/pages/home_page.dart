@@ -36,8 +36,7 @@ class HomePage extends ConsumerWidget {
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: NetworkImage(
-                      "https://t3.ftcdn.net/jpg/00/64/77/16/360_F_64771693_ncondhOJwNdvLjBfeIwswLqhsavUSSY5.jpg"),
+                  image: AssetImage("assets/images/background.jpeg")
                 ),
               ),
             ),
@@ -406,7 +405,7 @@ class _AboutThisSiteArea extends StatelessWidget {
             children: [
               Gap(128),
               Text(
-                "このポートフォリオはFlutterで作成しています",
+                "このポートフォリオはFlutterで作成してみました",
               ),
               Gap(8),
               Text(

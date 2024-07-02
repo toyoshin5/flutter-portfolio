@@ -318,6 +318,7 @@ OverviewModel _$OverviewModelFromJson(Map<String, dynamic> json) {
 mixin _$OverviewModel {
   String get name => throw _privateConstructorUsedError;
   String get eName => throw _privateConstructorUsedError;
+  String get hello => throw _privateConstructorUsedError;
   String get birthday => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
   String get position => throw _privateConstructorUsedError;
@@ -339,6 +340,7 @@ abstract class $OverviewModelCopyWith<$Res> {
   $Res call(
       {String name,
       String eName,
+      String hello,
       String birthday,
       String imageUrl,
       String position,
@@ -361,6 +363,7 @@ class _$OverviewModelCopyWithImpl<$Res, $Val extends OverviewModel>
   $Res call({
     Object? name = null,
     Object? eName = null,
+    Object? hello = null,
     Object? birthday = null,
     Object? imageUrl = null,
     Object? position = null,
@@ -375,6 +378,10 @@ class _$OverviewModelCopyWithImpl<$Res, $Val extends OverviewModel>
       eName: null == eName
           ? _value.eName
           : eName // ignore: cast_nullable_to_non_nullable
+              as String,
+      hello: null == hello
+          ? _value.hello
+          : hello // ignore: cast_nullable_to_non_nullable
               as String,
       birthday: null == birthday
           ? _value.birthday
@@ -411,6 +418,7 @@ abstract class _$$OverviewModelImplCopyWith<$Res>
   $Res call(
       {String name,
       String eName,
+      String hello,
       String birthday,
       String imageUrl,
       String position,
@@ -431,6 +439,7 @@ class __$$OverviewModelImplCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? eName = null,
+    Object? hello = null,
     Object? birthday = null,
     Object? imageUrl = null,
     Object? position = null,
@@ -445,6 +454,10 @@ class __$$OverviewModelImplCopyWithImpl<$Res>
       eName: null == eName
           ? _value.eName
           : eName // ignore: cast_nullable_to_non_nullable
+              as String,
+      hello: null == hello
+          ? _value.hello
+          : hello // ignore: cast_nullable_to_non_nullable
               as String,
       birthday: null == birthday
           ? _value.birthday
@@ -476,6 +489,7 @@ class _$OverviewModelImpl implements _OverviewModel {
   const _$OverviewModelImpl(
       {required this.name,
       required this.eName,
+      required this.hello,
       required this.birthday,
       required this.imageUrl,
       required this.position,
@@ -490,6 +504,8 @@ class _$OverviewModelImpl implements _OverviewModel {
   final String name;
   @override
   final String eName;
+  @override
+  final String hello;
   @override
   final String birthday;
   @override
@@ -508,7 +524,7 @@ class _$OverviewModelImpl implements _OverviewModel {
 
   @override
   String toString() {
-    return 'OverviewModel(name: $name, eName: $eName, birthday: $birthday, imageUrl: $imageUrl, position: $position, introduction: $introduction, links: $links)';
+    return 'OverviewModel(name: $name, eName: $eName, hello: $hello, birthday: $birthday, imageUrl: $imageUrl, position: $position, introduction: $introduction, links: $links)';
   }
 
   @override
@@ -518,6 +534,7 @@ class _$OverviewModelImpl implements _OverviewModel {
             other is _$OverviewModelImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.eName, eName) || other.eName == eName) &&
+            (identical(other.hello, hello) || other.hello == hello) &&
             (identical(other.birthday, birthday) ||
                 other.birthday == birthday) &&
             (identical(other.imageUrl, imageUrl) ||
@@ -531,8 +548,16 @@ class _$OverviewModelImpl implements _OverviewModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, eName, birthday, imageUrl,
-      position, introduction, const DeepCollectionEquality().hash(_links));
+  int get hashCode => Object.hash(
+      runtimeType,
+      name,
+      eName,
+      hello,
+      birthday,
+      imageUrl,
+      position,
+      introduction,
+      const DeepCollectionEquality().hash(_links));
 
   @JsonKey(ignore: true)
   @override
@@ -552,6 +577,7 @@ abstract class _OverviewModel implements OverviewModel {
   const factory _OverviewModel(
       {required final String name,
       required final String eName,
+      required final String hello,
       required final String birthday,
       required final String imageUrl,
       required final String position,
@@ -565,6 +591,8 @@ abstract class _OverviewModel implements OverviewModel {
   String get name;
   @override
   String get eName;
+  @override
+  String get hello;
   @override
   String get birthday;
   @override

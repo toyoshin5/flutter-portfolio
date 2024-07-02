@@ -12,6 +12,7 @@ class ProfileNotifier extends _$ProfileNotifier {
       overview: OverviewModel(
         name: '豊田真吾',
         eName: 'Shingo Toyoda',
+        hello: 'Hi, I\'m Shingo Toyoda. \nI like Swift, Flutter, Cooking🍳 & Gaming🎮.',
         birthday: '2002/03/22',
         imageUrl: 'https://avatars.githubusercontent.com/u/43494392?v=4',
         position: 'Passionate about Mobile App Development',

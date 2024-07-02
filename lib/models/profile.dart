@@ -23,6 +23,7 @@ class OverviewModel with _$OverviewModel {
   const factory OverviewModel({
     required String name,
     required String eName,
+    required String hello,
     required String birthday,
     required String imageUrl,
     required String position,

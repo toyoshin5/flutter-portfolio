@@ -44,6 +44,7 @@ dependencies:
   gap: ^3.0.1
   fl_chart: ^0.68.0
   device_preview: ^1.2.0
+  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:
@@ -100,5 +101,8 @@ flutter:
         - asset: assets/font/SF-Pro-Text-Bold.otf
           weight: 700
         - asset: assets/font/SF-Pro-Text-Regular.otf
+    - family: SFMono
+      fonts:
+        - asset: assets/font/SF-Mono-Bold.otf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

@@ -42,6 +42,7 @@ _$OverviewModelImpl _$$OverviewModelImplFromJson(Map<String, dynamic> json) =>
     _$OverviewModelImpl(
       name: json['name'] as String,
       eName: json['eName'] as String,
+      hello: json['hello'] as String,
       birthday: json['birthday'] as String,
       imageUrl: json['imageUrl'] as String,
       position: json['position'] as String,
@@ -55,6 +56,7 @@ Map<String, dynamic> _$$OverviewModelImplToJson(_$OverviewModelImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'eName': instance.eName,
+      'hello': instance.hello,
       'birthday': instance.birthday,
       'imageUrl': instance.imageUrl,
       'position': instance.position,

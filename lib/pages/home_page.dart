@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/models/profile.dart';
 import 'package:flutter_portfolio/screen_pod.dart';
@@ -9,18 +12,18 @@ import 'package:gap/gap.dart';
 
 import 'package:flutter_portfolio/providers/profile_provider.dart';
 import 'package:flutter_portfolio/styles/app_colors.dart';
-import 'package:flutter_portfolio/widget/budge.dart';
 import 'package:flutter_portfolio/widget/circle_image.dart';
 import 'package:flutter_portfolio/widget/link_button.dart';
 import 'package:flutter_portfolio/widget/timeline.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
-  final double headerHeight = 400;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final model = ref.watch(profileNotifierProvider);
+    final headerHeight = min(MediaQuery.of(context).size.height - 200,
+        MediaQuery.of(context).size.width);
     return SelectionArea(
       child: Scaffold(
         backgroundColor: AppColors.groupedBackround(context),
@@ -46,7 +49,7 @@ class HomePage extends ConsumerWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Gap(headerHeight),
+                      _HelloText(headerHeight: headerHeight, text: model.overview.hello),
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: const BorderRadius.vertical(
@@ -83,6 +86,7 @@ class HomePage extends ConsumerWidget {
   }
 }
 
+
 class ScrollContentsArea extends ConsumerWidget {
   const ScrollContentsArea({
     super.key,
@@ -91,50 +95,54 @@ class ScrollContentsArea extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final screenCls = ScreenRef(context).watch(screenProvider).sizeClass;
-    return Row(
-      mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Column(
       children: [
-        Flexible(
-          flex: 3,
-          child: Container(
-            constraints: const BoxConstraints(maxWidth: 768),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const _MyNameArea(),
-                const Gap(16),
-                const _SNSArea(),
-                const Gap(16),
-                const _IntroArea(),
-                if (screenCls != ScreenSizeClass.desktop) const _NewsArea(),
-                const _ProjectsArea(),
-                const _SkillArea(),
-                const _AwardArea(),
-                const _ProfileArea(),
-                const _AboutThisSiteArea(),
-              ],
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Flexible(
+              flex: 3,
+              child: Container(
+                constraints: const BoxConstraints(maxWidth: 768),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const _MyNameArea(),
+                    const Gap(16),
+                    const _SNSArea(),
+                    const Gap(16),
+                    const _IntroArea(),
+                    if (screenCls != ScreenSizeClass.desktop) const _NewsArea(),
+                    const _ProjectsArea(),
+                    const _SkillArea(),
+                    const _AwardArea(),
+                    const _ProfileArea(),
+                  ],
+                ),
+              ),
             ),
-          ),
+            if (screenCls == ScreenSizeClass.desktop) ...[
+              const Gap(16),
+              const Flexible(
+                flex: 1,
+                child: _NewsArea(
+                  separated: true,
+                ),
+              ),
+            ]
+          ],
         ),
-        if (screenCls == ScreenSizeClass.desktop) ...[
-          const Gap(16),
-          const Flexible(
-            flex: 1,
-            child: _NewsArea(),
-          ),
-        ]
+      const _AboutThisSiteArea(),
       ],
     );
   }
 }
 
 class _MyNameArea extends ConsumerWidget {
-  const _MyNameArea({
-    super.key,
-  });
+  const _MyNameArea();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -169,9 +177,7 @@ class _MyNameArea extends ConsumerWidget {
 }
 
 class _SNSArea extends ConsumerWidget {
-  const _SNSArea({
-    super.key,
-  });
+  const _SNSArea();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -195,9 +201,7 @@ class _SNSArea extends ConsumerWidget {
 }
 
 class _IntroArea extends ConsumerWidget {
-  const _IntroArea({
-    super.key,
-  });
+  const _IntroArea();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -211,8 +215,9 @@ class _IntroArea extends ConsumerWidget {
 
 class _NewsArea extends ConsumerWidget {
   const _NewsArea({
-    super.key,
+    this.separated = false,
   });
+  final bool separated;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -220,36 +225,57 @@ class _NewsArea extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TitleText(text: "NEWS"),
-        Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: AppColors.backGround(context),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              for (final news in model.news) ...[
-                Text(news.date,
-                    style: TextStyle(
-                        fontSize: 14, color: AppColors.secondary(context))),
-                Text(news.text, style: const TextStyle(fontSize: 16)),
-                const Gap(16),
+        const TitleText(text: "NEWS 📰"),
+        if (separated)
+          for (final news in model.news) ...[
+            Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: AppColors.backGround(context),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(news.date,
+                      style: TextStyle(
+                          fontSize: 14, color: AppColors.secondary(context))),
+                  Text(news.text, style: const TextStyle(fontSize: 16)),
+                  const Gap(16),
+                ],
+              ),
+            ),
+            const Gap(20),
+          ]
+        else
+          Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: AppColors.backGround(context),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                for (final news in model.news) ...[
+                  Text(news.date,
+                      style: TextStyle(
+                          fontSize: 14, color: AppColors.secondary(context))),
+                  Text(news.text, style: const TextStyle(fontSize: 16)),
+                  const Gap(16),
+                ],
               ],
-            ],
+            ),
           ),
-        ),
       ],
     );
   }
 }
 
 class _ProjectsArea extends ConsumerWidget {
-  const _ProjectsArea({
-    super.key,
-  });
+  const _ProjectsArea();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -259,7 +285,7 @@ class _ProjectsArea extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TitleText(text: "PROJECTS"),
+        const TitleText(text: "PROJECTS 💻"),
         if (isTwoColumn)
           //2等分する
           for (var i = 0; i < model.projects.length; i += 2) ...[
@@ -290,9 +316,7 @@ class _ProjectsArea extends ConsumerWidget {
 }
 
 class _SkillArea extends ConsumerWidget {
-  const _SkillArea({
-    super.key,
-  });
+  const _SkillArea();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -300,7 +324,7 @@ class _SkillArea extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TitleText(text: "SKILLS"),
+        const TitleText(text: "SKILLS 💪"),
         SkillGraph(
           skills: model.skills,
           height: 100,
@@ -311,9 +335,7 @@ class _SkillArea extends ConsumerWidget {
 }
 
 class _AwardArea extends ConsumerWidget {
-  const _AwardArea({
-    super.key,
-  });
+  const _AwardArea();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -321,7 +343,7 @@ class _AwardArea extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TitleText(text: "AWARDS"),
+        const TitleText(text: "AWARDS 🏆"),
         Container(
           width: double.infinity,
           decoration: BoxDecoration(
@@ -352,9 +374,7 @@ class _AwardArea extends ConsumerWidget {
 }
 
 class _ProfileArea extends ConsumerWidget {
-  const _ProfileArea({
-    super.key,
-  });
+  const _ProfileArea();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -363,7 +383,7 @@ class _ProfileArea extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TitleText(text: "Profile"),
+        const TitleText(text: "Profile 🕺"),
         AppTimeline(
           isDesktop: (screenCls != ScreenSizeClass.phone),
           profiles: model.profile,
@@ -374,9 +394,7 @@ class _ProfileArea extends ConsumerWidget {
 }
 
 class _AboutThisSiteArea extends StatelessWidget {
-  const _AboutThisSiteArea({
-    super.key,
-  });
+  const _AboutThisSiteArea();
 
   @override
   Widget build(BuildContext context) {
@@ -417,10 +435,15 @@ class TitleText extends StatelessWidget {
   Widget build(BuildContext context) {
     final fontSize = (MediaQuery.of(context).size.width > 768) ? 28.0 : 24.0;
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 24, 0, 16),
-      child: Text(
-        text,
-        style: TextStyle(fontSize: fontSize, fontWeight: FontWeight.bold),
+      padding: const EdgeInsets.fromLTRB(0, 48, 0, 16),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            text,
+            style: TextStyle(fontSize: fontSize, fontWeight: FontWeight.bold),
+          ),
+        ],
       ),
     );
   }
@@ -435,3 +458,43 @@ final Map<String, IconData> faIconMap = {
   "laptopCode": FontAwesomeIcons.laptopCode,
   "link": FontAwesomeIcons.link,
 };
+
+
+class _HelloText extends StatelessWidget {
+  const _HelloText({
+    required this.headerHeight,
+    required this.text,
+  });
+
+  final double headerHeight;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: headerHeight,
+      padding: const EdgeInsets.fromLTRB(24, 30, 24, 0),
+      child: Center(
+        child: DefaultTextStyle(
+          style: const TextStyle(
+            color: Colors.white,
+            height: 1.8,
+            fontSize: 24.0,
+              fontFamily: "SFMono",
+          ),
+          child: AnimatedTextKit(
+            pause: const Duration(milliseconds: 1000),
+            animatedTexts: [
+              TypewriterAnimatedText(""),
+              TypewriterAnimatedText(text,
+                  speed: const Duration(milliseconds: 130),
+                  curve: Curves.linear,
+                  textAlign: TextAlign.center),
+            ],
+            isRepeatingAnimation: false,
+          ),
+        ),
+      ),
+    );
+  }
+}

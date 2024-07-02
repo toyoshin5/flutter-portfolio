@@ -448,7 +448,7 @@ class TitleText extends StatelessWidget {
 }
 
 final Map<String, IconData> faIconMap = {
-  "locationDot": FontAwesomeIcons.twitter,
+  "locationDot": FontAwesomeIcons.locationDot,
   "github": FontAwesomeIcons.github,
   "appStore": FontAwesomeIcons.appStore,
   "facebook": FontAwesomeIcons.facebook,

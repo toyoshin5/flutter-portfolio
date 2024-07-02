@@ -943,7 +943,7 @@ mixin _$ProjectsModel {
   String get title => throw _privateConstructorUsedError;
   String get date => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  String get imageUrl => throw _privateConstructorUsedError;
+  String get imagePath => throw _privateConstructorUsedError;
   List<BudgeType> get budges => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -962,7 +962,7 @@ abstract class $ProjectsModelCopyWith<$Res> {
       {String title,
       String date,
       String description,
-      String imageUrl,
+      String imagePath,
       List<BudgeType> budges});
 }
 
@@ -982,7 +982,7 @@ class _$ProjectsModelCopyWithImpl<$Res, $Val extends ProjectsModel>
     Object? title = null,
     Object? date = null,
     Object? description = null,
-    Object? imageUrl = null,
+    Object? imagePath = null,
     Object? budges = null,
   }) {
     return _then(_value.copyWith(
@@ -998,9 +998,9 @@ class _$ProjectsModelCopyWithImpl<$Res, $Val extends ProjectsModel>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      imageUrl: null == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
+      imagePath: null == imagePath
+          ? _value.imagePath
+          : imagePath // ignore: cast_nullable_to_non_nullable
               as String,
       budges: null == budges
           ? _value.budges
@@ -1022,7 +1022,7 @@ abstract class _$$ProjectsModelImplCopyWith<$Res>
       {String title,
       String date,
       String description,
-      String imageUrl,
+      String imagePath,
       List<BudgeType> budges});
 }
 
@@ -1040,7 +1040,7 @@ class __$$ProjectsModelImplCopyWithImpl<$Res>
     Object? title = null,
     Object? date = null,
     Object? description = null,
-    Object? imageUrl = null,
+    Object? imagePath = null,
     Object? budges = null,
   }) {
     return _then(_$ProjectsModelImpl(
@@ -1056,9 +1056,9 @@ class __$$ProjectsModelImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      imageUrl: null == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
+      imagePath: null == imagePath
+          ? _value.imagePath
+          : imagePath // ignore: cast_nullable_to_non_nullable
               as String,
       budges: null == budges
           ? _value._budges
@@ -1075,7 +1075,7 @@ class _$ProjectsModelImpl implements _ProjectsModel {
       {required this.title,
       required this.date,
       required this.description,
-      required this.imageUrl,
+      required this.imagePath,
       required final List<BudgeType> budges})
       : _budges = budges;
 
@@ -1089,7 +1089,7 @@ class _$ProjectsModelImpl implements _ProjectsModel {
   @override
   final String description;
   @override
-  final String imageUrl;
+  final String imagePath;
   final List<BudgeType> _budges;
   @override
   List<BudgeType> get budges {
@@ -1100,7 +1100,7 @@ class _$ProjectsModelImpl implements _ProjectsModel {
 
   @override
   String toString() {
-    return 'ProjectsModel(title: $title, date: $date, description: $description, imageUrl: $imageUrl, budges: $budges)';
+    return 'ProjectsModel(title: $title, date: $date, description: $description, imagePath: $imagePath, budges: $budges)';
   }
 
   @override
@@ -1112,15 +1112,15 @@ class _$ProjectsModelImpl implements _ProjectsModel {
             (identical(other.date, date) || other.date == date) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl) &&
+            (identical(other.imagePath, imagePath) ||
+                other.imagePath == imagePath) &&
             const DeepCollectionEquality().equals(other._budges, _budges));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, title, date, description,
-      imageUrl, const DeepCollectionEquality().hash(_budges));
+      imagePath, const DeepCollectionEquality().hash(_budges));
 
   @JsonKey(ignore: true)
   @override
@@ -1141,7 +1141,7 @@ abstract class _ProjectsModel implements ProjectsModel {
       {required final String title,
       required final String date,
       required final String description,
-      required final String imageUrl,
+      required final String imagePath,
       required final List<BudgeType> budges}) = _$ProjectsModelImpl;
 
   factory _ProjectsModel.fromJson(Map<String, dynamic> json) =
@@ -1154,7 +1154,7 @@ abstract class _ProjectsModel implements ProjectsModel {
   @override
   String get description;
   @override
-  String get imageUrl;
+  String get imagePath;
   @override
   List<BudgeType> get budges;
   @override

@@ -95,7 +95,7 @@ _$ProjectsModelImpl _$$ProjectsModelImplFromJson(Map<String, dynamic> json) =>
       title: json['title'] as String,
       date: json['date'] as String,
       description: json['description'] as String,
-      imageUrl: json['imageUrl'] as String,
+      imagePath: json['imagePath'] as String,
       budges: (json['budges'] as List<dynamic>)
           .map((e) => $enumDecode(_$BudgeTypeEnumMap, e))
           .toList(),
@@ -106,7 +106,7 @@ Map<String, dynamic> _$$ProjectsModelImplToJson(_$ProjectsModelImpl instance) =>
       'title': instance.title,
       'date': instance.date,
       'description': instance.description,
-      'imageUrl': instance.imageUrl,
+      'imagePath': instance.imagePath,
       'budges': instance.budges.map((e) => _$BudgeTypeEnumMap[e]!).toList(),
     };
 

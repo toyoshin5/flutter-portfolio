@@ -36,8 +36,8 @@ class ProjectCard extends StatelessWidget {
               topLeft: Radius.circular(48),
               topRight: Radius.circular(12),
             ),
-            child: Image.network(
-              project.imageUrl,
+            child: Image.asset(
+              "assets/images/${project.imagePath}",
               fit: BoxFit.cover,
               width: double.infinity,
             ),

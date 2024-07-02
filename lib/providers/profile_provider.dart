@@ -69,7 +69,7 @@ class ProfileNotifier extends _$ProfileNotifier {
           title: 'ここがタイトル',
           date: '2021/08',
           description: 'やったことやったことやったことやったこと',
-          imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfaWn5LsbQWyIAx7EdfX8px5jqW7H2wrPY6A&s',
+          imagePath: 'photocurrency.png',
           budges: [
             BudgeType.flutter,
             BudgeType.swift,
@@ -79,7 +79,7 @@ class ProfileNotifier extends _$ProfileNotifier {
           title: 'ここがタイトル2',
           date: '2021/08',
           description: 'やったことやったことやったことやったこと',
-          imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfaWn5LsbQWyIAx7EdfX8px5jqW7H2wrPY6A&s',
+          imagePath: 'photocurrency.png',
           budges: [
             BudgeType.flutter,
             BudgeType.swift,
@@ -89,7 +89,7 @@ class ProfileNotifier extends _$ProfileNotifier {
           title: 'ここがタイトルここがタイトルここがタイトルここがタイトルここがタイトル',
           date: '2021/08',
           description: 'やったことやったことやったことやったことやったことやったことやったことやったことやったことやったことやったことやったことやったことやったことやったことやったことやったことやったことやったことやったことやったことやったことやったことやったこと',
-          imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfaWn5LsbQWyIAx7EdfX8px5jqW7H2wrPY6A&s',
+          imagePath: 'photocurrency.png',
           budges: [
             BudgeType.flutter,
             BudgeType.swift,
@@ -99,7 +99,7 @@ class ProfileNotifier extends _$ProfileNotifier {
           title: 'ここがタイトル2',
           date: '2021/08',
           description: 'やったことやったことやったことやったこと',
-          imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfaWn5LsbQWyIAx7EdfX8px5jqW7H2wrPY6A&s',
+          imagePath: 'photocurrency.png',
           budges: [
             BudgeType.flutter,
             BudgeType.swift,
@@ -109,7 +109,7 @@ class ProfileNotifier extends _$ProfileNotifier {
           title: 'ここがタイトル2',
           date: '2021/08',
           description: 'やったことやったことやったことやったこと',
-          imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfaWn5LsbQWyIAx7EdfX8px5jqW7H2wrPY6A&s',
+          imagePath: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfaWn5LsbQWyIAx7EdfX8px5jqW7H2wrPY6A&s',
           budges: [
             BudgeType.flutter,
             BudgeType.swift,

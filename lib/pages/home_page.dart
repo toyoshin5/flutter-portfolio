@@ -14,6 +14,7 @@ import 'package:flutter_portfolio/styles/app_colors.dart';
 import 'package:flutter_portfolio/widget/circle_image.dart';
 import 'package:flutter_portfolio/widget/link_button.dart';
 import 'package:flutter_portfolio/widget/timeline.dart';
+import 'package:typewritertext/typewritertext.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -35,9 +36,8 @@ class HomePage extends ConsumerWidget {
               width: double.infinity,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage("assets/images/background.jpeg")
-                ),
+                    fit: BoxFit.cover,
+                    image: AssetImage("assets/images/background.jpeg")),
               ),
             ),
             SingleChildScrollView(
@@ -47,7 +47,9 @@ class HomePage extends ConsumerWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _HelloText(headerHeight: headerHeight, text: model.overview.hello),
+                      _HelloText(
+                          headerHeight: headerHeight,
+                          text: model.overview.hello),
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: const BorderRadius.vertical(
@@ -84,7 +86,6 @@ class HomePage extends ConsumerWidget {
   }
 }
 
-
 class ScrollContentsArea extends ConsumerWidget {
   const ScrollContentsArea({
     super.key,
@@ -111,7 +112,10 @@ class ScrollContentsArea extends ConsumerWidget {
                     const _MyNameArea(),
                     const Gap(24),
                     const _SNSArea(),
-                    if (screenCls == ScreenSizeClass.desktop) const Divider(height: 48) else const Gap(24),
+                    if (screenCls == ScreenSizeClass.desktop)
+                      const Divider(height: 48)
+                    else
+                      const Gap(24),
                     const _IntroArea(),
                     if (screenCls != ScreenSizeClass.desktop) const _NewsArea(),
                     const _ProjectsArea(),
@@ -133,7 +137,7 @@ class ScrollContentsArea extends ConsumerWidget {
             ]
           ],
         ),
-      const _AboutThisSiteArea(),
+        const _AboutThisSiteArea(),
       ],
     );
   }
@@ -457,7 +461,6 @@ final Map<String, IconData> faIconMap = {
   "link": FontAwesomeIcons.link,
 };
 
-
 class _HelloText extends StatelessWidget {
   const _HelloText({
     required this.headerHeight,
@@ -471,26 +474,20 @@ class _HelloText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: headerHeight,
-      padding: const EdgeInsets.fromLTRB(24, 30, 24, 0),
+      padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
       child: Center(
-        child: DefaultTextStyle(
+        child: TypeWriter.text(
+          text,
+          alignment: Alignment.center,
+          textAlign: TextAlign.center,
+          softWrap: true,
           style: const TextStyle(
             color: Colors.white,
             height: 1.8,
             fontSize: 24.0,
-              fontFamily: "SFMono",
+            fontFamily: "SFMono",
           ),
-          child: AnimatedTextKit(
-            pause: const Duration(milliseconds: 1000),
-            animatedTexts: [
-              TypewriterAnimatedText(""),
-              TypewriterAnimatedText(text,
-                  speed: const Duration(milliseconds: 130),
-                  curve: Curves.linear,
-                  textAlign: TextAlign.center),
-            ],
-            isRepeatingAnimation: false,
-          ),
+          duration: const Duration(milliseconds: 130),
         ),
       ),
     );

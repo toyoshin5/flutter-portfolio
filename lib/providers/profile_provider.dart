@@ -11,7 +11,7 @@ class ProfileNotifier extends _$ProfileNotifier {
     return const PortfolioModel(
       overview: OverviewModel(
         name: '豊田真吾',
-        eName: 'Shingo Toyoda',
+        eName: 'Shingo Toyoda (Canvas)',
         hello: 'Hi, I\'m Shingo Toyoda. \nI like Swift, Flutter, Cooking🍳 & Gaming🎮.',
         birthday: '2002/03/22',
         imageUrl: 'https://avatars.githubusercontent.com/u/43494392?v=4',

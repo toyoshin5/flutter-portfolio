@@ -172,11 +172,11 @@ class ProfileNotifier extends _$ProfileNotifier {
         ProjectsModel(
           title: '通貨換算カメラ',
           date: '2024/03',
-          description: 'カメラを値札にかざすだけで通貨を換算してくれるアプリです。UXやアニメーションにこだわりました。MVVMアーキテクチャを採用してみたりもしました。',
+          description: 'カメラを値札にかざすだけで39カ国の通貨を換算してくれるアプリです。UXやアニメーションにこだわりました。MVVMアーキテクチャを採用してみたりもしました。',
           imagePath: 'photocurrency.png',
           budges: [
-            BudgeType.flutter,
             BudgeType.swift,
+            BudgeType.swiftui,
           ], 
         ), 
       ],

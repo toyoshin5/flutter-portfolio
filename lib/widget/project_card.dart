@@ -49,7 +49,7 @@ class ProjectCard extends StatelessWidget {
               children: [
                 Text(project.title,
                     style: const TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.bold)),
+                        fontSize: 24, fontWeight: FontWeight.bold)),
                 const Gap(8),
                 Wrap(
                   spacing: 8,

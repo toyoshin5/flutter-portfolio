@@ -7,6 +7,7 @@ enum BudgeType {
   swiftui,
   kotlin,
   hackerson,
+  contest,
   personal,
   team,
 }
@@ -26,6 +27,7 @@ class Budge extends StatelessWidget {
     BudgeType.swiftui: "SwiftUI",
     BudgeType.kotlin: "Kotlin",
     BudgeType.hackerson: "ハッカソン",
+    BudgeType.contest: "コンテスト",
     BudgeType.personal: "個人開発",
     BudgeType.team: "チーム開発",
   };
@@ -37,6 +39,7 @@ class Budge extends StatelessWidget {
     BudgeType.swiftui: Color(0xff007AFF),
     BudgeType.kotlin: Color(0xff0095D5),
     BudgeType.hackerson: Color(0xff000000),
+    BudgeType.contest: Color(0xff000000),
     BudgeType.personal: Color(0xffFF4500),
     BudgeType.team: Color(0xffFF4500),
   };

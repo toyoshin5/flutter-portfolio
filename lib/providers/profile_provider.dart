@@ -75,9 +75,9 @@ class ProfileNotifier extends _$ProfileNotifier {
           description: 'X風のUIのメモ&リマインダーアプリです。すべてのメモには木構造のようにリプライを繋げられることが特徴です。日本語と英語に対応しています。AppStoreにて約10万DL。',
           imagePath: 'photocurrency.png',
           budges: [
-            BudgeType.personal,
             BudgeType.swift,
             BudgeType.uikit,
+            BudgeType.personal,
           ], 
         ),
         ProjectsModel(
@@ -86,9 +86,10 @@ class ProfileNotifier extends _$ProfileNotifier {
           description: '外国人観光客向けに日本での現金の最適な払い方を提案するアプリです。レジなどで店員の会計金額の声をマイクで録音し、財布が最も軽くなる支払い方を指南します。初めてのチーム開発経験として教授やメンバー相談しながら開発を進めました。',
           imagePath: 'coins.png',
           budges: [
+            BudgeType.kotlin,
             BudgeType.team,
             BudgeType.contest,
-            BudgeType.kotlin,
+
           ], 
         ),
         ProjectsModel(
@@ -97,15 +98,81 @@ class ProfileNotifier extends _$ProfileNotifier {
           description: 'これから行ってみたい飲食店や行った外食の思い出を残して自分だけの”ごはんマップ”を作れるアプリです。JPHacksというハッカソンで作成し、4人チームのリーダを努めました。GitHubを使ったissue管理やCI/CDを初めて活用しました。',
           imagePath: 'coins.png',
           budges: [
+            BudgeType.flutter,
             BudgeType.team,
             BudgeType.hackerson,
-            BudgeType.flutter,
           ],
         ),
         ProjectsModel(
-          title: 'ここがタイトル2',
+          title: 'PhantomTale',
+          date: '2021/01',
+          description: 'UnrealEngine5を使って作成したVRアクションゲームです。高専の創造工学の授業で友達と6人で制作しました。操作キャラ周りを担当し、リアルな弓の射撃体験を実装に落とし込んでみました。',
+          imagePath: 'photocurrency.png',
+          budges: [
+            BudgeType.unrealengine,
+            BudgeType.team,
+          ], 
+        ), 
+        ProjectsModel(
+          title: 'Rakupe',
+          date: '2019/03',
+          description: '頭の動きでページをめくるPDFリーダーです。電車のつり革などで片手が封じられている状況でも頭を使ってメージをめくることができます。学内ハッカソンで作成しました。',
+          imagePath: 'photocurrency.png',
+          budges: [
+            BudgeType.swift,
+            BudgeType.uikit,
+            BudgeType.team,
+            BudgeType.hackerson,
+          ], 
+        ), 
+        ProjectsModel(
+          title: 'RSSimply',
+          date: '2023/04',
+          description: 'iPadのPlaygroundsだけを使って開発してみました。登録したRSSフィードを取得して記事を表示するアプリです。',
+          imagePath: 'photocurrency.png',
+          budges: [
+            BudgeType.swift,
+            BudgeType.swiftui,
+            BudgeType.personal,
+          ], 
+        ), 
+        ProjectsModel(
+          title: 'ARメジャー',
+          date: '2018/04',
+          description: 'iPhoneの計測アプリのようにカメラを用いて2点間の距離を測るアプリですが、Appleが計測アプリを公開する前に作成しました。',
+          imagePath: 'photocurrency.png',
+          budges: [
+            BudgeType.swift,
+            BudgeType.uikit,
+          ], 
+        ), 
+        ProjectsModel(
+          title: 'AppleMusicClone',
           date: '2021/08',
-          description: 'やったことやったことやったことやったこと',
+          description: 'AppleMusicのアルバム画面のUIを、様々なプラットフォームで再現して開発体験やアプリの操作性などを比較してみました。NavigationBarのブラーやスクロールの感覚など、細かい違いを実感できておもしろかったです。',
+          imagePath: 'photocurrency.png',
+          budges: [
+            BudgeType.swift,
+            BudgeType.uikit,
+            BudgeType.swiftui,
+            BudgeType.flutter,
+            BudgeType.reactNative,
+          ], 
+        ), 
+         ProjectsModel(
+          title: 'プロ棋士サーバ',
+          date: '2022/09',
+          description: '対面で行う囲碁の対局で、対局時計と棋譜の管理を自動化してくれるアプリです。ノートパソコンの内カメラを使って盤面を映すことで、現在の盤面の様子を自動で記録することができます。技育展2022に出展。',
+          imagePath: 'photocurrency.png',
+          budges: [
+            BudgeType.flutter,
+            BudgeType.swift,
+          ], 
+        ), 
+        ProjectsModel(
+          title: '通貨換算カメラ',
+          date: '2024/03',
+          description: 'カメラを値札にかざすだけで通貨を換算してくれるアプリです。UXやアニメーションにこだわりました。MVVMアーキテクチャを採用してみたりもしました。',
           imagePath: 'photocurrency.png',
           budges: [
             BudgeType.flutter,

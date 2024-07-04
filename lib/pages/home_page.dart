@@ -449,6 +449,7 @@ class TitleText extends StatelessWidget {
   }
 }
 
+
 final Map<String, IconData> faIconMap = {
   "locationDot": FontAwesomeIcons.locationDot,
   "github": FontAwesomeIcons.github,
@@ -457,6 +458,7 @@ final Map<String, IconData> faIconMap = {
   "instagram": FontAwesomeIcons.instagram,
   "laptopCode": FontAwesomeIcons.laptopCode,
   "link": FontAwesomeIcons.link,
+  "graduationCap":FontAwesomeIcons.graduationCap,
 };
 
 class _HelloText extends StatelessWidget {

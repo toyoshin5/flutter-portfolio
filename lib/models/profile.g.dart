@@ -95,6 +95,7 @@ _$ProjectsModelImpl _$$ProjectsModelImplFromJson(Map<String, dynamic> json) =>
       title: json['title'] as String,
       date: json['date'] as String,
       description: json['description'] as String,
+      url: json['url'] as String,
       imagePath: json['imagePath'] as String,
       budges: (json['budges'] as List<dynamic>)
           .map((e) => $enumDecode(_$BudgeTypeEnumMap, e))
@@ -106,6 +107,7 @@ Map<String, dynamic> _$$ProjectsModelImplToJson(_$ProjectsModelImpl instance) =>
       'title': instance.title,
       'date': instance.date,
       'description': instance.description,
+      'url': instance.url,
       'imagePath': instance.imagePath,
       'budges': instance.budges.map((e) => _$BudgeTypeEnumMap[e]!).toList(),
     };
@@ -113,8 +115,14 @@ Map<String, dynamic> _$$ProjectsModelImplToJson(_$ProjectsModelImpl instance) =>
 const _$BudgeTypeEnumMap = {
   BudgeType.flutter: 'flutter',
   BudgeType.swift: 'swift',
+  BudgeType.uikit: 'uikit',
+  BudgeType.swiftui: 'swiftui',
   BudgeType.kotlin: 'kotlin',
+  BudgeType.react: 'react',
+  BudgeType.reactNative: 'reactNative',
+  BudgeType.unrealengine: 'unrealengine',
   BudgeType.hackerson: 'hackerson',
+  BudgeType.contest: 'contest',
   BudgeType.personal: 'personal',
   BudgeType.team: 'team',
 };

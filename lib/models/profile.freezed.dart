@@ -943,6 +943,7 @@ mixin _$ProjectsModel {
   String get title => throw _privateConstructorUsedError;
   String get date => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
+  String get url => throw _privateConstructorUsedError;
   String get imagePath => throw _privateConstructorUsedError;
   List<BudgeType> get budges => throw _privateConstructorUsedError;
 
@@ -962,6 +963,7 @@ abstract class $ProjectsModelCopyWith<$Res> {
       {String title,
       String date,
       String description,
+      String url,
       String imagePath,
       List<BudgeType> budges});
 }
@@ -982,6 +984,7 @@ class _$ProjectsModelCopyWithImpl<$Res, $Val extends ProjectsModel>
     Object? title = null,
     Object? date = null,
     Object? description = null,
+    Object? url = null,
     Object? imagePath = null,
     Object? budges = null,
   }) {
@@ -997,6 +1000,10 @@ class _$ProjectsModelCopyWithImpl<$Res, $Val extends ProjectsModel>
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
               as String,
       imagePath: null == imagePath
           ? _value.imagePath
@@ -1022,6 +1029,7 @@ abstract class _$$ProjectsModelImplCopyWith<$Res>
       {String title,
       String date,
       String description,
+      String url,
       String imagePath,
       List<BudgeType> budges});
 }
@@ -1040,6 +1048,7 @@ class __$$ProjectsModelImplCopyWithImpl<$Res>
     Object? title = null,
     Object? date = null,
     Object? description = null,
+    Object? url = null,
     Object? imagePath = null,
     Object? budges = null,
   }) {
@@ -1055,6 +1064,10 @@ class __$$ProjectsModelImplCopyWithImpl<$Res>
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
               as String,
       imagePath: null == imagePath
           ? _value.imagePath
@@ -1075,6 +1088,7 @@ class _$ProjectsModelImpl implements _ProjectsModel {
       {required this.title,
       required this.date,
       required this.description,
+      required this.url,
       required this.imagePath,
       required final List<BudgeType> budges})
       : _budges = budges;
@@ -1089,6 +1103,8 @@ class _$ProjectsModelImpl implements _ProjectsModel {
   @override
   final String description;
   @override
+  final String url;
+  @override
   final String imagePath;
   final List<BudgeType> _budges;
   @override
@@ -1100,7 +1116,7 @@ class _$ProjectsModelImpl implements _ProjectsModel {
 
   @override
   String toString() {
-    return 'ProjectsModel(title: $title, date: $date, description: $description, imagePath: $imagePath, budges: $budges)';
+    return 'ProjectsModel(title: $title, date: $date, description: $description, url: $url, imagePath: $imagePath, budges: $budges)';
   }
 
   @override
@@ -1112,6 +1128,7 @@ class _$ProjectsModelImpl implements _ProjectsModel {
             (identical(other.date, date) || other.date == date) &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            (identical(other.url, url) || other.url == url) &&
             (identical(other.imagePath, imagePath) ||
                 other.imagePath == imagePath) &&
             const DeepCollectionEquality().equals(other._budges, _budges));
@@ -1119,7 +1136,7 @@ class _$ProjectsModelImpl implements _ProjectsModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, title, date, description,
+  int get hashCode => Object.hash(runtimeType, title, date, description, url,
       imagePath, const DeepCollectionEquality().hash(_budges));
 
   @JsonKey(ignore: true)
@@ -1141,6 +1158,7 @@ abstract class _ProjectsModel implements ProjectsModel {
       {required final String title,
       required final String date,
       required final String description,
+      required final String url,
       required final String imagePath,
       required final List<BudgeType> budges}) = _$ProjectsModelImpl;
 
@@ -1153,6 +1171,8 @@ abstract class _ProjectsModel implements ProjectsModel {
   String get date;
   @override
   String get description;
+  @override
+  String get url;
   @override
   String get imagePath;
   @override

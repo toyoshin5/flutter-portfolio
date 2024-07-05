@@ -45,6 +45,7 @@ dependencies:
   fl_chart: ^0.68.0
   device_preview: ^1.2.0
   typewritertext: ^3.0.6
+  flutter_emoji: ^2.5.1
 
 dev_dependencies:
   flutter_test:

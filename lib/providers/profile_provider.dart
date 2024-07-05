@@ -11,7 +11,7 @@ class ProfileNotifier extends _$ProfileNotifier {
     return const PortfolioModel(
       overview: OverviewModel(
         name: '豊田真吾',
-        eName: 'Shingo Toyoda (Canvas)',
+        eName: 'Shingo Toyoda',
         hello: 'Hi, I\'m Shingo Toyoda. \nI like Swift, Flutter, Cooking🍳 & Gaming🎮.',
         birthday: '2002/03/22',
         imageUrl: 'https://avatars.githubusercontent.com/u/43494392?v=4',
@@ -73,13 +73,46 @@ class ProfileNotifier extends _$ProfileNotifier {
           title: 'TwiNotes',
           date: '2021/08',
           description: 'X風のUIのメモ&リマインダーアプリです。すべてのメモには木構造のようにリプライを繋げられることが特徴です。日本語と英語に対応しています。AppStoreにて約10万DL。',
-          imagePath: 'photocurrency.png',
+          imagePath: 'twinotes.png',
           budges: [
             BudgeType.swift,
             BudgeType.uikit,
             BudgeType.personal,
           ], 
         ),
+        ProjectsModel(
+          title: 'Umap(うまっぷ)',
+          date: '2023/08',
+          description: 'これから行ってみたい飲食店や行った外食の思い出を残して自分だけの”ごはんマップ”を作れるアプリです。JPHacksというハッカソンで作成し、4人チームのリーダを努めました。GitHubを使ったissue管理やCI/CDを初めて活用しました。',
+          imagePath: 'umap.png',
+          budges: [
+            BudgeType.flutter,
+            BudgeType.team,
+            BudgeType.hackerson,
+          ],
+        ), 
+        ProjectsModel(
+          title: 'ARメジャー',
+          date: '2018/04',
+          description: 'iPhoneの計測アプリのようにカメラを用いて2点間の距離を測るアプリですが、Appleが計測アプリを公開する前に作成しました。',
+          imagePath: 'armeasure.png',
+          budges: [
+            BudgeType.swift,
+            BudgeType.uikit,
+          ], 
+        ), 
+        ProjectsModel(
+          title: 'Rakupe',
+          date: '2019/03',
+          description: '頭の動きでページをめくるPDFリーダーです。電車のつり革などで片手が封じられている状況でも頭を使ってメージをめくることができます。学内ハッカソンで作成しました。',
+          imagePath: 'rakupe.png',
+          budges: [
+            BudgeType.swift,
+            BudgeType.uikit,
+            BudgeType.team,
+            BudgeType.hackerson,
+          ], 
+        ), 
         ProjectsModel(
           title: 'COINs!',
           date: '2019/11',
@@ -93,80 +126,48 @@ class ProfileNotifier extends _$ProfileNotifier {
           ], 
         ),
         ProjectsModel(
-          title: 'Umap(うまっぷ)',
-          date: '2023/08',
-          description: 'これから行ってみたい飲食店や行った外食の思い出を残して自分だけの”ごはんマップ”を作れるアプリです。JPHacksというハッカソンで作成し、4人チームのリーダを努めました。GitHubを使ったissue管理やCI/CDを初めて活用しました。',
-          imagePath: 'coins.png',
-          budges: [
-            BudgeType.flutter,
-            BudgeType.team,
-            BudgeType.hackerson,
-          ],
-        ),
-        ProjectsModel(
           title: 'PhantomTale',
           date: '2021/01',
           description: 'UnrealEngine5を使って作成したVRアクションゲームです。高専の創造工学の授業で友達と6人で制作しました。操作キャラ周りを担当し、リアルな弓の射撃体験を実装に落とし込んでみました。',
-          imagePath: 'photocurrency.png',
+          imagePath: 'phantomtale.png',
           budges: [
             BudgeType.unrealengine,
             BudgeType.team,
           ], 
-        ), 
+        ),
         ProjectsModel(
-          title: 'Rakupe',
-          date: '2019/03',
-          description: '頭の動きでページをめくるPDFリーダーです。電車のつり革などで片手が封じられている状況でも頭を使ってメージをめくることができます。学内ハッカソンで作成しました。',
-          imagePath: 'photocurrency.png',
+          title: 'プロ棋士サーバ',
+          date: '2022/09',
+          description: '対面で行う囲碁の対局で、対局時計と棋譜の管理を自動化してくれるアプリです。ノートパソコンの内カメラを使って盤面を映すことで、現在の盤面の様子を自動で記録することができます。技育展2022に出展。',
+          imagePath: 'proxy.png',
           budges: [
+            BudgeType.flutter,
             BudgeType.swift,
-            BudgeType.uikit,
-            BudgeType.team,
-            BudgeType.hackerson,
           ], 
         ), 
         ProjectsModel(
           title: 'RSSimply',
           date: '2023/04',
           description: 'iPadのPlaygroundsだけを使って開発してみました。登録したRSSフィードを取得して記事を表示するアプリです。',
-          imagePath: 'photocurrency.png',
+          imagePath: 'rssimply.png',
           budges: [
             BudgeType.swift,
             BudgeType.swiftui,
             BudgeType.personal,
           ], 
         ), 
-        ProjectsModel(
-          title: 'ARメジャー',
-          date: '2018/04',
-          description: 'iPhoneの計測アプリのようにカメラを用いて2点間の距離を測るアプリですが、Appleが計測アプリを公開する前に作成しました。',
-          imagePath: 'photocurrency.png',
-          budges: [
-            BudgeType.swift,
-            BudgeType.uikit,
-          ], 
-        ), 
+
         ProjectsModel(
           title: 'AppleMusicClone',
-          date: '2021/08',
+          date: '2023/12',
           description: 'AppleMusicのアルバム画面のUIを、様々なプラットフォームで再現して開発体験やアプリの操作性などを比較してみました。NavigationBarのブラーやスクロールの感覚など、細かい違いを実感できておもしろかったです。',
-          imagePath: 'photocurrency.png',
+          imagePath: 'applemusicclone.png',
           budges: [
             BudgeType.swift,
             BudgeType.uikit,
             BudgeType.swiftui,
             BudgeType.flutter,
             BudgeType.reactNative,
-          ], 
-        ), 
-         ProjectsModel(
-          title: 'プロ棋士サーバ',
-          date: '2022/09',
-          description: '対面で行う囲碁の対局で、対局時計と棋譜の管理を自動化してくれるアプリです。ノートパソコンの内カメラを使って盤面を映すことで、現在の盤面の様子を自動で記録することができます。技育展2022に出展。',
-          imagePath: 'photocurrency.png',
-          budges: [
-            BudgeType.flutter,
-            BudgeType.swift,
           ], 
         ), 
         ProjectsModel(

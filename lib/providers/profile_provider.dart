@@ -12,7 +12,7 @@ class ProfileNotifier extends _$ProfileNotifier {
       overview: OverviewModel(
         name: '豊田真吾',
         eName: 'Shingo Toyoda',
-        hello: 'Hi, I\'m Shingo Toyoda. \nI like Swift, Flutter, Cooking🍳 & Gaming🎮.',
+        hello: 'Hi, I\'m Shingo Toyoda. \nI like Swift, Flutter, Cooking & Gaming.',
         birthday: '2002/03/22',
         imageUrl: 'https://avatars.githubusercontent.com/u/43494392?v=4',
         position: 'Passionate about Mobile App Development',
@@ -74,6 +74,7 @@ class ProfileNotifier extends _$ProfileNotifier {
           date: '2021/08',
           description: 'X風のUIのメモ&リマインダーアプリです。すべてのメモには木構造のようにリプライを繋げられることが特徴です。日本語と英語に対応しています。AppStoreにて約10万DL。',
           imagePath: 'twinotes.jpeg',
+          url: 'https://apps.apple.com/jp/app/twinotes-sns%E9%A2%A8%E3%83%A1%E3%83%A2/id1583565949',
           budges: [
             BudgeType.swift,
             BudgeType.uikit,
@@ -85,6 +86,7 @@ class ProfileNotifier extends _$ProfileNotifier {
           date: '2023/08',
           description: 'これから行ってみたい飲食店や行った外食の思い出を残して自分だけの”ごはんマップ”を作れるアプリです。JPHacksというハッカソンで作成し、4人チームのリーダを努めました。GitHubを使ったissue管理やCI/CDを初めて活用しました。',
           imagePath: 'umap.jpeg',
+          url:'https://apps.apple.com/jp/app/umap-%E3%81%86%E3%81%BE%E3%81%A3%E3%81%B7/id6471849198',
           budges: [
             BudgeType.flutter,
             BudgeType.team,
@@ -96,6 +98,7 @@ class ProfileNotifier extends _$ProfileNotifier {
           date: '2018/04',
           description: 'iPhoneの計測アプリのようにカメラを用いて2点間の距離を測るアプリですが、Appleが計測アプリを公開する前に作成しました。',
           imagePath: 'armeasure.png',
+          url:'https://github.com/toyoshin5/AR-Measure',
           budges: [
             BudgeType.swift,
             BudgeType.uikit,
@@ -106,6 +109,7 @@ class ProfileNotifier extends _$ProfileNotifier {
           date: '2019/03',
           description: '頭の動きでページをめくるPDFリーダーです。電車のつり革などで片手が封じられている状況でも頭を使ってメージをめくることができます。学内ハッカソンで作成しました。',
           imagePath: 'rakupe.png',
+          url:'https://github.com/toyoshin5/Rakupe',
           budges: [
             BudgeType.swift,
             BudgeType.uikit,
@@ -118,6 +122,7 @@ class ProfileNotifier extends _$ProfileNotifier {
           date: '2019/11',
           description: '外国人観光客向けに日本での現金の最適な払い方を提案するアプリです。レジなどで店員の会計金額の声をマイクで録音し、財布が最も軽くなる支払い方を指南します。初めてのチーム開発経験として教授やメンバー相談しながら開発を進めました。',
           imagePath: 'coins.png',
+          url:'https://web-ext.u-aizu.ac.jp/pc-concours/2019/final/f_photo_mobile.html',
           budges: [
             BudgeType.kotlin,
             BudgeType.team,
@@ -130,6 +135,7 @@ class ProfileNotifier extends _$ProfileNotifier {
           date: '2021/01',
           description: 'UnrealEngine5を使って作成したVRアクションゲームです。高専の創造工学の授業で友達と6人で制作しました。操作キャラ周りを担当し、リアルな弓の射撃体験を実装に落とし込んでみました。',
           imagePath: 'phantomtale.png',
+          url:'https://youtu.be/0Zpa3UZzZDk',
           budges: [
             BudgeType.unrealengine,
             BudgeType.team,
@@ -140,6 +146,7 @@ class ProfileNotifier extends _$ProfileNotifier {
           date: '2022/09',
           description: '対面で行う囲碁の対局で、対局時計と棋譜の管理を自動化してくれるアプリです。ノートパソコンの内カメラを使って盤面を映すことで、現在の盤面の様子を自動で記録することができます。技育展2022に出展。',
           imagePath: 'proxy.png',
+          url:'https://spice-test-project-d3472.web.app/',
           budges: [
             BudgeType.flutter,
             BudgeType.swift,
@@ -150,6 +157,7 @@ class ProfileNotifier extends _$ProfileNotifier {
           date: '2023/04',
           description: 'iPadのPlaygroundsだけを使って開発してみました。登録したRSSフィードを取得して記事を表示するアプリです。',
           imagePath: 'rssimply.png',
+          url:'https://apps.apple.com/jp/app/rssimply/id6448121530',
           budges: [
             BudgeType.swift,
             BudgeType.swiftui,
@@ -162,6 +170,7 @@ class ProfileNotifier extends _$ProfileNotifier {
           date: '2023/12',
           description: 'AppleMusicのアルバム画面のUIを、様々なプラットフォームで再現して開発体験やアプリの操作性などを比較してみました。NavigationBarのブラーやスクロールの感覚など、細かい違いを実感できておもしろかったです。',
           imagePath: 'applemusicclone.png',
+          url:'https://github.com/toyoshin5/AppleMusicClone-with-SwiftUI',
           budges: [
             BudgeType.swift,
             BudgeType.uikit,
@@ -175,6 +184,7 @@ class ProfileNotifier extends _$ProfileNotifier {
           date: '2024/03',
           description: 'カメラを値札にかざすだけで39カ国の通貨を換算してくれるアプリです。UXやアニメーションにこだわりました。MVVMアーキテクチャを採用してみたりもしました。',
           imagePath: 'photocurrency.jpeg',
+          url:'https://apps.apple.com/jp/app/photocurrency-%E9%80%9A%E8%B2%A8%E5%A4%89%E6%8F%9B%E3%82%AB%E3%83%A1%E3%83%A9/id6479285476',
           budges: [
             BudgeType.swift,
             BudgeType.swiftui,
@@ -189,7 +199,7 @@ class ProfileNotifier extends _$ProfileNotifier {
         ),
         SkillsModel(
           language: "Flutter",
-          languageFull: "Flutter",
+          languageFull: "Flutter (Dart)",
           level: 5,
         ),
         SkillsModel(
@@ -199,7 +209,7 @@ class ProfileNotifier extends _$ProfileNotifier {
         ),
         SkillsModel(
           language: "C++",
-          languageFull: "C++",
+          languageFull: "C/C++",
           level: 4,
         ),
         SkillsModel(
@@ -214,7 +224,7 @@ class ProfileNotifier extends _$ProfileNotifier {
         ),
         SkillsModel(
           language: "JS",
-          languageFull: "JavaScript#",
+          languageFull: "JavaScript",
           level: 2,
         ),
         SkillsModel(
@@ -240,27 +250,59 @@ class ProfileNotifier extends _$ProfileNotifier {
       ],
       awards: [
         AwardsModel(
-          date: '2021/08',
-          text: 'やったことやったことやったことやったこと',
+          date: '2019/11',
+          text: 'パソコン甲子園2019 モバイル部門 グランプリ',
         ),
         AwardsModel(
-          date: '2021/09',
-          text: 'やったこと2やったこと2やったこと2やったこと',
+          date: '2022/09',
+          text: '技育展2022 優秀賞',
+        ),
+        AwardsModel(
+          date: '2023/11',
+          text: 'JPHacks2023 ,FinalistAward,イノベータ認定,企業賞',
+        ),
+        AwardsModel(
+          date: '2024/03',
+          text: '北海道大学工学部情報エレクトロニクス学科 コース長賞',
         ),
       ],
       profile: [
         ProfileModel(
-          date: '2021/08',
-          text: 'やったことやったことやったことやったこと',
+          date: '2002/3',
+          text: '愛知県小牧市で生まれる',
+          faIconName: 'person',
+        ),
+        ProfileModel(
+          date: '2017/3',
+          text: '三重県内の公立中学校を卒業',
           faIconName: 'graduationCap',
         ),
-         ProfileModel(
-          date: '2021/09',
-          text: 'やったこと2やったこと2やったこと2やったこと',
+        ProfileModel(
+          date: '2017/4',
+          text: '鈴鹿工業高等専門学校 電子情報工学科 入学',
+          faIconName: 'person',
+        ),
+        ProfileModel(
+          date: '2022/3',
+          text: '鈴鹿工業高等専門学校 電子情報工学科 卒業',
           faIconName: 'graduationCap',
+        ),
+        ProfileModel(
+          date: '2022/4',
+          text: '北海道大学 工学部 情報エレクトロニクス学科 入学',
+          faIconName: 'person',
+        ),
+        ProfileModel(
+          date: '2024/3',
+          text: '北海道大学 工学部 情報エレクトロニクス学科 卒業',
+          faIconName: 'graduationCap',
+        ),
+        ProfileModel(
+          date: '2024/4',
+          text: '北海道大学 情報科学院 修士課程 入学',
+          faIconName: 'person',
         ),
       ],
     );
   }
-
 }

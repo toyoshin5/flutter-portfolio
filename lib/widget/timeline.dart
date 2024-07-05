@@ -47,7 +47,8 @@ class AppTimeline extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
+          Container(
+            width: 80,
             padding: const EdgeInsets.only(top: 21),
             child: Text(
               profile.date,
@@ -55,7 +56,6 @@ class AppTimeline extends StatelessWidget {
                   fontSize: dateFontSize, fontWeight: FontWeight.bold),
             ),
           ),
-          const Gap(10),
           Column(
             mainAxisSize: MainAxisSize.max,
             children: [

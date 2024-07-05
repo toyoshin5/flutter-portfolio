@@ -26,6 +26,12 @@ class ProjectCard extends StatelessWidget {
           bottomRight: Radius.circular(48),
           bottomLeft: Radius.circular(12),
         ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            offset: const Offset(0, 4),
+            blurRadius: 4,
+          ),]
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

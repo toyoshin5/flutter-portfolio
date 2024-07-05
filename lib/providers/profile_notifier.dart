@@ -97,12 +97,13 @@ class ProfileNotifier extends _$ProfileNotifier {
         ProjectsModel(
           title: 'ARメジャー',
           date: '2018/04',
-          description: 'iPhoneの計測アプリのようにカメラを用いて2点間の距離を測るアプリですが、Appleが計測アプリを公開する前に作成しました。',
+          description: 'カメラを用いて2点間の距離を測るアプリです。一見iPhoneの計測アプリと同じ機能のように見えますが、実はAppleが計測アプリを公開する前に作成しました。',
           imagePath: 'armeasure.png',
           url:'https://github.com/toyoshin5/AR-Measure',
           budges: [
             BudgeType.swift,
             BudgeType.uikit,
+            BudgeType.personal,
           ], 
         ), 
         ProjectsModel(
@@ -149,8 +150,9 @@ class ProfileNotifier extends _$ProfileNotifier {
           imagePath: 'proxy.png',
           url:'https://spice-test-project-d3472.web.app/',
           budges: [
-            BudgeType.flutter,
-            BudgeType.swift,
+            BudgeType.react,
+            BudgeType.team,
+            BudgeType.hackerson,
           ], 
         ), 
         ProjectsModel(
@@ -178,6 +180,7 @@ class ProfileNotifier extends _$ProfileNotifier {
             BudgeType.swiftui,
             BudgeType.flutter,
             BudgeType.reactNative,
+            BudgeType.personal,
           ], 
         ), 
         ProjectsModel(
@@ -189,6 +192,7 @@ class ProfileNotifier extends _$ProfileNotifier {
           budges: [
             BudgeType.swift,
             BudgeType.swiftui,
+            BudgeType.personal,
           ], 
         ), 
       ],

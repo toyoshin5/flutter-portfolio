@@ -147,6 +147,7 @@ class _MyNameArea extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final model = ref.watch(profileNotifierProvider);
+    final notifire = ref.watch(profileNotifierProvider.notifier);
     final screenCls = ScreenRef(context).watch(screenProvider).sizeClass;
     return SizedBox(
       width: double.infinity,
@@ -160,7 +161,7 @@ class _MyNameArea extends ConsumerWidget {
                 fontWeight: FontWeight.bold),
           ),
           Text(
-            "${model.overview.name} (22)",
+            "${model.overview.name} (${notifire.age})",
             style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -449,7 +450,6 @@ class TitleText extends StatelessWidget {
   }
 }
 
-
 final Map<String, IconData> faIconMap = {
   "locationDot": FontAwesomeIcons.locationDot,
   "github": FontAwesomeIcons.github,
@@ -458,7 +458,7 @@ final Map<String, IconData> faIconMap = {
   "instagram": FontAwesomeIcons.instagram,
   "laptopCode": FontAwesomeIcons.laptopCode,
   "link": FontAwesomeIcons.link,
-  "graduationCap":FontAwesomeIcons.graduationCap,
+  "graduationCap": FontAwesomeIcons.graduationCap,
   "person": FontAwesomeIcons.person,
 };
 

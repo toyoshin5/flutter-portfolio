@@ -1,4 +1,5 @@
 import 'package:flutter_portfolio/widget/budge.dart';
+import "package:intl/intl.dart";
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../models/profile.dart';
 
@@ -308,5 +309,19 @@ class ProfileNotifier extends _$ProfileNotifier {
         ),
       ],
     );
+  }
+
+  int get age {
+    final now = DateTime.now();
+    final birth = DateFormat('yyyy/MM/dd').parse(state.overview.birthday);
+    final age = now.year - birth.year;
+    if (now.month < birth.month) {
+      return age - 1;
+    } else if (now.month == birth.month) {
+      if (now.day < birth.day) {
+        return age - 1;
+      }
+    }
+    return age;
   }
 }

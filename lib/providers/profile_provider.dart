@@ -254,6 +254,10 @@ class ProfileNotifier extends _$ProfileNotifier {
           text: 'パソコン甲子園2019 モバイル部門 グランプリ',
         ),
         AwardsModel(
+          date: '2022/03',
+          text: '鈴鹿高専電子情報工学科 卒業論文 ベストプレゼンテーション賞',
+        ),
+        AwardsModel(
           date: '2022/09',
           text: '技育展2022 優秀賞',
         ),

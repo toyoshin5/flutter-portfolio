@@ -55,8 +55,6 @@ class NewsModel with _$NewsModel {
   factory NewsModel.fromJson(Map<String, dynamic> json) => _$NewsModelFromJson(json);
 }
 
-//modelを作っていく
-
 @freezed
 class ProjectsModel with _$ProjectsModel {
   const factory ProjectsModel({

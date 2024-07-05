@@ -187,6 +187,56 @@ class ProfileNotifier extends _$ProfileNotifier {
           languageFull: "Swift",
           level: 5,
         ),
+        SkillsModel(
+          language: "Flutter",
+          languageFull: "Flutter",
+          level: 5,
+        ),
+        SkillsModel(
+          language: "Python",
+          languageFull: "Python",
+          level: 4,
+        ),
+        SkillsModel(
+          language: "C++",
+          languageFull: "C++",
+          level: 4,
+        ),
+        SkillsModel(
+          language: "Kotlin",
+          languageFull: "Kotlin",
+          level: 3,
+        ),
+        SkillsModel(
+          language: "C#",
+          languageFull: "C#",
+          level: 3,
+        ),
+        SkillsModel(
+          language: "JS",
+          languageFull: "JavaScript#",
+          level: 2,
+        ),
+        SkillsModel(
+          language: "Arduino",
+          languageFull: "Arduino",
+          level: 2,
+        ),
+        SkillsModel(
+          language: "Ruby",
+          languageFull: "Ruby",
+          level: 1,
+        ),
+        SkillsModel(
+          language: "lua",
+          languageFull: "lua",
+          level: 1,
+        ),
+        SkillsModel(
+          language: "Go",
+          languageFull: "Go",
+          level: 1,
+        ),
       ],
       awards: [
         AwardsModel(

@@ -327,7 +327,7 @@ class _SkillArea extends ConsumerWidget {
         const TitleText(text: "SKILLS 💪"),
         SkillGraph(
           skills: model.skills,
-          height: 100,
+          height: 600,
         ),
       ],
     );

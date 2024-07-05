@@ -2,7 +2,7 @@ import 'package:flutter_portfolio/widget/budge.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../models/profile.dart';
 
-part 'profile_provider.g.dart';
+part 'profile_notifier.g.dart';
 
 @riverpod
 class ProfileNotifier extends _$ProfileNotifier {

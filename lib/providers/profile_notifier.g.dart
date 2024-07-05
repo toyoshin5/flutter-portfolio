@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'profile_provider.dart';
+part of 'profile_notifier.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$profileNotifierHash() => r'a9b7bbb8f9a651537621f1cd1e2a9b7264163316';
+String _$profileNotifierHash() => r'097296afff57b8a2bbff87c2cd8a043f7ac40a89';
 
 /// See also [ProfileNotifier].
 @ProviderFor(ProfileNotifier)

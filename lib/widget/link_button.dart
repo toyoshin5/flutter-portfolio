@@ -28,6 +28,7 @@ class LinkButton extends StatelessWidget {
         return TextButton(
           onPressed: followLink,
           style: TextButton.styleFrom(
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             foregroundColor: AppColors.label(context),
             backgroundColor: AppColors.grey(context),
             shape: RoundedRectangleBorder(

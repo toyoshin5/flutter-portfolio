@@ -73,7 +73,7 @@ class ProfileNotifier extends _$ProfileNotifier {
           title: 'TwiNotes',
           date: '2021/08',
           description: 'X風のUIのメモ&リマインダーアプリです。すべてのメモには木構造のようにリプライを繋げられることが特徴です。日本語と英語に対応しています。AppStoreにて約10万DL。',
-          imagePath: 'twinotes.png',
+          imagePath: 'twinotes.jpeg',
           budges: [
             BudgeType.swift,
             BudgeType.uikit,
@@ -84,7 +84,7 @@ class ProfileNotifier extends _$ProfileNotifier {
           title: 'Umap(うまっぷ)',
           date: '2023/08',
           description: 'これから行ってみたい飲食店や行った外食の思い出を残して自分だけの”ごはんマップ”を作れるアプリです。JPHacksというハッカソンで作成し、4人チームのリーダを努めました。GitHubを使ったissue管理やCI/CDを初めて活用しました。',
-          imagePath: 'umap.png',
+          imagePath: 'umap.jpeg',
           budges: [
             BudgeType.flutter,
             BudgeType.team,
@@ -174,7 +174,7 @@ class ProfileNotifier extends _$ProfileNotifier {
           title: '通貨換算カメラ',
           date: '2024/03',
           description: 'カメラを値札にかざすだけで39カ国の通貨を換算してくれるアプリです。UXやアニメーションにこだわりました。MVVMアーキテクチャを採用してみたりもしました。',
-          imagePath: 'photocurrency.png',
+          imagePath: 'photocurrency.jpeg',
           budges: [
             BudgeType.swift,
             BudgeType.swiftui,

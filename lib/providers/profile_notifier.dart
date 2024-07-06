@@ -61,6 +61,10 @@ class ProfileNotifier extends _$ProfileNotifier {
           text: 'AtCoderで緑レートに到達しました',
         ),
         NewsModel(
+          date: '2024/04',
+          text: 'ゆめみパスポート(iOSエンジニア)に合格しました',
+        ),
+        NewsModel(
           date: '2024/03',
           text: 'PhotoCurrency - 通貨変換カメラを配信開始しました',
         ),

@@ -34,7 +34,7 @@ class AppLicensePage extends ConsumerWidget {
               licenseMapList.sort((a, b) => a.key.compareTo(b.key));
               return ListView(
                 children: [
-                  for (final entry in licenseMapList)
+                  for (final entry in licenseMapList)...[
                     CupertinoListTile(
                       title: Text(entry.key),
                       onTap: () {
@@ -45,6 +45,8 @@ class AppLicensePage extends ConsumerWidget {
                         );
                       },
                     ),
+                    const Divider(height: 1,),
+                  ],
                 ],
               );
             },
@@ -92,3 +94,14 @@ class LicenseDetailPage extends StatelessWidget {
     );
   }
 }
+
+//二次利用の際は以下も含める
+// part 'license_notifier.g.dart';
+
+// @riverpod
+// class LicensesNotifier extends _$LicensesNotifier {
+//   @override
+//   Future<List<LicenseEntry>> build() async {
+//     return LicenseRegistry.licenses.toList();
+//   }
+// }

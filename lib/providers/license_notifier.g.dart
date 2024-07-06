@@ -1,26 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'profile_notifier.dart';
+part of 'license_notifier.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$profileNotifierHash() => r'3cf2d1e3cdda14f6e3d9ff75cf369dc89a8be164';
+String _$licensesNotifierHash() => r'bae46c0c9e3a66563e6b995743d98ca90a5a1f8e';
 
-/// See also [ProfileNotifier].
-@ProviderFor(ProfileNotifier)
-final profileNotifierProvider =
-    AutoDisposeNotifierProvider<ProfileNotifier, PortfolioModel>.internal(
-  ProfileNotifier.new,
-  name: r'profileNotifierProvider',
+/// See also [LicensesNotifier].
+@ProviderFor(LicensesNotifier)
+final licensesNotifierProvider = AutoDisposeAsyncNotifierProvider<
+    LicensesNotifier, List<LicenseEntry>>.internal(
+  LicensesNotifier.new,
+  name: r'licensesNotifierProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$profileNotifierHash,
+      : _$licensesNotifierHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$ProfileNotifier = AutoDisposeNotifier<PortfolioModel>;
+typedef _$LicensesNotifier = AutoDisposeAsyncNotifier<List<LicenseEntry>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

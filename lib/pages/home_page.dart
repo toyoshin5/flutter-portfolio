@@ -147,7 +147,7 @@ class _MyNameArea extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final model = ref.watch(profileNotifierProvider);
-    final notifire = ref.watch(profileNotifierProvider.notifier);
+    final notifier = ref.watch(profileNotifierProvider.notifier);
     final screenCls = ScreenRef(context).watch(screenProvider).sizeClass;
     return SizedBox(
       width: double.infinity,
@@ -161,7 +161,7 @@ class _MyNameArea extends ConsumerWidget {
                 fontWeight: FontWeight.bold),
           ),
           Text(
-            "${model.overview.name} (${notifire.age})",
+            "${model.overview.name} (${notifier.age})",
             style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -399,23 +399,26 @@ class _AboutThisSiteArea extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
           width: double.infinity,
           child: Column(
             children: [
-              Gap(128),
-              Text(
+              const Gap(128),
+              TextButton(onPressed: () {
+                Navigator.of(context).pushNamed("/license");
+              }, child: const Text("ライセンス情報")),
+              const Text(
                 "このポートフォリオはFlutterで作成してみました",
               ),
-              Gap(8),
-              Text(
+              const Gap(8),
+              const Text(
                 "© 2024 Shingo Toyoda All Rights Reserved.",
                 style: TextStyle(fontSize: 14, color: Colors.grey),
               ),
-              Gap(64),
+              const Gap(64),
             ],
           ),
         ),

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/providers/license_notifier.dart';
+import 'package:flutter_portfolio/styles/app_colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AppLicensePage extends ConsumerWidget {
@@ -14,8 +15,9 @@ class AppLicensePage extends ConsumerWidget {
 
     return Material(
       child: CupertinoPageScaffold(
-        navigationBar: const CupertinoNavigationBar(
-          middle: Text('ライセンス'),
+        navigationBar: CupertinoNavigationBar(
+          middle: Text('ライセンス',style: TextStyle(color: AppColors.label(context))),
+          backgroundColor: AppColors.backGround(context),
         ),
         child: SafeArea(
           child: licensesAsyncValue.when(
@@ -36,7 +38,7 @@ class AppLicensePage extends ConsumerWidget {
                 children: [
                   for (final entry in licenseMapList)...[
                     CupertinoListTile(
-                      title: Text(entry.key),
+                      title: Text(entry.key,style: TextStyle(color: AppColors.label(context))),
                       onTap: () {
                         Navigator.of(context).push(
                           CupertinoPageRoute(
@@ -69,7 +71,8 @@ class LicenseDetailPage extends StatelessWidget {
     return Material(
       child: CupertinoPageScaffold(
         navigationBar: CupertinoNavigationBar(
-          middle: Text(licenses.key),
+          middle: Text(licenses.key,style: TextStyle(color: AppColors.label(context))),
+          backgroundColor: AppColors.backGround(context),
         ),
         child: SafeArea(
           child: ListView(
@@ -82,7 +85,6 @@ class LicenseDetailPage extends StatelessWidget {
                   children: [
                     Text(
                       license.paragraphs.map((p) => p.text).join('\n\n'),
-                      // style: const TextStyle(fontSize: 14),
                     ),
                     const Divider(height: 48),// ライセンス間の区切り線
                   ],

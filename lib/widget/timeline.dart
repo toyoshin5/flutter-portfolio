@@ -95,7 +95,7 @@ class AppTimeline extends StatelessWidget {
           const Gap(10),
           Flexible(
             child: Container(
-              margin: EdgeInsets.fromLTRB(0, 5, 0, spacing),
+              margin: EdgeInsets.fromLTRB(0, 7, 0, spacing),
               padding: const EdgeInsets.all(12.0),
               decoration: BoxDecoration(
                 color: AppColors.backGround(context),

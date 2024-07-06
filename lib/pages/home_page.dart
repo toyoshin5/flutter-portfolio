@@ -407,13 +407,12 @@ class _AboutThisSiteArea extends StatelessWidget {
           child: Column(
             children: [
               const Gap(128),
-              TextButton(onPressed: () {
-                Navigator.of(context).pushNamed("/license");
-              }, child: const Text("ライセンス情報")),
               const Text(
                 "このポートフォリオはFlutterで作成してみました",
               ),
-              const Gap(8),
+               TextButton(onPressed: () {
+                Navigator.of(context).pushNamed("/license");
+              }, child: const Text("ライセンス情報")),
               const Text(
                 "© 2024 Shingo Toyoda All Rights Reserved.",
                 style: TextStyle(fontSize: 14, color: Colors.grey),

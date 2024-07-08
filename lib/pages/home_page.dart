@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/providers/cook_path_notifier.dart';
 import 'package:flutter_portfolio/screen_pod.dart';
 import 'package:flutter_portfolio/widget/gallary_photo_view_wrapper.dart';
 import 'package:flutter_portfolio/widget/graph.dart';
@@ -396,28 +397,22 @@ class _ProfileArea extends ConsumerWidget {
   }
 }
 
-class _CookArea extends StatelessWidget {
+class _CookArea extends ConsumerWidget {
   const _CookArea({
     super.key,
-    this.pathList = const ["IMG_0055.jpg", "IMG_0799.jpg"],
   });
-  final List<String> pathList;
 
-  void openGallery(BuildContext context, int index) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => GalleryPhotoViewWrapper(
-          galleryItems: List.generate(pathList.length,
-              (index) => "assets/images/cook/${pathList[index]}"),
-          initialIndex: index,
-        ),
-      ),
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    var asyncValue = ref.watch(cookPathNotifierProvider);
+    return asyncValue.when(
+      data: (data) => _buildCookGrid(data, context),
+      loading: () => const CircularProgressIndicator(),
+      error: (error, stack) => Text("Error: $error"),
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Column _buildCookGrid(List<String> data, BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -429,17 +424,16 @@ class _CookArea extends StatelessWidget {
           crossAxisCount: 3,
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          children: List.generate(pathList.length, (index) {
-            final imgPath = "assets/images/cook/${pathList[index]}";
+          children: List.generate(data.length, (index) {
             return Hero(
-              tag: imgPath,
+              tag: data[index],
               child: GestureDetector(
-                onTap: () => openGallery(context, index),
+                onTap: () => openGallery(context,data,index),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     image: DecorationImage(
-                      image: AssetImage(imgPath),
+                      image: AssetImage(data[index]),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -450,6 +444,19 @@ class _CookArea extends StatelessWidget {
         ),
         const Gap(16),
       ],
+    );
+  }
+
+  void openGallery(BuildContext context, List<String> data,int index) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => GalleryPhotoViewWrapper(
+          galleryItems: List.generate(data.length,
+              (index) => data[index]),
+          initialIndex: index,
+        ),
+      ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/screen_pod.dart';
+import 'package:flutter_portfolio/widget/gallary_photo_view_wrapper.dart';
 import 'package:flutter_portfolio/widget/graph.dart';
 import 'package:flutter_portfolio/widget/project_card.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -395,8 +396,25 @@ class _ProfileArea extends ConsumerWidget {
   }
 }
 
-class _CookArea extends StatelessWidget{
-  const _CookArea();
+class _CookArea extends StatelessWidget {
+  const _CookArea({
+    super.key,
+    this.pathList = const ["IMG_0055.jpg", "IMG_0799.jpg"],
+  });
+  final List<String> pathList;
+
+  void openGallery(BuildContext context, int index) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => GalleryPhotoViewWrapper(
+          galleryItems: List.generate(pathList.length,
+              (index) => "assets/images/cook/${pathList[index]}"),
+          initialIndex: index,
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -405,21 +423,26 @@ class _CookArea extends StatelessWidget{
       children: [
         const TitleText(text: "Cooking 🍳"),
         const Gap(16),
-        //グリッド状にnetworkImageを表示
         GridView.count(
           mainAxisSpacing: 4,
           crossAxisSpacing: 4,
           crossAxisCount: 3,
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          children: List.generate(200, (index) {
-            return Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                image: const DecorationImage(
-                  image: NetworkImage(
-                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx2qcKAz_hqMRda9TnCrnA1uZEmbAc6vLVQA&s"),
-                  fit: BoxFit.cover,
+          children: List.generate(pathList.length, (index) {
+            final imgPath = "assets/images/cook/${pathList[index]}";
+            return Hero(
+              tag: imgPath,
+              child: GestureDetector(
+                onTap: () => openGallery(context, index),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    image: DecorationImage(
+                      image: AssetImage(imgPath),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
               ),
             );
@@ -447,9 +470,11 @@ class _AboutThisSiteArea extends StatelessWidget {
               const Text(
                 "このポートフォリオはFlutterで作成してみました",
               ),
-               TextButton(onPressed: () {
-                Navigator.of(context).pushNamed("/license");
-              }, child: const Text("ライセンス情報")),
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed("/license");
+                  },
+                  child: const Text("ライセンス情報")),
               const Text(
                 "© 2024 Shingo Toyoda All Rights Reserved.",
                 style: TextStyle(fontSize: 14, color: Colors.grey),
@@ -462,8 +487,6 @@ class _AboutThisSiteArea extends StatelessWidget {
     );
   }
 }
-
-
 
 class TitleText extends StatelessWidget {
   const TitleText({

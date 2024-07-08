@@ -21,6 +21,7 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    PaintingBinding.instance.imageCache.maximumSizeBytes = 30 << 20;
     final model = ref.watch(profileNotifierProvider);
     final headerHeight = min(MediaQuery.of(context).size.height - 200,
         MediaQuery.of(context).size.width);
@@ -413,6 +414,7 @@ class _CookArea extends ConsumerWidget {
   }
 
   Column _buildCookGrid(List<String> data, BuildContext context) {
+    final screenCls = ScreenRef(context).watch(screenProvider).sizeClass;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -421,7 +423,7 @@ class _CookArea extends ConsumerWidget {
         GridView.count(
           mainAxisSpacing: 4,
           crossAxisSpacing: 4,
-          crossAxisCount: 3,
+          crossAxisCount: (screenCls == ScreenSizeClass.phone) ? 2 : 4,
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           children: List.generate(data.length, (index) {

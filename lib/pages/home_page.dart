@@ -120,6 +120,7 @@ class ScrollContentsArea extends ConsumerWidget {
                     const _SkillArea(),
                     const _AwardArea(),
                     const _ProfileArea(),
+                    const _CookArea(),
                   ],
                 ),
               ),
@@ -394,6 +395,42 @@ class _ProfileArea extends ConsumerWidget {
   }
 }
 
+class _CookArea extends StatelessWidget{
+  const _CookArea();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const TitleText(text: "Cooking 🍳"),
+        const Gap(16),
+        //グリッド状にnetworkImageを表示
+        GridView.count(
+          mainAxisSpacing: 4,
+          crossAxisSpacing: 4,
+          crossAxisCount: 3,
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          children: List.generate(200, (index) {
+            return Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                image: const DecorationImage(
+                  image: NetworkImage(
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx2qcKAz_hqMRda9TnCrnA1uZEmbAc6vLVQA&s"),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            );
+          }),
+        ),
+        const Gap(16),
+      ],
+    );
+  }
+}
+
 class _AboutThisSiteArea extends StatelessWidget {
   const _AboutThisSiteArea();
 
@@ -425,6 +462,8 @@ class _AboutThisSiteArea extends StatelessWidget {
     );
   }
 }
+
+
 
 class TitleText extends StatelessWidget {
   const TitleText({

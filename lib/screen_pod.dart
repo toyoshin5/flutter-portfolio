@@ -37,7 +37,7 @@ const screenProvider = ScreenProvider(
   breakpoints: {
     ScreenSizeClass.phone: 0,
     ScreenSizeClass.tablet: 768,
-    ScreenSizeClass.desktop: 1100,
+    ScreenSizeClass.desktop: 1200,
   },
 );
 

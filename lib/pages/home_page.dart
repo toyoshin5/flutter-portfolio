@@ -21,10 +21,12 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    PaintingBinding.instance.imageCache.maximumSizeBytes = 30 << 20;
     final model = ref.watch(profileNotifierProvider);
     final headerHeight = min(MediaQuery.of(context).size.height - 200,
         MediaQuery.of(context).size.width);
+    final screenW = MediaQuery.of(context).size.width;
+    final screenCls = ScreenRef(context).watch(screenProvider).sizeClass;
+    final sliverPadding = (screenCls == ScreenSizeClass.phone) ? 16.0 : (screenCls == ScreenSizeClass.tablet) ? (screenW - 768)/2 : (screenW - 1084)/2;
     return SelectionArea(
       child: Scaffold(
         backgroundColor: AppColors.groupedBackround(context),
@@ -41,45 +43,101 @@ class HomePage extends ConsumerWidget {
                     image: AssetImage("assets/images/background.jpeg")),
               ),
             ),
-            SingleChildScrollView(
-              child: Stack(
-                alignment: AlignmentDirectional.topCenter,
-                children: [
-                  Column(
+            CustomScrollView(
+              slivers: [
+                SliverToBoxAdapter(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       _HelloText(
-                          headerHeight: headerHeight,
-                          text: model.overview.hello),
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.vertical(
-                            top: Radius.circular(20),
-                          ),
-                          color: AppColors.groupedBackround(context),
-                        ),
-                        padding: const EdgeInsets.fromLTRB(16, 60, 16, 0),
-                        child: const ScrollContentsArea(),
+                        headerHeight: headerHeight,
+                        text: model.overview.hello,
                       ),
                     ],
                   ),
-                  Positioned(
-                    top: headerHeight - 60,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.groupedBackround(context),
-                        borderRadius: BorderRadius.circular(100),
+                ),
+                SliverToBoxAdapter(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.vertical(
+                        top: Radius.circular(20),
                       ),
-                      padding: const EdgeInsets.all(10),
-                      child: CircleImage(
-                        image: NetworkImage(model.overview.imageUrl),
-                        size: 100,
-                      ),
+                      color: AppColors.groupedBackround(context),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: NoSliverContentsArea(),
                     ),
                   ),
-                ],
-              ),
+                ),
+                SliverToBoxAdapter(
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(
+                        sliverPadding, 16, sliverPadding, 0),
+                    color: AppColors.groupedBackround(context),
+                    child: const Column(
+                      children: [TitleText(text: "Cooking 🍳")],
+                    ),
+                  ),
+                ),
+                DecoratedSliver(
+                  decoration: BoxDecoration(
+                    color: AppColors.groupedBackround(context),
+                  ),
+                  sliver: SliverPadding(
+                      sliver: const _CookArea(),
+                      padding: EdgeInsets.fromLTRB(
+                          sliverPadding, 16, sliverPadding, 0)),
+                ),
+                SliverToBoxAdapter(
+                  child: Container(
+                    padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+                    color: AppColors.groupedBackround(context),
+                    child: const _AboutThisSiteArea(),
+                  ),
+                ),
+              ],
             ),
+
+            // SingleChildScrollView(
+            //   child: Stack(
+            //     alignment: AlignmentDirectional.topCenter,
+            //     children: [
+            //       Column(
+            //         crossAxisAlignment: CrossAxisAlignment.start,
+            //         children: [
+            //           _HelloText(
+            //               headerHeight: headerHeight,
+            //               text: model.overview.hello),
+            //           Container(
+            //             decoration: BoxDecoration(
+            //               borderRadius: const BorderRadius.vertical(
+            //                 top: Radius.circular(20),
+            //               ),
+            //               color: AppColors.groupedBackround(context),
+            //             ),
+            //             padding: const EdgeInsets.fromLTRB(16, 60, 16, 0),
+            //             child: const ScrollContentsArea(),
+            //           ),
+            //         ],
+            //       ),
+            //       Positioned(
+            //         top: headerHeight - 60,
+            //         child: Container(
+            //           decoration: BoxDecoration(
+            //             color: AppColors.groupedBackround(context),
+            //             borderRadius: BorderRadius.circular(100),
+            //           ),
+            //           padding: const EdgeInsets.all(10),
+            //           child: CircleImage(
+            //             image: NetworkImage(model.overview.imageUrl),
+            //             size: 100,
+            //           ),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
           ],
         ),
       ),
@@ -87,8 +145,8 @@ class HomePage extends ConsumerWidget {
   }
 }
 
-class ScrollContentsArea extends ConsumerWidget {
-  const ScrollContentsArea({
+class NoSliverContentsArea extends ConsumerWidget {
+  const NoSliverContentsArea({
     super.key,
   });
 
@@ -103,7 +161,6 @@ class ScrollContentsArea extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Flexible(
-              flex: 3,
               child: Container(
                 constraints: const BoxConstraints(maxWidth: 768),
                 child: Column(
@@ -123,15 +180,14 @@ class ScrollContentsArea extends ConsumerWidget {
                     const _SkillArea(),
                     const _AwardArea(),
                     const _ProfileArea(),
-                    const _CookArea(),
                   ],
                 ),
               ),
             ),
             if (screenCls == ScreenSizeClass.desktop) ...[
               const Gap(16),
-              const Flexible(
-                flex: 1,
+              const SizedBox(
+                width: 300,
                 child: _NewsArea(
                   separated: true,
                 ),
@@ -139,7 +195,7 @@ class ScrollContentsArea extends ConsumerWidget {
             ]
           ],
         ),
-        const _AboutThisSiteArea(),
+        //const _AboutThisSiteArea(),
       ],
     );
   }
@@ -408,54 +464,57 @@ class _CookArea extends ConsumerWidget {
     var asyncValue = ref.watch(cookPathNotifierProvider);
     return asyncValue.when(
       data: (data) => _buildCookGrid(data, context),
-      loading: () => const CircularProgressIndicator(),
-      error: (error, stack) => Text("Error: $error"),
+      loading: () => const SliverToBoxAdapter(
+        child: Center(
+          child: CircularProgressIndicator(),
+        ),
+      ),
+      error: (error, stack) => SliverToBoxAdapter(
+        child: Center(
+          child: Text("Error: $error"),
+        ),
+      ),
     );
   }
 
-  Column _buildCookGrid(List<String> data, BuildContext context) {
+  Widget _buildCookGrid(List<String> data, BuildContext context) {
     final screenCls = ScreenRef(context).watch(screenProvider).sizeClass;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const TitleText(text: "Cooking 🍳"),
-        const Gap(16),
-        GridView.count(
-          mainAxisSpacing: 4,
-          crossAxisSpacing: 4,
-          crossAxisCount: (screenCls == ScreenSizeClass.phone) ? 2 : 4,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          children: List.generate(data.length, (index) {
-            return Hero(
-              tag: data[index],
-              child: GestureDetector(
-                onTap: () => openGallery(context,data,index),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    image: DecorationImage(
-                      image: AssetImage(data[index]),
-                      fit: BoxFit.cover,
-                    ),
+    final crossAxisCount = (screenCls == ScreenSizeClass.phone) ? 2 : 4;
+    return SliverGrid(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: crossAxisCount,
+        mainAxisSpacing: 4,
+        crossAxisSpacing: 4,
+      ),
+      delegate: SliverChildBuilderDelegate(
+        (context, index) {
+          return Hero(
+            tag: data[index],
+            child: GestureDetector(
+              onTap: () => openGallery(context, data, index),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  image: DecorationImage(
+                    image: AssetImage(data[index]),
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
-            );
-          }),
-        ),
-        const Gap(16),
-      ],
+            ),
+          );
+        },
+        childCount: data.length,
+      ),
     );
   }
 
-  void openGallery(BuildContext context, List<String> data,int index) {
+  void openGallery(BuildContext context, List<String> data, int index) {
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => GalleryPhotoViewWrapper(
-          galleryItems: List.generate(data.length,
-              (index) => data[index]),
+          galleryItems: List.generate(data.length, (index) => data[index]),
           initialIndex: index,
         ),
       ),

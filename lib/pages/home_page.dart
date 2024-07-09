@@ -230,7 +230,7 @@ class _NewsArea extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TitleText(text: "NEWS 📰"),
+        const TitleText(text: "NEWS", icon: FontAwesomeIcons.newspaper,),
         if (separated)
           for (final news in model.news) ...[
             Container(
@@ -290,7 +290,7 @@ class _ProjectsArea extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TitleText(text: "PROJECTS 💻"),
+        const TitleText(text: "PROJECTS", icon: FontAwesomeIcons.laptopCode,),
         if (isTwoColumn)
           //2等分する
           for (var i = 0; i < model.projects.length; i += 2) ...[
@@ -329,7 +329,7 @@ class _SkillArea extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TitleText(text: "SKILLS 💪"),
+        const TitleText(text: "SKILLS", icon: FontAwesomeIcons.graduationCap,),
         SkillGraph(
           skills: model.skills,
           height: 600,
@@ -348,7 +348,7 @@ class _AwardArea extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TitleText(text: "AWARDS 🏆"),
+        const TitleText(text: "AWARDS", icon: FontAwesomeIcons.award,),
         Container(
           width: double.infinity,
           decoration: BoxDecoration(
@@ -388,7 +388,7 @@ class _ProfileArea extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TitleText(text: "Profile 🕺"),
+        const TitleText(text: "Profile", icon: FontAwesomeIcons.person,),
         AppTimeline(
           isDesktop: (screenCls != ScreenSizeClass.phone),
           profiles: model.profile,
@@ -418,7 +418,7 @@ class _CookArea extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TitleText(text: "Cooking 🍳"),
+        const TitleText(text: "Cooking", icon: FontAwesomeIcons.utensils,),
         const Gap(16),
         GridView.count(
           mainAxisSpacing: 4,
@@ -501,9 +501,11 @@ class TitleText extends StatelessWidget {
   const TitleText({
     super.key,
     required this.text,
+    required this.icon
   });
 
   final String text;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
@@ -513,6 +515,12 @@ class TitleText extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Icon(
+            icon,
+            color: AppColors.label(context),
+            size: 24,
+          ),
+          const Gap(10),
           Text(
             text,
             style: TextStyle(fontSize: fontSize, fontWeight: FontWeight.bold),

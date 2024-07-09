@@ -171,7 +171,6 @@ class ProfileNotifier extends _$ProfileNotifier {
             BudgeType.personal,
           ], 
         ), 
-
         ProjectsModel(
           title: 'AppleMusicClone',
           date: '2023/12',

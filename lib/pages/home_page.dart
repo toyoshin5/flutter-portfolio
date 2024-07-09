@@ -399,9 +399,7 @@ class _ProfileArea extends ConsumerWidget {
 }
 
 class _CookArea extends ConsumerWidget {
-  const _CookArea({
-    super.key,
-  });
+  const _CookArea();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

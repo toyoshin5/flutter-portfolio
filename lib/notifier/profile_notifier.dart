@@ -259,8 +259,16 @@ class ProfileNotifier extends _$ProfileNotifier {
       ],
       awards: [
         AwardsModel(
+          date: '2019/05',
+          text: '基本情報技術者試験 合格',
+        ),
+        AwardsModel(
           date: '2019/11',
           text: 'パソコン甲子園2019 モバイル部門 グランプリ',
+        ),
+        AwardsModel(
+          date: '2021/01',
+          text: 'TOEIC Listening & Reading 750点 取得',
         ),
         AwardsModel(
           date: '2022/03',

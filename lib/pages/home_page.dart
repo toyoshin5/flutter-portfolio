@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/providers/cook_path_notifier.dart';
+import 'package:flutter_portfolio/notifier/cook_path_notifier.dart';
 import 'package:flutter_portfolio/screen_pod.dart';
 import 'package:flutter_portfolio/widget/gallary_photo_view_wrapper.dart';
 import 'package:flutter_portfolio/widget/graph.dart';
@@ -9,7 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 
-import 'package:flutter_portfolio/providers/profile_notifier.dart';
+import 'package:flutter_portfolio/notifier/profile_notifier.dart';
 import 'package:flutter_portfolio/styles/app_colors.dart';
 import 'package:flutter_portfolio/widget/circle_image.dart';
 import 'package:flutter_portfolio/widget/link_button.dart';

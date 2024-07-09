@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/providers/license_notifier.dart';
+import 'package:flutter_portfolio/notifier/license_notifier.dart';
 import 'package:flutter_portfolio/styles/app_colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

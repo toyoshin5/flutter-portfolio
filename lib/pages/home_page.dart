@@ -461,10 +461,18 @@ class _CookArea extends ConsumerWidget {
             ],
           ],
         ),
-        const Gap(16),
+        const Gap(24),
         // 料理の詳細ページへのボタン
-        Center(
+        SizedBox(
+          width: double.infinity,
+          height: 44,
           child: TextButton(
+            style: TextButton.styleFrom(
+               backgroundColor: AppColors.backGround(context),
+               shape: RoundedRectangleBorder(
+                 borderRadius: BorderRadius.circular(12),
+               ),
+            ),
             onPressed: () {
               Navigator.of(context).pushNamed("/cook");
             },

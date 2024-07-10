@@ -229,7 +229,10 @@ class _NewsArea extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TitleText(text: "NEWS", icon: FontAwesomeIcons.newspaper,),
+        const TitleText(
+          text: "NEWS",
+          icon: FontAwesomeIcons.newspaper,
+        ),
         if (separated)
           for (final news in model.news) ...[
             Container(
@@ -289,7 +292,10 @@ class _ProjectsArea extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TitleText(text: "PROJECTS", icon: FontAwesomeIcons.laptopCode,),
+        const TitleText(
+          text: "PROJECTS",
+          icon: FontAwesomeIcons.laptopCode,
+        ),
         if (isTwoColumn)
           //2等分する
           for (var i = 0; i < model.projects.length; i += 2) ...[
@@ -328,7 +334,10 @@ class _SkillArea extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TitleText(text: "SKILLS", icon: FontAwesomeIcons.graduationCap,),
+        const TitleText(
+          text: "SKILLS",
+          icon: FontAwesomeIcons.graduationCap,
+        ),
         SkillGraph(
           skills: model.skills,
           height: 600,
@@ -347,7 +356,10 @@ class _AwardArea extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TitleText(text: "AWARDS", icon: FontAwesomeIcons.award,),
+        const TitleText(
+          text: "AWARDS",
+          icon: FontAwesomeIcons.award,
+        ),
         Container(
           width: double.infinity,
           decoration: BoxDecoration(
@@ -387,7 +399,10 @@ class _ProfileArea extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TitleText(text: "Profile", icon: FontAwesomeIcons.person,),
+        const TitleText(
+          text: "Profile",
+          icon: FontAwesomeIcons.person,
+        ),
         AppTimeline(
           isDesktop: (screenCls != ScreenSizeClass.phone),
           profiles: model.profile,
@@ -411,48 +426,61 @@ class _CookArea extends ConsumerWidget {
   }
 
   Column _buildCookGrid(List<String> data, BuildContext context) {
-    final screenCls = ScreenRef(context).watch(screenProvider).sizeClass;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TitleText(text: "Cooking", icon: FontAwesomeIcons.utensils,),
+        const TitleText(
+          text: "Cooking",
+          icon: FontAwesomeIcons.utensils,
+        ),
         const Gap(16),
-        GridView.count(
-          mainAxisSpacing: 4,
-          crossAxisSpacing: 4,
-          crossAxisCount: (screenCls == ScreenSizeClass.phone) ? 2 : 4,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          children: List.generate(4, (index) {
-            return Hero(
-              tag: data[index],
-              child: GestureDetector(
-                onTap: () => openGallery(context,data,index),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    image: DecorationImage(
-                      image: AssetImage(data[index]),
-                      fit: BoxFit.cover,
+        Row(
+          children: [
+            for (var i = 0; i < 4; i += 1) ...[
+              if (i != 0) const Gap(8),
+              Flexible(
+                child: AspectRatio(
+                  aspectRatio: 1,
+                  child: Hero(
+                    tag: data[i],
+                    child: GestureDetector(
+                      onTap: () => openGallery(context, data, i),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          image: DecorationImage(
+                            image: AssetImage(data[i]),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
-            );
-          }),
+            ],
+          ],
         ),
         const Gap(16),
+        // 料理の詳細ページへのボタン
+        Center(
+          child: TextButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed("/cook");
+            },
+            child: const Text("もっと見る"),
+          ),
+        ),
       ],
     );
   }
 
-  void openGallery(BuildContext context, List<String> data,int index) {
+  void openGallery(BuildContext context, List<String> data, int index) {
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => GalleryPhotoViewWrapper(
-          galleryItems: List.generate(4,
-              (index) => data[index]),
+          galleryItems: List.generate(4, (index) => data[index]),
           initialIndex: index,
         ),
       ),
@@ -495,11 +523,7 @@ class _AboutThisSiteArea extends StatelessWidget {
 }
 
 class TitleText extends StatelessWidget {
-  const TitleText({
-    super.key,
-    required this.text,
-    required this.icon
-  });
+  const TitleText({super.key, required this.text, required this.icon});
 
   final String text;
   final IconData icon;

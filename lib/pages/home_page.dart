@@ -21,7 +21,6 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    PaintingBinding.instance.imageCache.maximumSizeBytes = 30 << 20;
     final model = ref.watch(profileNotifierProvider);
     final headerHeight = min(MediaQuery.of(context).size.height - 200,
         MediaQuery.of(context).size.width);

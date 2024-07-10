@@ -424,7 +424,7 @@ class _CookArea extends ConsumerWidget {
           crossAxisCount: (screenCls == ScreenSizeClass.phone) ? 2 : 4,
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          children: List.generate(data.length, (index) {
+          children: List.generate(4, (index) {
             return Hero(
               tag: data[index],
               child: GestureDetector(
@@ -452,7 +452,7 @@ class _CookArea extends ConsumerWidget {
       context,
       MaterialPageRoute(
         builder: (context) => GalleryPhotoViewWrapper(
-          galleryItems: List.generate(data.length,
+          galleryItems: List.generate(4,
               (index) => data[index]),
           initialIndex: index,
         ),

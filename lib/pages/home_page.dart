@@ -444,12 +444,19 @@ class _CookArea extends ConsumerWidget {
                   child: Hero(
                     tag: data[i],
                     child: GestureDetector(
-                      onTap: () => openGallery(context, data, i),
+                      onTap: () {
+                        precacheImage(
+                            AssetImage(data[i]),
+                            context).then((value) {
+                               openGallery(context, data, i);
+                            });
+                      },
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
                           image: DecorationImage(
-                            image: AssetImage(data[i]),
+                            image: AssetImage(
+                                data[i].replaceAll("cook", "s_cook")),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -468,10 +475,10 @@ class _CookArea extends ConsumerWidget {
           height: 44,
           child: TextButton(
             style: TextButton.styleFrom(
-               backgroundColor: AppColors.backGround(context),
-               shape: RoundedRectangleBorder(
-                 borderRadius: BorderRadius.circular(12),
-               ),
+              backgroundColor: AppColors.backGround(context),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
             ),
             onPressed: () {
               Navigator.of(context).pushNamed("/cook");

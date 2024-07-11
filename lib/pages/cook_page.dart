@@ -19,13 +19,14 @@ class CookPage extends ConsumerWidget {
       error: (error, stack) => Center(child: Text('エラーが発生しました: $error')),
     );
   }
-  
-  Widget _buildContent(BuildContext context, List<String> data, ScreenSizeClass screenCls) {
+
+  Widget _buildContent(
+      BuildContext context, List<String> data, ScreenSizeClass screenCls) {
     return Material(
       child: CupertinoPageScaffold(
         navigationBar: CupertinoNavigationBar(
-          middle:
-              Text('Cooking', style: TextStyle(color: AppColors.label(context))),
+          middle: Text('Cooking',
+              style: TextStyle(color: AppColors.label(context))),
           backgroundColor: AppColors.backGround(context),
         ),
         child: Container(
@@ -33,44 +34,50 @@ class CookPage extends ConsumerWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: SafeArea(
             child: GridView.count(
-            mainAxisSpacing: 4,
-            crossAxisSpacing: 4,
-            crossAxisCount: (screenCls == ScreenSizeClass.phone) ? 3 : 4,
-            children: List.generate(data.length, (index) {
-              return Hero(
-                tag: data[index],
-                child: GestureDetector(
-                  onTap: () => openGallery(context,data,index),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      image: DecorationImage(
-                        image: AssetImage(data[index]),
-                        fit: BoxFit.cover,
+              mainAxisSpacing: 4,
+              crossAxisSpacing: 4,
+              crossAxisCount: (screenCls == ScreenSizeClass.phone) ? 3 : 4,
+              children: List.generate(data.length, (index) {
+                return Hero(
+                  tag: data[index],
+                  child: GestureDetector(
+                    onTap: () {
+                      precacheImage(AssetImage(data[index]), context).then((value) {
+                        openGallery(context, data, index);
+                      });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        image: DecorationImage(
+                          image: AssetImage(
+                              data[index].replaceAll("cook", "s_cook")),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              );
-            }),
-          ),
+                );
+              }),
+            ),
           ),
         ),
       ),
     );
   }
-  
-  void openGallery(BuildContext context, List<String> data,int index) {
+
+  void openGallery(BuildContext context, List<String> data, int index) {
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => GalleryPhotoViewWrapper(
-          galleryItems: List.generate(data.length,
-              (index) => data[index],),
+          galleryItems: List.generate(
+            data.length,
+            (index) => data[index],
+          ),
           initialIndex: index,
         ),
       ),
     );
   }
-  
 }

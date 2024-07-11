@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    precacheImage(const AssetImage('assets/images/cook/IMG_0000.jpg'), context);
     return MaterialApp(
       title: "Toyoda's Portfolio",
       theme: ThemeData(

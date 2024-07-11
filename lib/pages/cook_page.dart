@@ -61,7 +61,7 @@ class CookPage extends ConsumerWidget {
                               ),
                             ),
                           ),
-                          if (ref.watch(loadingIndexProvider) == i) ...[
+                          if (ref.watch(loadingIndexProvider) == index) ...[
                             const Center(
                               child: CircularProgressIndicator(),
                             ),

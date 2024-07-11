@@ -412,6 +412,9 @@ class _ProfileArea extends ConsumerWidget {
   }
 }
 
+//ロード中の画像のindex番号を管理するprovider
+final loadingIndexProvider = StateProvider<int?>((ref) => null);
+
 class _CookArea extends ConsumerWidget {
   const _CookArea();
 
@@ -419,13 +422,14 @@ class _CookArea extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     var asyncValue = ref.watch(cookPathNotifierProvider);
     return asyncValue.when(
-      data: (data) => _buildCookGrid(data, context),
+      data: (data) => _buildCookGrid(data, context, ref),
       loading: () => const CircularProgressIndicator(),
       error: (error, stack) => Text("Error: $error"),
     );
   }
 
-  Column _buildCookGrid(List<String> data, BuildContext context) {
+  Column _buildCookGrid(
+      List<String> data, BuildContext context, WidgetRef ref) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -445,21 +449,31 @@ class _CookArea extends ConsumerWidget {
                     tag: data[i],
                     child: GestureDetector(
                       onTap: () {
-                        precacheImage(
-                            AssetImage(data[i]),
-                            context).then((value) {
-                               openGallery(context, data, i);
-                            });
+                        precacheImage(AssetImage(data[i]), context)
+                            .then((value) {
+                          ref.read(loadingIndexProvider.notifier).state = null;
+                          openGallery(context, data, i);
+                        });
+                        ref.read(loadingIndexProvider.notifier).state = i;
                       },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          image: DecorationImage(
-                            image: AssetImage(
-                                data[i].replaceAll("cook", "s_cook")),
-                            fit: BoxFit.cover,
+                      child: Stack(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              image: DecorationImage(
+                                image: AssetImage(
+                                    data[i].replaceAll("cook", "s_cook")),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           ),
-                        ),
+                          if (ref.watch(loadingIndexProvider) == i) ...[
+                            const Center(
+                              child: CircularProgressIndicator(),
+                            ),
+                          ],
+                        ],
                       ),
                     ),
                   ),

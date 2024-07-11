@@ -6,6 +6,7 @@ import 'package:flutter_portfolio/styles/app_colors.dart';
 import 'package:flutter_portfolio/widget/gallary_photo_view_wrapper.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+final loadingIndexProvider = StateProvider<int?>((ref) => null);
 class CookPage extends ConsumerWidget {
   const CookPage({super.key});
 
@@ -14,14 +15,14 @@ class CookPage extends ConsumerWidget {
     final asyncValue = ref.watch(cookPathNotifierProvider);
     final screenCls = ScreenRef(context).watch(screenProvider).sizeClass;
     return asyncValue.when(
-      data: (data) => _buildContent(context, data, screenCls),
+      data: (data) => _buildContent(context, data, screenCls, ref),
       loading: () => const Center(child: CupertinoActivityIndicator()),
       error: (error, stack) => Center(child: Text('エラーが発生しました: $error')),
     );
   }
 
   Widget _buildContent(
-      BuildContext context, List<String> data, ScreenSizeClass screenCls) {
+      BuildContext context, List<String> data, ScreenSizeClass screenCls, WidgetRef ref) {
     return Material(
       child: CupertinoPageScaffold(
         navigationBar: CupertinoNavigationBar(
@@ -43,19 +44,30 @@ class CookPage extends ConsumerWidget {
                   child: GestureDetector(
                     onTap: () {
                       precacheImage(AssetImage(data[index]), context).then((value) {
+                        ref.read(loadingIndexProvider.notifier).state = null;
                         openGallery(context, data, index);
                       });
+                      ref.read(loadingIndexProvider.notifier).state = index;
                     },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        image: DecorationImage(
-                          image: AssetImage(
-                              data[index].replaceAll("cook", "s_cook")),
-                          fit: BoxFit.cover,
-                        ),
+                    child: Stack(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              image: DecorationImage(
+                                image: AssetImage(
+                                    data[index].replaceAll("cook", "s_cook")),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          if (ref.watch(loadingIndexProvider) == i) ...[
+                            const Center(
+                              child: CircularProgressIndicator(),
+                            ),
+                          ],
+                        ],
                       ),
-                    ),
                   ),
                 );
               }),

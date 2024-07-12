@@ -30,47 +30,49 @@ class CookPage extends ConsumerWidget {
               style: TextStyle(color: AppColors.label(context))),
           backgroundColor: AppColors.backGround(context),
         ),
-        child: Container(
-          color: AppColors.backGround(context),
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: SafeArea(
-            child: GridView.count(
-              mainAxisSpacing: 4,
-              crossAxisSpacing: 4,
-              crossAxisCount: (screenCls == ScreenSizeClass.phone) ? 3 : 4,
-              children: List.generate(data.length, (index) {
-                return Hero(
-                  tag: data[index],
-                  child: GestureDetector(
-                    onTap: () {
-                      precacheImage(AssetImage(data[index]), context).then((value) {
-                        ref.read(loadingIndexProvider.notifier).state = null;
-                        openGallery(context, data, index);
-                      });
-                      ref.read(loadingIndexProvider.notifier).state = index;
-                    },
-                    child: Stack(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              image: DecorationImage(
-                                image: AssetImage(
-                                    data[index].replaceAll("cook", "s_cook")),
-                                fit: BoxFit.cover,
+        child: SafeArea(
+          child: Center(
+            child: Container(
+              constraints: const BoxConstraints(maxWidth: 768),
+              margin: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: GridView.count(
+                mainAxisSpacing: 4,
+                crossAxisSpacing: 4,
+                crossAxisCount: (screenCls == ScreenSizeClass.phone) ? 3 : 4,
+                children: List.generate(data.length, (index) {
+                  return Hero(
+                    tag: data[index],
+                    child: GestureDetector(
+                      onTap: () {
+                        precacheImage(AssetImage(data[index]), context).then((value) {
+                          ref.read(loadingIndexProvider.notifier).state = null;
+                          openGallery(context, data, index);
+                        });
+                        ref.read(loadingIndexProvider.notifier).state = index;
+                      },
+                      child: Stack(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                      data[index].replaceAll("cook", "s_cook")),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
-                          ),
-                          if (ref.watch(loadingIndexProvider) == index) ...[
-                            const Center(
-                              child: CircularProgressIndicator(),
-                            ),
+                            if (ref.watch(loadingIndexProvider) == index) ...[
+                              const Center(
+                                child: CircularProgressIndicator(),
+                              ),
+                            ],
                           ],
-                        ],
-                      ),
-                  ),
-                );
-              }),
+                        ),
+                    ),
+                  );
+                }),
+              ),
             ),
           ),
         ),

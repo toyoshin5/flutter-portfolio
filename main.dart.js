@@ -6034,7 +6034,7 @@ aFY(a){var s,r=null,q=new A.cP(""),p=A.b([-1],t.t)
 A.aSA(r,r,r,q,p)
 p.push(q.a.length)
 q.a+=","
-A.aSz(B.en,B.BI.zz(a),q)
+A.aSz(B.eo,B.BI.zz(a),q)
 s=q.a
 return new A.RK(s.charCodeAt(0)==0?s:s,p,r).ghx()},
 dZ(a3,a4,a5){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a,a0,a1,a2=null
@@ -6366,7 +6366,7 @@ aU9(a,b,c){var s=b.length===0
 if(s&&!c&&!B.d.bF(a,"/")&&!B.d.bF(a,"\\"))return A.aA1(a,!s||c)
 return A.t8(a)},
 aus(a,b,c,d){if(a!=null){if(d!=null)throw A.d(A.cV("Both query and queryParameters specified",null))
-return A.Il(a,b,c,B.en,!0,!1)}if(d==null)return null
+return A.Il(a,b,c,B.eo,!0,!1)}if(d==null)return null
 return A.aU6(d)},
 aU7(a){var s={},r=new A.cP("")
 s.a=""
@@ -6374,7 +6374,7 @@ a.af(0,new A.aut(new A.auu(s,r)))
 s=r.a
 return s.charCodeAt(0)==0?s:s},
 aGZ(a,b,c){if(a==null)return null
-return A.Il(a,b,c,B.en,!0,!1)},
+return A.Il(a,b,c,B.eo,!0,!1)},
 aA0(a,b,c){var s,r,q,p,o,n=b+2
 if(n>=a.length)return"%"
 s=a.charCodeAt(b+1)
@@ -6498,7 +6498,7 @@ if(p!==44||r!==n+7||!B.d.cZ(a,"base64",n+1))throw A.d(A.ca("Expecting '='",a,r))
 break}}j.push(r)
 m=r+1
 if((j.length&1)===1)a=B.BJ.aqe(0,a,m,s)
-else{l=A.aH3(a,m,s,B.en,!0,!1)
+else{l=A.aH3(a,m,s,B.eo,!0,!1)
 if(l!=null)a=B.d.jz(a,m,s,l)}return new A.RK(a,j,c)},
 aSz(a,b,c){var s,r,q,p,o,n="0123456789ABCDEF"
 for(s=b.length,r=0,q=0;q<s;++q){p=b[q]
@@ -40172,7 +40172,7 @@ if(m==null){m=o.a
 s=o.b[0]+1
 r=B.d.kd(m,"?",s)
 q=m.length
-if(r>=0){p=A.Il(m,r+1,q,B.en,!1,!1)
+if(r>=0){p=A.Il(m,r+1,q,B.eo,!1,!1)
 q=r}else p=n
 m=o.c=new A.U8("data","",n,n,A.Il(m,s,q,B.o5,!1,!1),p,n)}return m},
 k(a){var s=this.a
@@ -69315,11 +69315,11 @@ a7W(a,b){var s,r,q,p
 if(a===b)return B.Jt
 s=A.b([],t.QP)
 if(a==null)s.push(b)
-else{r=B.b.kc(B.ep,a)
-q=B.b.kc(B.ep,b)
-if(b===B.cU){for(p=r+1;p<5;++p)s.push(B.ep[p])
-s.push(B.cU)}else if(r>q)for(p=q;p<r;++p)B.b.iD(s,0,B.ep[p])
-else for(p=r+1;p<=q;++p)s.push(B.ep[p])}return s},
+else{r=B.b.kc(B.eq,a)
+q=B.b.kc(B.eq,b)
+if(b===B.cU){for(p=r+1;p<5;++p)s.push(B.eq[p])
+s.push(B.cU)}else if(r>q)for(p=q;p<r;++p)B.b.iD(s,0,B.eq[p])
+else for(p=r+1;p<=q;++p)s.push(B.eq[p])}return s},
 E0(a){return this.a8B(a)},
 a8B(a){var s=0,r=A.U(t.H),q,p=this,o
 var $async$E0=A.V(function(b,c){if(b===1)return A.R(c,r)
@@ -87498,21 +87498,21 @@ A.acP.prototype={
 $1(a){return B.En},
 $S:544}
 A.Ew.prototype={
-gAv(){return new A.di(B.es,B.es,t.q6)},
-gmv(){return new A.di(B.et,B.et,t.VQ)},
-gCd(){return new A.di(B.er,B.er,t.c9)},
-gyX(){return new A.di(B.eq,B.eq,t.tS)},
-gJ3(){return new A.di(B.eo,B.eo,t.LC)},
+gAv(){return new A.di(B.et,B.et,t.q6)},
+gmv(){return new A.di(B.en,B.en,t.VQ)},
+gCd(){return new A.di(B.es,B.es,t.c9)},
+gyX(){return new A.di(B.er,B.er,t.tS)},
+gJ3(){return new A.di(B.ep,B.ep,t.LC)},
 k(a){var s=this
 return"PortfolioModel(overview: "+B.fv.k(0)+", news: "+A.l(s.gAv())+", projects: "+A.l(s.gmv())+", skills: "+A.l(s.gCd())+", awards: "+A.l(s.gyX())+", profile: "+A.l(s.gJ3())+")"},
 j(a,b){var s
 if(b==null)return!1
-if(this!==b)if(J.P(b)===A.p(this))if(b instanceof A.Ew)s=B.aj.d2(B.es,B.es)&&B.aj.d2(B.et,B.et)&&B.aj.d2(B.er,B.er)&&B.aj.d2(B.eq,B.eq)&&B.aj.d2(B.eo,B.eo)
+if(this!==b)if(J.P(b)===A.p(this))if(b instanceof A.Ew)s=B.aj.d2(B.et,B.et)&&B.aj.d2(B.en,B.en)&&B.aj.d2(B.es,B.es)&&B.aj.d2(B.er,B.er)&&B.aj.d2(B.ep,B.ep)
 else s=!1
 else s=!1
 else s=!0
 return s},
-gD(a){return A.L(A.p(this),B.fv,B.aj.d4(0,B.es),B.aj.d4(0,B.et),B.aj.d4(0,B.er),B.aj.d4(0,B.eq),B.aj.d4(0,B.eo),B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a)},
+gD(a){return A.L(A.p(this),B.fv,B.aj.d4(0,B.et),B.aj.d4(0,B.en),B.aj.d4(0,B.es),B.aj.d4(0,B.er),B.aj.d4(0,B.ep),B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a)},
 eG(){var s=this
 return A.aB(["overview",B.fv,"news",s.gAv(),"projects",s.gmv(),"skills",s.gCd(),"awards",s.gyX(),"profile",s.gJ3()],t.N,t.z)},
 $ivh:1}
@@ -94466,40 +94466,40 @@ B.XP=new A.mg("2024/07","AtCoder\u3067\u7dd1\u30ec\u30fc\u30c8\u306b\u5230\u9054
 B.XO=new A.mg("2024/04","\u3086\u3081\u307f\u30d1\u30b9\u30dd\u30fc\u30c8(iOS\u30a8\u30f3\u30b8\u30cb\u30a2)\u306b\u5408\u683c\u3057\u307e\u3057\u305f")
 B.XN=new A.mg("2024/03","PhotoCurrency - \u901a\u8ca8\u5909\u63db\u30ab\u30e1\u30e9\u3092\u914d\u4fe1\u958b\u59cb\u3057\u307e\u3057\u305f")
 B.XL=new A.mg("2023/11","Umap(\u3046\u307e\u3063\u3077)\u3092\u914d\u4fe1\u958b\u59cb\u3057\u307e\u3057\u305f")
-B.es=A.b(s([B.XM,B.XP,B.XO,B.XN,B.XL]),A.ah("z<az_>"))
+B.et=A.b(s([B.XM,B.XP,B.XO,B.XN,B.XL]),A.ah("z<az_>"))
 B.cs=new A.dN(1,"swift")
 B.cZ=new A.dN(2,"uikit")
 B.cY=new A.dN(10,"personal")
 B.o_=A.b(s([B.cs,B.cZ,B.cY]),t.aZ)
-B.Y0=new A.fv("TwiNotes","2021/08","X\u98a8\u306eUI\u306e\u30e1\u30e2&\u30ea\u30de\u30a4\u30f3\u30c0\u30fc\u30a2\u30d7\u30ea\u3067\u3059\u3002\u3059\u3079\u3066\u306e\u30e1\u30e2\u306b\u306f\u6728\u69cb\u9020\u306e\u3088\u3046\u306b\u30ea\u30d7\u30e9\u30a4\u3092\u7e4b\u3052\u3089\u308c\u308b\u3053\u3068\u304c\u7279\u5fb4\u3067\u3059\u3002\u65e5\u672c\u8a9e\u3068\u82f1\u8a9e\u306b\u5bfe\u5fdc\u3057\u3066\u3044\u307e\u3059\u3002AppStore\u306b\u3066\u7d0410\u4e07DL\u3002","https://apps.apple.com/jp/app/twinotes-sns%E9%A2%A8%E3%83%A1%E3%83%A2/id1583565949","twinotes.jpeg",B.o_)
+B.Y1=new A.fv("TwiNotes","2021/08","X\u98a8\u306eUI\u306e\u30e1\u30e2&\u30ea\u30de\u30a4\u30f3\u30c0\u30fc\u30a2\u30d7\u30ea\u3067\u3059\u3002\u3059\u3079\u3066\u306e\u30e1\u30e2\u306b\u306f\u6728\u69cb\u9020\u306e\u3088\u3046\u306b\u30ea\u30d7\u30e9\u30a4\u3092\u7e4b\u3052\u3089\u308c\u308b\u3053\u3068\u304c\u7279\u5fb4\u3067\u3059\u3002\u65e5\u672c\u8a9e\u3068\u82f1\u8a9e\u306b\u5bfe\u5fdc\u3057\u3066\u3044\u307e\u3059\u3002AppStore\u306b\u3066\u7d0410\u4e07DL\u3002","https://apps.apple.com/jp/app/twinotes-sns%E9%A2%A8%E3%83%A1%E3%83%A2/id1583565949","twinotes.jpeg",B.o_)
 B.dR=new A.dN(0,"flutter")
 B.bR=new A.dN(11,"team")
 B.d_=new A.dN(8,"hackerson")
 B.IH=A.b(s([B.dR,B.bR,B.d_]),t.aZ)
-B.Y4=new A.fv("Umap(\u3046\u307e\u3063\u3077)","2023/08","\u3053\u308c\u304b\u3089\u884c\u3063\u3066\u307f\u305f\u3044\u98f2\u98df\u5e97\u3084\u884c\u3063\u305f\u5916\u98df\u306e\u601d\u3044\u51fa\u3092\u6b8b\u3057\u3066\u81ea\u5206\u3060\u3051\u306e\u201d\u3054\u306f\u3093\u30de\u30c3\u30d7\u201d\u3092\u4f5c\u308c\u308b\u30a2\u30d7\u30ea\u3067\u3059\u3002JPHacks\u3068\u3044\u3046\u30cf\u30c3\u30ab\u30bd\u30f3\u3067\u4f5c\u6210\u3057\u30014\u4eba\u30c1\u30fc\u30e0\u306e\u30ea\u30fc\u30c0\u3092\u52aa\u3081\u307e\u3057\u305f\u3002GitHub\u3092\u4f7f\u3063\u305fissue\u7ba1\u7406\u3084CI/CD\u3092\u521d\u3081\u3066\u6d3b\u7528\u3057\u307e\u3057\u305f\u3002","https://apps.apple.com/jp/app/umap-%E3%81%86%E3%81%BE%E3%81%A3%E3%81%B7/id6471849198","umap.jpeg",B.IH)
+B.Y5=new A.fv("Umap(\u3046\u307e\u3063\u3077)","2023/08","\u3053\u308c\u304b\u3089\u884c\u3063\u3066\u307f\u305f\u3044\u98f2\u98df\u5e97\u3084\u884c\u3063\u305f\u5916\u98df\u306e\u601d\u3044\u51fa\u3092\u6b8b\u3057\u3066\u81ea\u5206\u3060\u3051\u306e\u201d\u3054\u306f\u3093\u30de\u30c3\u30d7\u201d\u3092\u4f5c\u308c\u308b\u30a2\u30d7\u30ea\u3067\u3059\u3002JPHacks\u3068\u3044\u3046\u30cf\u30c3\u30ab\u30bd\u30f3\u3067\u4f5c\u6210\u3057\u30014\u4eba\u30c1\u30fc\u30e0\u306e\u30ea\u30fc\u30c0\u3092\u52aa\u3081\u307e\u3057\u305f\u3002GitHub\u3092\u4f7f\u3063\u305fissue\u7ba1\u7406\u3084CI/CD\u3092\u521d\u3081\u3066\u6d3b\u7528\u3057\u307e\u3057\u305f\u3002","https://apps.apple.com/jp/app/umap-%E3%81%86%E3%81%BE%E3%81%A3%E3%81%B7/id6471849198","umap.jpeg",B.IH)
 B.Y_=new A.fv("AR\u30e1\u30b8\u30e3\u30fc","2018/04","\u30ab\u30e1\u30e9\u3092\u7528\u3044\u30662\u70b9\u9593\u306e\u8ddd\u96e2\u3092\u6e2c\u308b\u30a2\u30d7\u30ea\u3067\u3059\u3002\u4e00\u898biPhone\u306e\u8a08\u6e2c\u30a2\u30d7\u30ea\u3068\u540c\u3058\u6a5f\u80fd\u306e\u3088\u3046\u306b\u898b\u3048\u307e\u3059\u304c\u3001\u5b9f\u306fApple\u304c\u8a08\u6e2c\u30a2\u30d7\u30ea\u3092\u516c\u958b\u3059\u308b\u524d\u306b\u4f5c\u6210\u3057\u307e\u3057\u305f\u3002","https://github.com/toyoshin5/AR-Measure","armeasure.png",B.o_)
 B.J1=A.b(s([B.cs,B.cZ,B.bR,B.d_]),t.aZ)
-B.Y1=new A.fv("Rakupe","2019/03","\u982d\u306e\u52d5\u304d\u3067\u30da\u30fc\u30b8\u3092\u3081\u304f\u308bPDF\u30ea\u30fc\u30c0\u30fc\u3067\u3059\u3002\u96fb\u8eca\u306e\u3064\u308a\u9769\u306a\u3069\u3067\u7247\u624b\u304c\u5c01\u3058\u3089\u308c\u3066\u3044\u308b\u72b6\u6cc1\u3067\u3082\u982d\u3092\u4f7f\u3063\u3066\u30e1\u30fc\u30b8\u3092\u3081\u304f\u308b\u3053\u3068\u304c\u3067\u304d\u307e\u3059\u3002\u5b66\u5185\u30cf\u30c3\u30ab\u30bd\u30f3\u3067\u4f5c\u6210\u3057\u307e\u3057\u305f\u3002","https://github.com/toyoshin5/Rakupe","rakupe.png",B.J1)
+B.Y2=new A.fv("Rakupe","2019/03","\u982d\u306e\u52d5\u304d\u3067\u30da\u30fc\u30b8\u3092\u3081\u304f\u308bPDF\u30ea\u30fc\u30c0\u30fc\u3067\u3059\u3002\u96fb\u8eca\u306e\u3064\u308a\u9769\u306a\u3069\u3067\u7247\u624b\u304c\u5c01\u3058\u3089\u308c\u3066\u3044\u308b\u72b6\u6cc1\u3067\u3082\u982d\u3092\u4f7f\u3063\u3066\u30e1\u30fc\u30b8\u3092\u3081\u304f\u308b\u3053\u3068\u304c\u3067\u304d\u307e\u3059\u3002\u5b66\u5185\u30cf\u30c3\u30ab\u30bd\u30f3\u3067\u4f5c\u6210\u3057\u307e\u3057\u305f\u3002","https://github.com/toyoshin5/Rakupe","rakupe.png",B.J1)
 B.dT=new A.dN(4,"kotlin")
 B.fs=new A.dN(9,"contest")
 B.IV=A.b(s([B.dT,B.bR,B.fs]),t.aZ)
-B.Y2=new A.fv("COINs!","2019/11","\u5916\u56fd\u4eba\u89b3\u5149\u5ba2\u5411\u3051\u306b\u65e5\u672c\u3067\u306e\u73fe\u91d1\u306e\u6700\u9069\u306a\u6255\u3044\u65b9\u3092\u63d0\u6848\u3059\u308b\u30a2\u30d7\u30ea\u3067\u3059\u3002\u30ec\u30b8\u306a\u3069\u3067\u5e97\u54e1\u306e\u4f1a\u8a08\u91d1\u984d\u306e\u58f0\u3092\u30de\u30a4\u30af\u3067\u9332\u97f3\u3057\u3001\u8ca1\u5e03\u304c\u6700\u3082\u8efd\u304f\u306a\u308b\u652f\u6255\u3044\u65b9\u3092\u6307\u5357\u3057\u307e\u3059\u3002\u521d\u3081\u3066\u306e\u30c1\u30fc\u30e0\u958b\u767a\u7d4c\u9a13\u3068\u3057\u3066\u6559\u6388\u3084\u30e1\u30f3\u30d0\u30fc\u76f8\u8ac7\u3057\u306a\u304c\u3089\u958b\u767a\u3092\u9032\u3081\u307e\u3057\u305f\u3002","https://web-ext.u-aizu.ac.jp/pc-concours/2019/final/f_photo_mobile.html","coins.png",B.IV)
+B.Y3=new A.fv("COINs!","2019/11","\u5916\u56fd\u4eba\u89b3\u5149\u5ba2\u5411\u3051\u306b\u65e5\u672c\u3067\u306e\u73fe\u91d1\u306e\u6700\u9069\u306a\u6255\u3044\u65b9\u3092\u63d0\u6848\u3059\u308b\u30a2\u30d7\u30ea\u3067\u3059\u3002\u30ec\u30b8\u306a\u3069\u3067\u5e97\u54e1\u306e\u4f1a\u8a08\u91d1\u984d\u306e\u58f0\u3092\u30de\u30a4\u30af\u3067\u9332\u97f3\u3057\u3001\u8ca1\u5e03\u304c\u6700\u3082\u8efd\u304f\u306a\u308b\u652f\u6255\u3044\u65b9\u3092\u6307\u5357\u3057\u307e\u3059\u3002\u521d\u3081\u3066\u306e\u30c1\u30fc\u30e0\u958b\u767a\u7d4c\u9a13\u3068\u3057\u3066\u6559\u6388\u3084\u30e1\u30f3\u30d0\u30fc\u76f8\u8ac7\u3057\u306a\u304c\u3089\u958b\u767a\u3092\u9032\u3081\u307e\u3057\u305f\u3002","https://web-ext.u-aizu.ac.jp/pc-concours/2019/final/f_photo_mobile.html","coins.png",B.IV)
 B.fr=new A.dN(7,"unrealengine")
 B.ID=A.b(s([B.fr,B.bR]),t.aZ)
 B.XY=new A.fv("PhantomTale","2021/01","UnrealEngine5\u3092\u4f7f\u3063\u3066\u4f5c\u6210\u3057\u305fVR\u30a2\u30af\u30b7\u30e7\u30f3\u30b2\u30fc\u30e0\u3067\u3059\u3002\u9ad8\u5c02\u306e\u5275\u9020\u5de5\u5b66\u306e\u6388\u696d\u3067\u53cb\u9054\u30686\u4eba\u3067\u5236\u4f5c\u3057\u307e\u3057\u305f\u3002\u64cd\u4f5c\u30ad\u30e3\u30e9\u5468\u308a\u3092\u62c5\u5f53\u3057\u3001\u30ea\u30a2\u30eb\u306a\u5f13\u306e\u5c04\u6483\u4f53\u9a13\u3092\u5b9f\u88c5\u306b\u843d\u3068\u3057\u8fbc\u3093\u3067\u307f\u307e\u3057\u305f\u3002","https://youtu.be/0Zpa3UZzZDk","phantomtale.png",B.ID)
 B.fp=new A.dN(5,"react")
 B.Is=A.b(s([B.fp,B.bR,B.d_]),t.aZ)
-B.Y3=new A.fv("\u30d7\u30ed\u68cb\u58eb\u30b5\u30fc\u30d0","2022/09","\u5bfe\u9762\u3067\u884c\u3046\u56f2\u7881\u306e\u5bfe\u5c40\u3067\u3001\u5bfe\u5c40\u6642\u8a08\u3068\u68cb\u8b5c\u306e\u7ba1\u7406\u3092\u81ea\u52d5\u5316\u3057\u3066\u304f\u308c\u308b\u30a2\u30d7\u30ea\u3067\u3059\u3002\u30ce\u30fc\u30c8\u30d1\u30bd\u30b3\u30f3\u306e\u5185\u30ab\u30e1\u30e9\u3092\u4f7f\u3063\u3066\u76e4\u9762\u3092\u6620\u3059\u3053\u3068\u3067\u3001\u73fe\u5728\u306e\u76e4\u9762\u306e\u69d8\u5b50\u3092\u81ea\u52d5\u3067\u8a18\u9332\u3059\u308b\u3053\u3068\u304c\u3067\u304d\u307e\u3059\u3002\u6280\u80b2\u5c552022\u306b\u51fa\u5c55\u3002","https://spice-test-project-d3472.web.app/","proxy.png",B.Is)
+B.Y4=new A.fv("\u30d7\u30ed\u68cb\u58eb\u30b5\u30fc\u30d0","2022/09","\u5bfe\u9762\u3067\u884c\u3046\u56f2\u7881\u306e\u5bfe\u5c40\u3067\u3001\u5bfe\u5c40\u6642\u8a08\u3068\u68cb\u8b5c\u306e\u7ba1\u7406\u3092\u81ea\u52d5\u5316\u3057\u3066\u304f\u308c\u308b\u30a2\u30d7\u30ea\u3067\u3059\u3002\u30ce\u30fc\u30c8\u30d1\u30bd\u30b3\u30f3\u306e\u5185\u30ab\u30e1\u30e9\u3092\u4f7f\u3063\u3066\u76e4\u9762\u3092\u6620\u3059\u3053\u3068\u3067\u3001\u73fe\u5728\u306e\u76e4\u9762\u306e\u69d8\u5b50\u3092\u81ea\u52d5\u3067\u8a18\u9332\u3059\u308b\u3053\u3068\u304c\u3067\u304d\u307e\u3059\u3002\u6280\u80b2\u5c552022\u306b\u51fa\u5c55\u3002","https://spice-test-project-d3472.web.app/","proxy.png",B.Is)
 B.dS=new A.dN(3,"swiftui")
 B.oa=A.b(s([B.cs,B.dS,B.cY]),t.aZ)
-B.Y5=new A.fv("RSSimply","2023/04","iPad\u306ePlaygrounds\u3060\u3051\u3092\u4f7f\u3063\u3066\u958b\u767a\u3057\u3066\u307f\u307e\u3057\u305f\u3002\u767b\u9332\u3057\u305fRSS\u30d5\u30a3\u30fc\u30c9\u3092\u53d6\u5f97\u3057\u3066\u8a18\u4e8b\u3092\u8868\u793a\u3059\u308b\u30a2\u30d7\u30ea\u3067\u3059\u3002","https://apps.apple.com/jp/app/rssimply/id6448121530","rssimply.png",B.oa)
+B.Y6=new A.fv("RSSimply","2023/04","iPad\u306ePlaygrounds\u3060\u3051\u3092\u4f7f\u3063\u3066\u958b\u767a\u3057\u3066\u307f\u307e\u3057\u305f\u3002\u767b\u9332\u3057\u305fRSS\u30d5\u30a3\u30fc\u30c9\u3092\u53d6\u5f97\u3057\u3066\u8a18\u4e8b\u3092\u8868\u793a\u3059\u308b\u30a2\u30d7\u30ea\u3067\u3059\u3002","https://apps.apple.com/jp/app/rssimply/id6448121530","rssimply.png",B.oa)
 B.fq=new A.dN(6,"reactNative")
 B.JF=A.b(s([B.cs,B.cZ,B.dS,B.dR,B.fq,B.cY]),t.aZ)
 B.XZ=new A.fv("AppleMusicClone","2023/12","AppleMusic\u306e\u30a2\u30eb\u30d0\u30e0\u753b\u9762\u306eUI\u3092\u3001\u69d8\u3005\u306a\u30d7\u30e9\u30c3\u30c8\u30d5\u30a9\u30fc\u30e0\u3067\u518d\u73fe\u3057\u3066\u958b\u767a\u4f53\u9a13\u3084\u30a2\u30d7\u30ea\u306e\u64cd\u4f5c\u6027\u306a\u3069\u3092\u6bd4\u8f03\u3057\u3066\u307f\u307e\u3057\u305f\u3002NavigationBar\u306e\u30d6\u30e9\u30fc\u3084\u30b9\u30af\u30ed\u30fc\u30eb\u306e\u611f\u899a\u306a\u3069\u3001\u7d30\u304b\u3044\u9055\u3044\u3092\u5b9f\u611f\u3067\u304d\u3066\u304a\u3082\u3057\u308d\u304b\u3063\u305f\u3067\u3059\u3002","https://github.com/toyoshin5/AppleMusicClone-with-SwiftUI","applemusicclone.png",B.JF)
 B.IC=A.b(s([B.dT,B.bR]),t.aZ)
-B.Y6=new A.fv("\u30df\u30e9\u30fc\u30b5\u30a4\u30cd\u30fc\u30b8\u3092\u7528\u3044\u305f\u6b6f\u78e8\u304d\u652f\u63f4\u30b7\u30b9\u30c6\u30e0","2023/12","AKATSUKI\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u306b\u3066\u63d0\u6848\u3057\u305f\u4f5c\u54c1\u3067\u3059\u3002\u93e1\u306e\u524d\u306b\u7acb\u3063\u3066\u6b6f\u78e8\u304d\u3092\u884c\u3046\u3053\u3068\u3067\u9069\u5207\u306a\u6b6f\u78e8\u304d\u3092\u6307\u5357\u3057\u3001\u30ab\u30e1\u30e9\u3092\u901a\u3057\u3066\u6b6f\u78e8\u304d\u306e\u30c1\u30a7\u30c3\u30af\u3092\u884c\u3046\u30a2\u30d7\u30ea\u30b1\u30fc\u30b7\u30e7\u30f3\u3092\u4f5c\u6210\u3057\u307e\u3057\u305f\u3002\u93e1\u306e\u753b\u9762\u4e0a\u306b\u6b6f\u78e8\u304d\u306e14\u624b\u9806\u304c\u5de6\u4e0b\u3001\u5de6\u4e0b\u88cf\u3001\u5de6\u4e0a...\u306e\u3088\u3046\u306b\u9806\u756a\u306b\u8868\u793a\u3055\u308c\u307e\u3059\u3002\u5229\u7528\u8005\u306f\u93e1\u306e\u524d\u3067\u5404\u624b\u980615\u79d2\u305a\u3064\u6b6f\u3092\u78e8\u304d\u307e\u3059\u3002\u78e8\u3044\u3066\u3044\u308b\u9593\u3001\u93e1\u5185\u8535\u306e\u30ab\u30e1\u30e9\u3092\u7528\u3044\u3066\u5229\u7528\u8005\u304c\u6b6f\u78e8\u304d\u3092\u3057\u3066\u3044\u308b\u304b\u76e3\u8996\u3057\u3001\u9014\u4e2d\u3067\u6b6f\u78e8\u304d\u3092\u6b62\u3081\u308b\u3068\u30bf\u30a4\u30de\u30fc\u304c\u6b62\u307e\u308a\u3001\u6b6f\u78e8\u304d\u306e\u518d\u958b\u3092\u4fc3\u3057\u307e\u3059\u3002\u53e3\u5185\u306e\u3042\u3089\u3086\u308b\u6b6f\u3092\u78e8\u3051\u308b\u3088\u3046\u306b\u30b5\u30dd\u30fc\u30c8\u3059\u308b\u3053\u3068\u3067\u3001\u5c06\u6765\u306e\u866b\u6b6f\u3084\u6b6f\u5468\u75c5\u4e88\u9632\u306b\u5f79\u7acb\u3061\u307e\u3059\u3002",null,"brashmirror.jpeg",B.IC)
+B.Y0=new A.fv("\u30df\u30e9\u30fc\u30b5\u30a4\u30cd\u30fc\u30b8\u3092\u7528\u3044\u305f\u6b6f\u78e8\u304d\u652f\u63f4\u30b7\u30b9\u30c6\u30e0","2024/2","AKATSUKI\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u306b\u3066\u63d0\u6848\u3057\u305f\u4f5c\u54c1\u3067\u3059\u3002\u93e1\u306e\u524d\u306b\u7acb\u3063\u3066\u6b6f\u78e8\u304d\u3092\u884c\u3046\u3053\u3068\u3067\u9069\u5207\u306a\u6b6f\u78e8\u304d\u3092\u6307\u5357\u3057\u3001\u30ab\u30e1\u30e9\u3092\u901a\u3057\u3066\u6b6f\u78e8\u304d\u306e\u30c1\u30a7\u30c3\u30af\u3092\u884c\u3046\u30a2\u30d7\u30ea\u30b1\u30fc\u30b7\u30e7\u30f3\u3092\u4f5c\u6210\u3057\u307e\u3057\u305f\u3002\u93e1\u306e\u753b\u9762\u4e0a\u306b\u6b6f\u78e8\u304d\u306e14\u624b\u9806\u304c\u5de6\u4e0b\u3001\u5de6\u4e0b\u88cf\u3001\u5de6\u4e0a...\u306e\u3088\u3046\u306b\u9806\u756a\u306b\u8868\u793a\u3055\u308c\u307e\u3059\u3002\u5229\u7528\u8005\u306f\u93e1\u306e\u524d\u3067\u5404\u624b\u980615\u79d2\u305a\u3064\u6b6f\u3092\u78e8\u304d\u307e\u3059\u3002\u78e8\u3044\u3066\u3044\u308b\u9593\u3001\u93e1\u5185\u8535\u306e\u30ab\u30e1\u30e9\u3092\u7528\u3044\u3066\u5229\u7528\u8005\u304c\u6b6f\u78e8\u304d\u3092\u3057\u3066\u3044\u308b\u304b\u76e3\u8996\u3057\u3001\u9014\u4e2d\u3067\u6b6f\u78e8\u304d\u3092\u6b62\u3081\u308b\u3068\u30bf\u30a4\u30de\u30fc\u304c\u6b62\u307e\u308a\u3001\u6b6f\u78e8\u304d\u306e\u518d\u958b\u3092\u4fc3\u3057\u307e\u3059\u3002\u53e3\u5185\u306e\u3042\u3089\u3086\u308b\u6b6f\u3092\u78e8\u3051\u308b\u3088\u3046\u306b\u30b5\u30dd\u30fc\u30c8\u3059\u308b\u3053\u3068\u3067\u3001\u5c06\u6765\u306e\u866b\u6b6f\u3084\u6b6f\u5468\u75c5\u4e88\u9632\u306b\u5f79\u7acb\u3061\u307e\u3059\u3002",null,"brashmirror.jpeg",B.IC)
 B.XX=new A.fv("\u901a\u8ca8\u63db\u7b97\u30ab\u30e1\u30e9","2024/03","\u30ab\u30e1\u30e9\u3092\u5024\u672d\u306b\u304b\u3056\u3059\u3060\u3051\u306739\u30ab\u56fd\u306e\u901a\u8ca8\u3092\u63db\u7b97\u3057\u3066\u304f\u308c\u308b\u30a2\u30d7\u30ea\u3067\u3059\u3002UX\u3084\u30a2\u30cb\u30e1\u30fc\u30b7\u30e7\u30f3\u306b\u3053\u3060\u308f\u308a\u307e\u3057\u305f\u3002MVVM\u30a2\u30fc\u30ad\u30c6\u30af\u30c1\u30e3\u3092\u63a1\u7528\u3057\u3066\u307f\u305f\u308a\u3082\u3057\u307e\u3057\u305f\u3002","https://apps.apple.com/jp/app/photocurrency-%E9%80%9A%E8%B2%A8%E5%A4%89%E6%8F%9B%E3%82%AB%E3%83%A1%E3%83%A9/id6479285476","photocurrency.jpeg",B.oa)
-B.et=A.b(s([B.Y0,B.Y4,B.Y_,B.Y1,B.Y2,B.XY,B.Y3,B.Y5,B.XZ,B.Y6,B.XX]),A.ah("z<azd>"))
+B.en=A.b(s([B.Y1,B.Y5,B.Y_,B.Y2,B.Y3,B.XY,B.Y4,B.Y6,B.XZ,B.Y0,B.XX]),A.ah("z<azd>"))
 B.Yf=new A.fw("Swift","Swift",5)
 B.Y8=new A.fw("Flutter","Flutter (Dart)",5)
 B.Yd=new A.fw("Python","Python",4)
@@ -94511,7 +94511,7 @@ B.Y9=new A.fw("Arduino","Arduino",2)
 B.Ye=new A.fw("Ruby","Ruby",1)
 B.Yh=new A.fw("lua","lua",1)
 B.Ya=new A.fw("Go","Go",1)
-B.er=A.b(s([B.Yf,B.Y8,B.Yd,B.Y7,B.Yc,B.Yg,B.Yb,B.Y9,B.Ye,B.Yh,B.Ya]),A.ah("z<azp>"))
+B.es=A.b(s([B.Yf,B.Y8,B.Yd,B.Y7,B.Yc,B.Yg,B.Yb,B.Y9,B.Ye,B.Yh,B.Ya]),A.ah("z<azp>"))
 B.XD=new A.jG("2019/05","\u57fa\u672c\u60c5\u5831\u6280\u8853\u8005\u8a66\u9a13 \u5408\u683c")
 B.XE=new A.jG("2019/11","\u30d1\u30bd\u30b3\u30f3\u7532\u5b50\u57122019 \u30e2\u30d0\u30a4\u30eb\u90e8\u9580 \u30b0\u30e9\u30f3\u30d7\u30ea")
 B.Xz=new A.jG("2021/01","TOEIC Listening & Reading 750\u70b9 \u53d6\u5f97")
@@ -94519,7 +94519,7 @@ B.XC=new A.jG("2022/03","\u9234\u9e7f\u9ad8\u5c02\u96fb\u5b50\u60c5\u5831\u5de5\
 B.XA=new A.jG("2022/09","\u6280\u80b2\u5c552022 \u512a\u79c0\u8cde")
 B.Xy=new A.jG("2023/11","JPHacks2023 ,FinalistAward,\u30a4\u30ce\u30d9\u30fc\u30bf\u8a8d\u5b9a,\u4f01\u696d\u8cde")
 B.XB=new A.jG("2024/03","\u5317\u6d77\u9053\u5927\u5b66\u5de5\u5b66\u90e8\u60c5\u5831\u30a8\u30ec\u30af\u30c8\u30ed\u30cb\u30af\u30b9\u5b66\u79d1 \u30b3\u30fc\u30b9\u9577\u8cde")
-B.eq=A.b(s([B.XD,B.XE,B.Xz,B.XC,B.XA,B.Xy,B.XB]),A.ah("z<axT>"))
+B.er=A.b(s([B.XD,B.XE,B.Xz,B.XC,B.XA,B.Xy,B.XB]),A.ah("z<axT>"))
 B.XV=new A.jH("2002/3","\u611b\u77e5\u770c\u5c0f\u7267\u5e02\u3067\u751f\u307e\u308c\u308b","person")
 B.XU=new A.jH("2017/3","\u4e09\u91cd\u770c\u5185\u306e\u516c\u7acb\u4e2d\u5b66\u6821\u3092\u5352\u696d","graduationCap")
 B.XR=new A.jH("2017/4","\u9234\u9e7f\u5de5\u696d\u9ad8\u7b49\u5c02\u9580\u5b66\u6821 \u96fb\u5b50\u60c5\u5831\u5de5\u5b66\u79d1 \u5165\u5b66","person")
@@ -94527,7 +94527,7 @@ B.XS=new A.jH("2022/3","\u9234\u9e7f\u5de5\u696d\u9ad8\u7b49\u5c02\u9580\u5b66\u
 B.XT=new A.jH("2022/4","\u5317\u6d77\u9053\u5927\u5b66 \u5de5\u5b66\u90e8 \u60c5\u5831\u30a8\u30ec\u30af\u30c8\u30ed\u30cb\u30af\u30b9\u5b66\u79d1 \u5165\u5b66","person")
 B.XQ=new A.jH("2024/3","\u5317\u6d77\u9053\u5927\u5b66 \u5de5\u5b66\u90e8 \u60c5\u5831\u30a8\u30ec\u30af\u30c8\u30ed\u30cb\u30af\u30b9\u5b66\u79d1 \u5352\u696d","graduationCap")
 B.XW=new A.jH("2024/4","\u5317\u6d77\u9053\u5927\u5b66 \u60c5\u5831\u79d1\u5b66\u9662 \u4fee\u58eb\u8ab2\u7a0b \u5165\u5b66","person")
-B.eo=A.b(s([B.XV,B.XU,B.XR,B.XS,B.XT,B.XQ,B.XW]),A.ah("z<azb>"))
+B.ep=A.b(s([B.XV,B.XU,B.XR,B.XS,B.XT,B.XQ,B.XW]),A.ah("z<azb>"))
 B.CE=new A.Ew()
 B.ZZ=new A.Sa()
 B.dW=new A.Sk()
@@ -95110,7 +95110,7 @@ B.HH=new A.qo(4,"bottom")
 B.nZ=A.b(s([0,4,12,1,5,13,3,7,15]),t.t)
 B.HI=A.b(s([0,6,12,18]),t.t)
 B.HK=A.b(s([0,0,32722,12287,65534,34815,65534,18431]),t.t)
-B.en=A.b(s([0,0,65490,45055,65535,34815,65534,18431]),t.t)
+B.eo=A.b(s([0,0,65490,45055,65535,34815,65534,18431]),t.t)
 B.f4=new A.m8(0,"left")
 B.kX=new A.m8(1,"right")
 B.dy=new A.m8(2,"center")
@@ -95142,7 +95142,7 @@ B.IB=A.b(s(["BC","AD"]),t.s)
 B.IF=A.b(s(["EEEE, MMMM d, y","MMMM d, y","MMM d, y","M/d/yy"]),t.s)
 B.o1=A.b(s(["J","F","M","A","M","J","J","A","S","O","N","D"]),t.s)
 B.o2=A.b(s([0,0,26624,1023,65534,2047,65534,2047]),t.t)
-B.ep=A.b(s([B.cU,B.cn,B.fk,B.fl,B.iI]),t.QP)
+B.eq=A.b(s([B.cU,B.cn,B.fk,B.fl,B.iI]),t.QP)
 B.bq=new A.jM(0,"leading")
 B.bi=new A.jM(1,"title")
 B.bj=new A.jM(2,"subtitle")

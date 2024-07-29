@@ -61,7 +61,7 @@ class ProjectsModel with _$ProjectsModel {
     required String title,
     required String date,
     required String description,
-    required String url,
+    String? url,
     required String imagePath,
     required List<BudgeType> budges,
   }) = _ProjectsModel;

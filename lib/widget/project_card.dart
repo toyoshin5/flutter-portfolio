@@ -63,12 +63,14 @@ class ProjectCard extends StatelessWidget {
                 Text(project.description,
                     style: const TextStyle(fontSize: 16)),
                 const Gap(8),
-                LinkButton(
-                    width: 120,
-                    url: project.url,
-                    faIcon: FontAwesomeIcons.link,
-                    text: "See More"),
-                const Gap(8),
+                if (project.url != null)...[
+                  LinkButton(
+                      width: 120,
+                      url: project.url!,
+                      faIcon: FontAwesomeIcons.link,
+                      text: "See More"),
+                  const Gap(8),
+                ],
                 Text(project.date),
               ],
             ),

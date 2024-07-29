@@ -943,7 +943,7 @@ mixin _$ProjectsModel {
   String get title => throw _privateConstructorUsedError;
   String get date => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  String get url => throw _privateConstructorUsedError;
+  String? get url => throw _privateConstructorUsedError;
   String get imagePath => throw _privateConstructorUsedError;
   List<BudgeType> get budges => throw _privateConstructorUsedError;
 
@@ -963,7 +963,7 @@ abstract class $ProjectsModelCopyWith<$Res> {
       {String title,
       String date,
       String description,
-      String url,
+      String? url,
       String imagePath,
       List<BudgeType> budges});
 }
@@ -984,7 +984,7 @@ class _$ProjectsModelCopyWithImpl<$Res, $Val extends ProjectsModel>
     Object? title = null,
     Object? date = null,
     Object? description = null,
-    Object? url = null,
+    Object? url = freezed,
     Object? imagePath = null,
     Object? budges = null,
   }) {
@@ -1001,10 +1001,10 @@ class _$ProjectsModelCopyWithImpl<$Res, $Val extends ProjectsModel>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      url: null == url
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       imagePath: null == imagePath
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
@@ -1029,7 +1029,7 @@ abstract class _$$ProjectsModelImplCopyWith<$Res>
       {String title,
       String date,
       String description,
-      String url,
+      String? url,
       String imagePath,
       List<BudgeType> budges});
 }
@@ -1048,7 +1048,7 @@ class __$$ProjectsModelImplCopyWithImpl<$Res>
     Object? title = null,
     Object? date = null,
     Object? description = null,
-    Object? url = null,
+    Object? url = freezed,
     Object? imagePath = null,
     Object? budges = null,
   }) {
@@ -1065,10 +1065,10 @@ class __$$ProjectsModelImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      url: null == url
+      url: freezed == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       imagePath: null == imagePath
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
@@ -1088,7 +1088,7 @@ class _$ProjectsModelImpl implements _ProjectsModel {
       {required this.title,
       required this.date,
       required this.description,
-      required this.url,
+      this.url,
       required this.imagePath,
       required final List<BudgeType> budges})
       : _budges = budges;
@@ -1103,7 +1103,7 @@ class _$ProjectsModelImpl implements _ProjectsModel {
   @override
   final String description;
   @override
-  final String url;
+  final String? url;
   @override
   final String imagePath;
   final List<BudgeType> _budges;
@@ -1158,7 +1158,7 @@ abstract class _ProjectsModel implements ProjectsModel {
       {required final String title,
       required final String date,
       required final String description,
-      required final String url,
+      final String? url,
       required final String imagePath,
       required final List<BudgeType> budges}) = _$ProjectsModelImpl;
 
@@ -1172,7 +1172,7 @@ abstract class _ProjectsModel implements ProjectsModel {
   @override
   String get description;
   @override
-  String get url;
+  String? get url;
   @override
   String get imagePath;
   @override

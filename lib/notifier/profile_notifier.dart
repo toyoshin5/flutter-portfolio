@@ -187,6 +187,16 @@ class ProfileNotifier extends _$ProfileNotifier {
           ], 
         ), 
         ProjectsModel(
+          title: 'ミラーサイネージを用いた歯磨き支援システム',
+          date: '2023/12',
+          description: 'AKATSUKIプロジェクトにて提案した作品です。鏡の前に立って歯磨きを行うことで適切な歯磨きを指南し、カメラを通して歯磨きのチェックを行うアプリケーションを作成しました。鏡の画面上に歯磨きの14手順が左下、左下裏、左上...のように順番に表示されます。利用者は鏡の前で各手順15秒ずつ歯を磨きます。磨いている間、鏡内蔵のカメラを用いて利用者が歯磨きをしているか監視し、途中で歯磨きを止めるとタイマーが止まり、歯磨きの再開を促します。口内のあらゆる歯を磨けるようにサポートすることで、将来の虫歯や歯周病予防に役立ちます。',
+          imagePath: 'brashmirror.jpeg',
+          budges: [
+            BudgeType.kotlin,
+            BudgeType.team,
+          ], 
+        ), 
+        ProjectsModel(
           title: '通貨換算カメラ',
           date: '2024/03',
           description: 'カメラを値札にかざすだけで39カ国の通貨を換算してくれるアプリです。UXやアニメーションにこだわりました。MVVMアーキテクチャを採用してみたりもしました。',
@@ -271,7 +281,7 @@ class ProfileNotifier extends _$ProfileNotifier {
         ),
         AwardsModel(
           date: '2022/03',
-          text: '鈴鹿高専電子情報工学科 卒業論文 ベストプレゼンテーション賞',
+          text: '鈴鹿高専電子情報工学科 卒業研究発表会 ベストプレゼンテーション賞',
         ),
         AwardsModel(
           date: '2022/09',

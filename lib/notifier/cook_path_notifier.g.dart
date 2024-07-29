@@ -6,7 +6,7 @@ part of 'cook_path_notifier.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$cookPathNotifierHash() => r'efe3cac54d4c7113e7c96ff8b72b71c323bbdf20';
+String _$cookPathNotifierHash() => r'a0e6fec881e3cfdf39603f0ec191d54e46e2c6a7';
 
 /// See also [CookPathNotifier].
 @ProviderFor(CookPathNotifier)

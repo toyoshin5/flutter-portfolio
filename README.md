@@ -6,6 +6,12 @@ https://toyodadesu.com/
 
 とりあえずmainブランチにプッシュされたらGitHub Actionsでビルドして、gh-pagesブランチからデプロイされるようになっている。
 
+## デバッグ実行
+
+```bash
+flutter run -d chrome
+```
+
 ## 詰まったところ
 
 ### GitHub Actionsでビルドが失敗する

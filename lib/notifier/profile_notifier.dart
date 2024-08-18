@@ -54,6 +54,10 @@ class ProfileNotifier extends _$ProfileNotifier {
       news: [
         NewsModel(
           date: '2024/08',
+          text: 'LINEヤフーのインターンシップに参加しました',
+        ),
+        NewsModel(
+          date: '2024/08',
           text: 'mybestのインターンシップに参加しました',
         ),
         NewsModel(

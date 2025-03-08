@@ -330,6 +330,10 @@ class ProfileNotifier extends _$ProfileNotifier {
           date: '2024/03',
           text: '北海道大学工学部情報エレクトロニクス学科 コース長賞',
         ),
+        AwardsModel(
+          date: '2025/03',
+          text: 'Engineer Guild Hackathon 優勝',
+        ),
       ],
       profile: [
         ProfileModel(

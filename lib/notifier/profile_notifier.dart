@@ -53,6 +53,10 @@ class ProfileNotifier extends _$ProfileNotifier {
       ),
       news: [
         NewsModel(
+          date: '2025/03',
+          text: '外資就活ドットコムのEngineer Guild Hackathonに参加しました',
+        ),
+        NewsModel(
           date: '2024/11',
           text: 'クックパッドのインターンシップに参加しました',
         ),
@@ -107,17 +111,16 @@ class ProfileNotifier extends _$ProfileNotifier {
           ], 
         ),
         ProjectsModel(
-          title: 'Umap(うまっぷ)',
-          date: '2023/08',
-          description: 'これから行ってみたい飲食店や行った外食の思い出を残して自分だけの”ごはんマップ”を作れるアプリです。JPHacksというハッカソンで作成し、4人チームのリーダを努めました。GitHubを使ったissue管理やCI/CDを初めて活用しました。',
-          imagePath: 'umap.jpeg',
-          url:'https://apps.apple.com/jp/app/umap-%E3%81%86%E3%81%BE%E3%81%A3%E3%81%B7/id6471849198',
+          title: 'mesh(メッシュ)',
+          date: '2025/03',
+          description: '1つの招待リンクでグループで一時的な位置情報を行い、スムーズな待ち合わせを促すアプリです。Engineer Guild Hackathonにて作成しました。gRPCを使ったリアルタイムデータ通信やバックグラウンドでの位置情報取得を初めて活用しました。',
+          imagePath: 'mesh.jpg',
           budges: [
             BudgeType.flutter,
             BudgeType.team,
             BudgeType.hackerson,
-          ],
-        ), 
+          ], 
+        ),
         ProjectsModel(
           title: 'ARメジャー',
           date: '2018/04',
@@ -190,6 +193,18 @@ class ProfileNotifier extends _$ProfileNotifier {
             BudgeType.swiftui,
             BudgeType.personal,
           ], 
+        ), 
+        ProjectsModel(
+          title: 'Umap(うまっぷ)',
+          date: '2023/08',
+          description: 'これから行ってみたい飲食店や行った外食の思い出を残して自分だけの”ごはんマップ”を作れるアプリです。JPHacksというハッカソンで作成し、4人チームのリーダを努めました。GitHubを使ったissue管理やCI/CDを初めて活用しました。',
+          imagePath: 'umap.jpeg',
+          url:'https://apps.apple.com/jp/app/umap-%E3%81%86%E3%81%BE%E3%81%A3%E3%81%B7/id6471849198',
+          budges: [
+            BudgeType.flutter,
+            BudgeType.team,
+            BudgeType.hackerson,
+          ],
         ), 
         ProjectsModel(
           title: 'AppleMusicClone',

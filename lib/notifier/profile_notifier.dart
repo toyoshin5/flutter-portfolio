@@ -111,7 +111,7 @@ class ProfileNotifier extends _$ProfileNotifier {
           ], 
         ),
         ProjectsModel(
-          title: 'mesh(メッシュ)',
+          title: 'mesh',
           date: '2025/03',
           description: '1つの招待リンクでグループで一時的な位置情報を行い、スムーズな待ち合わせを促すアプリです。Engineer Guild Hackathonにて作成しました。gRPCを使ったリアルタイムデータ通信やバックグラウンドでの位置情報取得を初めて活用しました。',
           imagePath: 'mesh.jpg',

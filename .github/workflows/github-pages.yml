@@ -31,7 +31,7 @@ jobs:
           cache: true
       - run: flutter --version
       - run: flutter pub get
-      - run: flutter build web --web-renderer canvaskit --release #--base-href /${{ steps.version.outputs.repository }}/ #カスタムドメインの場合はコメント
+      - run: flutter build web --web-renderer html --release #--base-href /${{ steps.version.outputs.repository }}/ #カスタムドメインの場合はコメント
       - name: CNAME
         run: echo 'toyodadesu.com' > ./build/web/CNAME
       - name: Deploy

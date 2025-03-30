@@ -33,13 +33,13 @@ class MyApp extends StatelessWidget {
       title: "Toyoda's Portfolio",
       theme: ThemeData(
         useMaterial3: false,
-        fontFamily: "SanFrancisco",
-        fontFamilyFallback: const ["HiraginoSans"],
+        // fontFamily: "SanFrancisco",
+        // fontFamilyFallback: const ["HiraginoSans"],
       ),
       darkTheme: ThemeData(
         useMaterial3: false,
-        fontFamily: "SanFrancisco",
-        fontFamilyFallback: const ["HiraginoSans"],
+        // fontFamily: "SanFrancisco",
+        // fontFamilyFallback: const ["HiraginoSans"],
         brightness: Brightness.dark,
       ),
       routes: {

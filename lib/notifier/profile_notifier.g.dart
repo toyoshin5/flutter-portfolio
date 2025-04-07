@@ -6,7 +6,7 @@ part of 'profile_notifier.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$profileNotifierHash() => r'cdc5c9908f55be4eaccd4c2f68e4c3bb3fb2ff34';
+String _$profileNotifierHash() => r'bfee57cfa2fd2433b253487d54977a59d7d232ea';
 
 /// See also [ProfileNotifier].
 @ProviderFor(ProfileNotifier)
@@ -23,4 +23,4 @@ final profileNotifierProvider =
 
 typedef _$ProfileNotifier = AutoDisposeNotifier<PortfolioModel>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

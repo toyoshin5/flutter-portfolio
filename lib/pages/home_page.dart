@@ -591,6 +591,7 @@ final Map<String, IconData> faIconMap = {
   "link": FontAwesomeIcons.link,
   "graduationCap": FontAwesomeIcons.graduationCap,
   "person": FontAwesomeIcons.person,
+  "x-twitter": FontAwesomeIcons.xTwitter,
 };
 
 class _HelloText extends StatelessWidget {

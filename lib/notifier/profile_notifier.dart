@@ -30,6 +30,11 @@ class ProfileNotifier extends _$ProfileNotifier {
           text: "GitHub",
         ),
         LinkModel(
+          url: "https://x.com/10yo4n",
+          faIconName: "x-twitter",
+          text: "X",
+        ),
+        LinkModel(
           url: "https://apps.apple.com/jp/developer/toyoda-shingo/id1583565951",
           faIconName: "appStore",
           text: "AppStore",

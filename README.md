@@ -33,5 +33,5 @@ github actionsでgh-pagesブランチにデプロイする処理の前に、CNAM
 
 ```yml
 - name: CNAME
-run: echo 'toyodadesu.com' > ./build/web/CNAME
+run: echo 'tysn.dev' > ./build/web/CNAME
 ```

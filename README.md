@@ -1,6 +1,6 @@
 # flutter_portfolio
 
-https://toyodadesu.com/
+https://tysn.dev
 
 ポートフォリオサイトを作りたくなったので、作ってみる。
 

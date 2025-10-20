@@ -58,6 +58,10 @@ class ProfileNotifier extends _$ProfileNotifier {
       ),
       news: [
         NewsModel(
+          date: '2025/10',
+          text: 'JPHACKS2025に参加しました',
+        ),
+        NewsModel(
           date: '2025/04',
           text: 'try! Swift Tokyo 2025のスタッフとして参加しました',
         ),

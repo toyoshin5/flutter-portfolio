@@ -210,7 +210,7 @@ class ProfileNotifier extends _$ProfileNotifier {
         ProjectsModel(
           title: 'Umap(うまっぷ)',
           date: '2023/08',
-          description: 'これから行ってみたい飲食店や行った外食の思い出を残して自分だけの”ごはんマップ”を作れるアプリです。JPHacksというハッカソンで作成し、4人チームのリーダを努めました。GitHubを使ったissue管理やCI/CDを初めて活用しました。',
+          description: 'これから行ってみたい飲食店や行った外食の思い出を残して自分だけの”ごはんマップ”を作れるアプリです。JPHACKSというハッカソンで作成し、4人チームのリーダを努めました。GitHubを使ったissue管理やCI/CDを初めて活用しました。',
           imagePath: 'umap.jpeg',
           url:'https://apps.apple.com/jp/app/umap-%E3%81%86%E3%81%BE%E3%81%A3%E3%81%B7/id6471849198',
           budges: [
@@ -337,7 +337,7 @@ class ProfileNotifier extends _$ProfileNotifier {
         ),
         AwardsModel(
           date: '2023/11',
-          text: 'JPHacks2023, Finalist Award, イノベータ認定,企業賞',
+          text: 'JPHACKS2023, Finalist Award, イノベータ認定,企業賞',
         ),
         AwardsModel(
           date: '2024/03',
@@ -349,7 +349,7 @@ class ProfileNotifier extends _$ProfileNotifier {
         ),
         AwardsModel(
           date: '2025/11',
-          text: 'JPHacks2023, Best Hack Award, Best Audience Award, Finalist Award, イノベータ認定, dip賞, 三菱重工賞, ROHTO賞',
+          text: 'JPHACKS2025, Best Hack Award, Best Audience Award, Finalist Award, イノベータ認定, dip賞, 三菱重工賞, ROHTO賞',
         ),
       ],
       profile: [

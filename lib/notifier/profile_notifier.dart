@@ -16,8 +16,8 @@ class ProfileNotifier extends _$ProfileNotifier {
         hello: 'Hi, I\'m Shingo Toyoda. \nI like Swift, Flutter, Cooking & Gaming.',
         birthday: '2002/03/22',
         imageUrl: 'https://avatars.githubusercontent.com/u/43494392?v=4',
-        position: 'Passionate about Mobile App Development',
-        introduction: 'こんにちは、北海道大学情報科学院に所属している豊田真吾です。\n趣味は色々ありますが、SwiftとFlutterを使ってアプリ開発をすることが好きです。\n\nここでは小さなものから大きなものまで、私が今までやってきたあれこれについて紹介してます。\nこのサイトを通して、私のことについてちょっとでも知ってもらえたらうれしいです。\n\nそういえば、ダークモードのテーマも用意しています。眩しいのがイヤなときは端末のダークモードをONにしてご覧くださいね。',
+        position: 'Mobile App Development',
+        introduction: 'こんにちは、北海道大学情報科学院に所属しています。\nSwiftとFlutterを使ってアプリ開発をすることが好きです。\n\nここでは小さなものから大きなものまで、私がやってきたことについて紹介してます。\nこのサイトを通して、私のことについてちょっとでも知ってもらえたらうれしいです。\n\nそういえば、ダークモードのテーマも用意しています。眩しいのがイヤなときは端末のダークモードをONにしてご覧くださいね。',
         links: [
         LinkModel(
           url: "https://maps.app.goo.gl/BjNmZUzCCMNrpSGx7",
@@ -337,7 +337,7 @@ class ProfileNotifier extends _$ProfileNotifier {
         ),
         AwardsModel(
           date: '2023/11',
-          text: 'JPHacks2023 ,FinalistAward,イノベータ認定,企業賞',
+          text: 'JPHacks2023, Finalist Award, イノベータ認定,企業賞',
         ),
         AwardsModel(
           date: '2024/03',
@@ -346,6 +346,10 @@ class ProfileNotifier extends _$ProfileNotifier {
         AwardsModel(
           date: '2025/03',
           text: 'Engineer Guild Hackathon 優勝',
+        ),
+        AwardsModel(
+          date: '2025/11',
+          text: 'JPHacks2023, Best Hack Award, Best Audience Award, Finalist Award, イノベータ認定, dip賞, 三菱重工賞, ROHTO賞',
         ),
       ],
       profile: [

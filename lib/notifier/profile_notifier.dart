@@ -89,26 +89,26 @@ class ProfileNotifier extends _$ProfileNotifier {
           date: '2024/08',
           text: 'mybestのインターンシップに参加しました',
         ),
-        NewsModel(
-          date: '2024/07',
-          text: 'ポートフォリオサイトを作成しました',
-        ),
-        NewsModel(
-          date: '2024/07',
-          text: 'AtCoderで緑レートに到達しました',
-        ),
-        NewsModel(
-          date: '2024/04',
-          text: 'ゆめみパスポート(iOSエンジニア)に合格しました',
-        ),
-        NewsModel(
-          date: '2024/03',
-          text: 'PhotoCurrency - 通貨変換カメラを配信開始しました',
-        ),
-        NewsModel(
-          date: '2023/11',
-          text: 'Umap(うまっぷ)を配信開始しました',
-        ),
+        // NewsModel(
+        //   date: '2024/07',
+        //   text: 'ポートフォリオサイトを作成しました',
+        // ),
+        // NewsModel(
+        //   date: '2024/07',
+        //   text: 'AtCoderで緑レートに到達しました',
+        // ),
+        // NewsModel(
+        //   date: '2024/04',
+        //   text: 'ゆめみパスポート(iOSエンジニア)に合格しました',
+        // ),
+        // NewsModel(
+        //   date: '2024/03',
+        //   text: 'PhotoCurrency - 通貨変換カメラを配信開始しました',
+        // ),
+        // NewsModel(
+        //   date: '2023/11',
+        //   text: 'Umap(うまっぷ)を配信開始しました',
+        // ),
       ],
       projects: [
         ProjectsModel(

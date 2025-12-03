@@ -114,13 +114,25 @@ class ProfileNotifier extends _$ProfileNotifier {
         ProjectsModel(
           title: 'TwiNotes',
           date: '2021/08',
-          description: 'X風のUIのメモ&リマインダーアプリです。すべてのメモには木構造のようにリプライを繋げられることが特徴です。日本語と英語に対応しています。AppStoreにて約10万DL。',
+          description: 'X風のUIのメモ&リマインダーアプリです。すべてのメモには木構造のようにリプライを繋げられることが特徴です。日本語と英語に対応しています。',
           imagePath: 'twinotes.jpeg',
           url: 'https://apps.apple.com/jp/app/twinotes-sns%E9%A2%A8%E3%83%A1%E3%83%A2/id1583565949',
           budges: [
             BudgeType.swift,
-            BudgeType.uikit,
+            BudgeType.swiftui,
             BudgeType.personal,
+          ], 
+        ),
+        ProjectsModel(
+          title: 'Ashiart',
+          date: '2025/10',
+          description: '一筆書きの絵から簡単にランニングコースを作成できるアプリです。JPHACKS 2025にて作成し、Best Hack Award を受賞しました。',
+          imagePath: 'ashiart.png',
+          url: 'https://github.com/jphacks/sp_2509',
+          budges: [
+            BudgeType.react,
+            BudgeType.team,
+            BudgeType.hackerson,
           ], 
         ),
         ProjectsModel(
@@ -169,7 +181,6 @@ class ProfileNotifier extends _$ProfileNotifier {
             BudgeType.kotlin,
             BudgeType.team,
             BudgeType.contest,
-
           ], 
         ),
         ProjectsModel(

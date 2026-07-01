@@ -451,6 +451,7 @@ class _CookArea extends ConsumerWidget {
                       onTap: () {
                         precacheImage(AssetImage(data[i]), context)
                             .then((value) {
+                          if (!context.mounted) return;
                           ref.read(loadingIndexProvider.notifier).state = null;
                           openGallery(context, data, i);
                         });
@@ -555,7 +556,7 @@ class TitleText extends StatelessWidget {
   const TitleText({super.key, required this.text, required this.icon});
 
   final String text;
-  final IconData icon;
+  final FaIconData icon;
 
   @override
   Widget build(BuildContext context) {
@@ -565,7 +566,7 @@ class TitleText extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Icon(
+          FaIcon(
             icon,
             color: AppColors.label(context),
             size: 24,
@@ -581,7 +582,7 @@ class TitleText extends StatelessWidget {
   }
 }
 
-final Map<String, IconData> faIconMap = {
+final Map<String, FaIconData> faIconMap = {
   "locationDot": FontAwesomeIcons.locationDot,
   "github": FontAwesomeIcons.github,
   "appStore": FontAwesomeIcons.appStore,

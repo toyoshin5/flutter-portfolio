@@ -39,14 +39,14 @@ dependencies:
   flutter_riverpod: ^2.5.1
   riverpod_annotation: ^2.1.1
   freezed_annotation: ^2.4.1
-  font_awesome_flutter: ^10.7.0
+  font_awesome_flutter: ^11.0.0
   url_launcher: ^6.3.0
   gap: ^3.0.1
   fl_chart: ^0.68.0
   device_preview: ^1.2.0
   typewritertext: ^3.0.6
   flutter_emoji: ^2.5.1
-  intl: ^0.19.0
+  intl: ^0.20.2
   photo_view: ^0.15.0
 
 dev_dependencies:

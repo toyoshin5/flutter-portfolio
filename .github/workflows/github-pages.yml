@@ -26,12 +26,12 @@ jobs:
       - name: Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.44.4' # 自分の環境に合わせる
+          flutter-version: '3.22.2' # 自分の環境に合わせる
           channel: 'stable'
           cache: true
       - run: flutter --version
       - run: flutter pub get
-      - run: flutter build web --release #--base-href /${{ steps.version.outputs.repository }}/ #カスタムドメインの場合はコメント
+      - run: flutter build web --web-renderer html --release #--base-href /${{ steps.version.outputs.repository }}/ #カスタムドメインの場合はコメント
       - name: CNAME
         run: echo 'tysn.dev' > ./build/web/CNAME
       - name: Deploy

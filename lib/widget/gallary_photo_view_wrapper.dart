@@ -66,7 +66,7 @@ class _GalleryPhotoViewWrapperState extends State<GalleryPhotoViewWrapper> {
               padding: const EdgeInsets.symmetric(horizontal: 4),
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(12)),
-                color: Colors.grey.withValues(alpha: 0.5),
+                color: Colors.grey.withOpacity(0.5),
               ),
               child: TextButton(
                 onPressed: () {

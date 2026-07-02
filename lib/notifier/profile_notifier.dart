@@ -13,51 +13,47 @@ class ProfileNotifier extends _$ProfileNotifier {
       overview: OverviewModel(
         name: '豊田真吾',
         eName: 'Shingo Toyoda',
-        hello:
-            'Hi, I\'m Shingo Toyoda. \nI like Swift, Flutter, Cooking & Gaming.',
+        hello: 'Hi, I\'m Shingo Toyoda. \nI like Swift, Flutter, Cooking & Gaming.',
         birthday: '2002/03/22',
         imageUrl: 'https://avatars.githubusercontent.com/u/43494392?v=4',
         position: 'Mobile App Development',
-        introduction:
-            'こんにちは、モバイルエンジニアをしています。\nSwiftとFlutterを使ってアプリ開発をすることが好きです。\n\nここでは小さなものから大きなものまで、私がやってきたことについて紹介してます。\nこのサイトを通して、私のことについてちょっとでも知ってもらえたらうれしいです。\n\nそういえば、ダークモードのテーマも用意しています。眩しいのがイヤなときは端末のダークモードをONにしてご覧くださいね。',
+        introduction: 'こんにちは、モバイルエンジニアをしています。\nSwiftとFlutterを使ってアプリ開発をすることが好きです。\n\nここでは小さなものから大きなものまで、私がやってきたことについて紹介してます。\nこのサイトを通して、私のことについてちょっとでも知ってもらえたらうれしいです。\n\nそういえば、ダークモードのテーマも用意しています。眩しいのがイヤなときは端末のダークモードをONにしてご覧くださいね。',
         links: [
-          LinkModel(
-            url: "https://maps.app.goo.gl/BjNmZUzCCMNrpSGx7",
-            faIconName: "locationDot",
-            text: "Hokkaido",
-          ),
-          LinkModel(
-            url: "https://github.com/toyoshin5",
-            faIconName: "github",
-            text: "GitHub",
-          ),
-          LinkModel(
-            url: "https://x.com/10yo4n",
-            faIconName: "x-twitter",
-            text: "X",
-          ),
-          LinkModel(
-            url:
-                "https://apps.apple.com/jp/developer/toyoda-shingo/id1583565951",
-            faIconName: "appStore",
-            text: "AppStore",
-          ),
-          LinkModel(
-            url:
-                "https://www.facebook.com/profile.php?id=100009908073150&locale=ja_JP",
-            faIconName: "facebook",
-            text: "Facebook",
-          ),
-          LinkModel(
-            url: "https://www.instagram.com/toyoshin_",
-            faIconName: "instagram",
-            text: "Instagram",
-          ),
-          LinkModel(
-            url: "https://atcoder.jp/users/Toyoshin",
-            faIconName: "laptopCode",
-            text: "AtCoder",
-          ),
+        LinkModel(
+          url: "https://maps.app.goo.gl/BjNmZUzCCMNrpSGx7",
+          faIconName: "locationDot",
+          text: "Hokkaido",
+        ),
+        LinkModel(
+          url: "https://github.com/toyoshin5",
+          faIconName: "github",
+          text: "GitHub",
+        ),
+        LinkModel(
+          url: "https://x.com/10yo4n",
+          faIconName: "x-twitter",
+          text: "X",
+        ),
+        LinkModel(
+          url: "https://apps.apple.com/jp/developer/toyoda-shingo/id1583565951",
+          faIconName: "appStore",
+          text: "AppStore",
+        ),
+        LinkModel(
+          url: "https://www.facebook.com/profile.php?id=100009908073150&locale=ja_JP",
+          faIconName: "facebook",
+          text: "Facebook",
+        ),
+        LinkModel(
+          url: "https://www.instagram.com/toyoshin_",
+          faIconName: "instagram",
+          text: "Instagram",
+        ),
+        LinkModel(
+          url: "https://atcoder.jp/users/Toyoshin",
+          faIconName: "laptopCode",
+          text: "AtCoder",
+        ),
         ],
       ),
       news: [
@@ -118,142 +114,128 @@ class ProfileNotifier extends _$ProfileNotifier {
         ProjectsModel(
           title: 'TwiNotes',
           date: '2021/08',
-          description:
-              'X風のUIのメモ&リマインダーアプリです。すべてのメモには木構造のようにリプライを繋げられることが特徴です。日本語と英語に対応しています。',
+          description: 'X風のUIのメモ&リマインダーアプリです。すべてのメモには木構造のようにリプライを繋げられることが特徴です。日本語と英語に対応しています。',
           imagePath: 'twinotes.jpeg',
-          url:
-              'https://apps.apple.com/jp/app/twinotes-sns%E9%A2%A8%E3%83%A1%E3%83%A2/id1583565949',
+          url: 'https://apps.apple.com/jp/app/twinotes-sns%E9%A2%A8%E3%83%A1%E3%83%A2/id1583565949',
           budges: [
             BudgeType.swift,
             BudgeType.swiftui,
             BudgeType.personal,
-          ],
+          ], 
         ),
         ProjectsModel(
           title: 'Ashiart',
           date: '2025/10',
-          description:
-              '一筆書きの絵から簡単にランニングコースを作成できるアプリです。JPHACKS 2025にて作成し、Best Hack Award を受賞しました。',
+          description: '一筆書きの絵から簡単にランニングコースを作成できるアプリです。JPHACKS 2025にて作成し、Best Hack Award を受賞しました。',
           imagePath: 'ashiart.png',
           url: 'https://github.com/jphacks/sp_2509',
           budges: [
             BudgeType.react,
             BudgeType.team,
             BudgeType.hackerson,
-          ],
+          ], 
         ),
         ProjectsModel(
           title: 'mesh',
           date: '2025/03',
-          description:
-              '1つの招待リンクでグループで一時的な位置情報を行い、スムーズな待ち合わせを促すアプリです。Engineer Guild Hackathonにて作成しました。gRPCを使ったリアルタイムデータ通信やバックグラウンドでの位置情報取得を初めて活用しました。',
+          description: '1つの招待リンクでグループで一時的な位置情報を行い、スムーズな待ち合わせを促すアプリです。Engineer Guild Hackathonにて作成しました。gRPCを使ったリアルタイムデータ通信やバックグラウンドでの位置情報取得を初めて活用しました。',
           imagePath: 'mesh.jpg',
           budges: [
             BudgeType.flutter,
             BudgeType.team,
             BudgeType.hackerson,
-          ],
+          ], 
         ),
         ProjectsModel(
           title: 'ARメジャー',
           date: '2018/04',
-          description:
-              'カメラを用いて2点間の距離を測るアプリです。一見iPhoneの計測アプリと同じ機能のように見えますが、実はAppleが計測アプリを公開する前に作成しました。',
+          description: 'カメラを用いて2点間の距離を測るアプリです。一見iPhoneの計測アプリと同じ機能のように見えますが、実はAppleが計測アプリを公開する前に作成しました。',
           imagePath: 'armeasure.png',
-          url: 'https://github.com/toyoshin5/AR-Measure',
+          url:'https://github.com/toyoshin5/AR-Measure',
           budges: [
             BudgeType.swift,
             BudgeType.uikit,
             BudgeType.personal,
-          ],
-        ),
+          ], 
+        ), 
         ProjectsModel(
           title: 'Rakupe',
           date: '2019/03',
-          description:
-              '頭の動きでページをめくるPDFリーダーです。電車のつり革などで片手が封じられている状況でも頭を使ってメージをめくることができます。学内ハッカソンで作成しました。',
+          description: '頭の動きでページをめくるPDFリーダーです。電車のつり革などで片手が封じられている状況でも頭を使ってメージをめくることができます。学内ハッカソンで作成しました。',
           imagePath: 'rakupe.png',
-          url: 'https://github.com/toyoshin5/Rakupe',
+          url:'https://github.com/toyoshin5/Rakupe',
           budges: [
             BudgeType.swift,
             BudgeType.uikit,
             BudgeType.team,
             BudgeType.hackerson,
-          ],
-        ),
+          ], 
+        ), 
         ProjectsModel(
           title: 'COINs!',
           date: '2019/11',
-          description:
-              '外国人観光客向けに日本での現金の最適な払い方を提案するアプリです。レジなどで店員の会計金額の声をマイクで録音し、財布が最も軽くなる支払い方を指南します。初めてのチーム開発経験として教授やメンバー相談しながら開発を進めました。',
+          description: '外国人観光客向けに日本での現金の最適な払い方を提案するアプリです。レジなどで店員の会計金額の声をマイクで録音し、財布が最も軽くなる支払い方を指南します。初めてのチーム開発経験として教授やメンバー相談しながら開発を進めました。',
           imagePath: 'coins.png',
-          url:
-              'https://web-ext.u-aizu.ac.jp/pc-concours/2019/final/f_photo_mobile.html',
+          url:'https://web-ext.u-aizu.ac.jp/pc-concours/2019/final/f_photo_mobile.html',
           budges: [
             BudgeType.kotlin,
             BudgeType.team,
             BudgeType.contest,
-          ],
+          ], 
         ),
         ProjectsModel(
           title: 'PhantomTale',
           date: '2021/01',
-          description:
-              'UnrealEngine5を使って作成したVRアクションゲームです。高専の創造工学の授業で友達と6人で制作しました。操作キャラ周りを担当し、リアルな弓の射撃体験を実装に落とし込んでみました。',
+          description: 'UnrealEngine5を使って作成したVRアクションゲームです。高専の創造工学の授業で友達と6人で制作しました。操作キャラ周りを担当し、リアルな弓の射撃体験を実装に落とし込んでみました。',
           imagePath: 'phantomtale.png',
-          url: 'https://youtu.be/0Zpa3UZzZDk',
+          url:'https://youtu.be/0Zpa3UZzZDk',
           budges: [
             BudgeType.unrealengine,
             BudgeType.team,
-          ],
+          ], 
         ),
         ProjectsModel(
           title: 'プロ棋士サーバ',
           date: '2022/09',
-          description:
-              '対面で行う囲碁の対局で、対局時計と棋譜の管理を自動化してくれるアプリです。ノートパソコンの内カメラを使って盤面を映すことで、現在の盤面の様子を自動で記録することができます。技育展2022に出展。',
+          description: '対面で行う囲碁の対局で、対局時計と棋譜の管理を自動化してくれるアプリです。ノートパソコンの内カメラを使って盤面を映すことで、現在の盤面の様子を自動で記録することができます。技育展2022に出展。',
           imagePath: 'proxy.png',
-          url: 'https://spice-test-project-d3472.web.app/',
+          url:'https://spice-test-project-d3472.web.app/',
           budges: [
             BudgeType.react,
             BudgeType.team,
             BudgeType.hackerson,
-          ],
-        ),
+          ], 
+        ), 
         ProjectsModel(
           title: 'RSSimply',
           date: '2023/04',
-          description:
-              'iPadのPlaygroundsだけを使って開発してみました。登録したRSSフィードを取得して記事を表示するアプリです。',
+          description: 'iPadのPlaygroundsだけを使って開発してみました。登録したRSSフィードを取得して記事を表示するアプリです。',
           imagePath: 'rssimply.png',
-          url: 'https://apps.apple.com/jp/app/rssimply/id6448121530',
+          url:'https://apps.apple.com/jp/app/rssimply/id6448121530',
           budges: [
             BudgeType.swift,
             BudgeType.swiftui,
             BudgeType.personal,
-          ],
-        ),
+          ], 
+        ), 
         ProjectsModel(
           title: 'Umap(うまっぷ)',
           date: '2023/08',
-          description:
-              'これから行ってみたい飲食店や行った外食の思い出を残して自分だけの”ごはんマップ”を作れるアプリです。JPHACKSというハッカソンで作成し、4人チームのリーダを努めました。GitHubを使ったissue管理やCI/CDを初めて活用しました。',
+          description: 'これから行ってみたい飲食店や行った外食の思い出を残して自分だけの”ごはんマップ”を作れるアプリです。JPHACKSというハッカソンで作成し、4人チームのリーダを努めました。GitHubを使ったissue管理やCI/CDを初めて活用しました。',
           imagePath: 'umap.jpeg',
-          url:
-              'https://apps.apple.com/jp/app/umap-%E3%81%86%E3%81%BE%E3%81%A3%E3%81%B7/id6471849198',
+          url:'https://apps.apple.com/jp/app/umap-%E3%81%86%E3%81%BE%E3%81%A3%E3%81%B7/id6471849198',
           budges: [
             BudgeType.flutter,
             BudgeType.team,
             BudgeType.hackerson,
           ],
-        ),
+        ), 
         ProjectsModel(
           title: 'AppleMusicClone',
           date: '2023/12',
-          description:
-              'AppleMusicのアルバム画面のUIを、様々なプラットフォームで再現して開発体験やアプリの操作性などを比較してみました。NavigationBarのブラーやスクロールの感覚など、細かい違いを実感できておもしろかったです。',
+          description: 'AppleMusicのアルバム画面のUIを、様々なプラットフォームで再現して開発体験やアプリの操作性などを比較してみました。NavigationBarのブラーやスクロールの感覚など、細かい違いを実感できておもしろかったです。',
           imagePath: 'applemusicclone.png',
-          url: 'https://github.com/toyoshin5/AppleMusicClone-with-SwiftUI',
+          url:'https://github.com/toyoshin5/AppleMusicClone-with-SwiftUI',
           budges: [
             BudgeType.swift,
             BudgeType.uikit,
@@ -261,33 +243,30 @@ class ProfileNotifier extends _$ProfileNotifier {
             BudgeType.flutter,
             BudgeType.reactNative,
             BudgeType.personal,
-          ],
-        ),
+          ], 
+        ), 
         ProjectsModel(
           title: 'ミラーサイネージを用いた歯磨き支援システム',
           date: '2024/2',
-          description:
-              'AKATSUKIプロジェクトにて提案した作品です。鏡の前に立って歯磨きを行うことで適切な歯磨きを指南し、カメラを通して歯磨きのチェックを行うアプリケーションを作成しました。鏡の画面上に歯磨きの14手順が左下、左下裏、左上...のように順番に表示されます。利用者は鏡の前で各手順15秒ずつ歯を磨きます。磨いている間、鏡内蔵のカメラを用いて利用者が歯磨きをしているか監視し、途中で歯磨きを止めるとタイマーが止まり、歯磨きの再開を促します。口内のあらゆる歯を磨けるようにサポートすることで、将来の虫歯や歯周病予防に役立ちます。',
+          description: 'AKATSUKIプロジェクトにて提案した作品です。鏡の前に立って歯磨きを行うことで適切な歯磨きを指南し、カメラを通して歯磨きのチェックを行うアプリケーションを作成しました。鏡の画面上に歯磨きの14手順が左下、左下裏、左上...のように順番に表示されます。利用者は鏡の前で各手順15秒ずつ歯を磨きます。磨いている間、鏡内蔵のカメラを用いて利用者が歯磨きをしているか監視し、途中で歯磨きを止めるとタイマーが止まり、歯磨きの再開を促します。口内のあらゆる歯を磨けるようにサポートすることで、将来の虫歯や歯周病予防に役立ちます。',
           imagePath: 'brashmirror.jpeg',
           budges: [
             BudgeType.kotlin,
             BudgeType.team,
-          ],
-        ),
+          ], 
+        ), 
         ProjectsModel(
           title: '通貨換算カメラ',
           date: '2024/03',
-          description:
-              'カメラを値札にかざすだけで39カ国の通貨を換算してくれるアプリです。UXやアニメーションにこだわりました。MVVMアーキテクチャを採用してみたりもしました。',
+          description: 'カメラを値札にかざすだけで39カ国の通貨を換算してくれるアプリです。UXやアニメーションにこだわりました。MVVMアーキテクチャを採用してみたりもしました。',
           imagePath: 'photocurrency.jpeg',
-          url:
-              'https://apps.apple.com/jp/app/photocurrency-%E9%80%9A%E8%B2%A8%E5%A4%89%E6%8F%9B%E3%82%AB%E3%83%A1%E3%83%A9/id6479285476',
+          url:'https://apps.apple.com/jp/app/photocurrency-%E9%80%9A%E8%B2%A8%E5%A4%89%E6%8F%9B%E3%82%AB%E3%83%A1%E3%83%A9/id6479285476',
           budges: [
             BudgeType.swift,
             BudgeType.swiftui,
             BudgeType.personal,
-          ],
-        ),
+          ], 
+        ), 
       ],
       skills: [
         SkillsModel(
@@ -381,8 +360,7 @@ class ProfileNotifier extends _$ProfileNotifier {
         ),
         AwardsModel(
           date: '2025/11',
-          text:
-              'JPHACKS2025, Best Hack Award, Best Audience Award, Finalist Award, イノベータ認定, dip賞, 三菱重工賞, ROHTO賞',
+          text: 'JPHACKS2025, Best Hack Award, Best Audience Award, Finalist Award, イノベータ認定, dip賞, 三菱重工賞, ROHTO賞',
         ),
       ],
       profile: [

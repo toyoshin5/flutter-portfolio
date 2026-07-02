@@ -14,7 +14,7 @@ class LinkButton extends StatelessWidget {
   });
 
   final String url;
-  final FaIconData faIcon;
+  final IconData faIcon;
   final double? width;
   final double? height;
   final String? text;
